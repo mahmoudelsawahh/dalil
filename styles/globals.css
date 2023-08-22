@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;1000&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+  html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+font-family: 'IBM Plex Sans Arabic', sans-serif;
+direction: rtl;
+
+}
+a {
+  color: inherit;
+  text-decoration: none !important;
+  /* color: #fff; */
+}
+/* a:hover {
+  color: none;
+} */
+* {
+  box-sizing: border-box;
+}
+h1 , h2 ,h3 ,h4 ,h5 ,h6 ,li ,ul ,p {
+  padding: 0;
+  margin: 0;
+}
+@media (max-width:600px) {   
+  h1 {
+font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+font-weight: bold;
+  }
+}
+@media (max-width:400px) {   
+ 
+  h2 {
+    font-size: 1.2rem;
+font-weight: bold;
+  }
+  h3 {
+    font-size: 1.1rem;
+font-weight: bold;
+  }
+}
+:root {
+  --white-color: #fff;
+  --black-color: #000;
+  /* --color-white : #fff; */
+  --dafult-padding: 10px 15px;
+  --color-bg: #f5f5f9;
+--bg-color:#f9f9f9;
+  --main-color : #055c97;
+  /* --main-color: #03a9f4; */
+  --small-color: #b4bdc6;
+  --fontsize-normal: 16px;
+  --fontsize-medium: 20px;
+  --fontsize-larg: 32px;
+  --fontsize-xLarg: 45px;
+  --fontWeight-normal: 400;
+  --fontWeight-bold: 700;
+  --hover-color: #59C7C8;
+  --box-shadow: 0 2px 6px 0 rgb(67 89 113 / 12%);
+}
+
+body {
+  background-color: var(--white-color);
+}
+
+/* ================ */
+.container {
+  padding: 0 !important;
+}
+a:hover {
+  color: inherit;
+}
