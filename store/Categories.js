@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const Url = "https://dalil.deltawy.com/";
-// const Url = "http://192.168.0.201:8080/dalil-New/";
 export const getGatecories = createAsyncThunk(
   "category/getCategories",
   async (_, thunkAPI) => {
@@ -10,7 +9,6 @@ export const getGatecories = createAsyncThunk(
       const data = await axios
         .get(`${Url}rest/test.category/cats`)
         .then((res) => res.data);
-      // const data = await result.json();
       return data;
     } catch (err) {
       return rejectWithValue(err.message);
@@ -96,7 +94,6 @@ export const getMatchBranch = createAsyncThunk(
   }
 );
 
-// rest/test.branch/updateViews
 export const addMoreViews = createAsyncThunk(
   "category/addMoreViews",
   async (id, thunkAPI) => {
@@ -127,15 +124,7 @@ const CategoriesSlice = createSlice({
     matchBranchesArray: null,
     setview: false,
   },
-  // reducers: {
-  //   GetSapsifcCategories: (state, action) => {
-  //     const data = state.ALLBranches.filter(
-  //       (ele) => ele.catName === action.payload
-  //     );
-  //     state.SapsficCategories = data;
-  //     console.log(data);
-  //   },
-  // },
+
   extraReducers: {
     // Get The Gategories
     [getGatecories.pending]: (state, action) => {
@@ -238,5 +227,4 @@ const CategoriesSlice = createSlice({
     },
   },
 });
-// export const { GetSapsifcCategories } = CategoriesSlice.actions;
 export default CategoriesSlice.reducer;

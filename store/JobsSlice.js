@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const Url = "https://dalil.deltawy.com/";
-// const Url = "http://192.168.0.201:8080/dalil-New/";
 export const getAllJobs = createAsyncThunk(
   "Jobs/getAllJobs",
   async (_, thunkAPI) => {

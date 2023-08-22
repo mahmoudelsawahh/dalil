@@ -169,9 +169,6 @@
 // export default ControlPanal;
 
 
-
-import React from 'react'
-
 const ControlPanal = () => {
   return (
     <div>ControlPanal</div>

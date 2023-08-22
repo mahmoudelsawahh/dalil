@@ -1,18 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;1000&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
 
-  html,
+ html,
 body {
   padding: 0;
   margin: 0;
   font-family: 'Cairo', sans-serif;
-font-family: 'IBM Plex Sans Arabic', sans-serif;
-direction: rtl;
-
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+  direction: rtl;
 }
 a {
   color: inherit;
   text-decoration: none !important;
-  /* color: #fff; */
 }
 /* a:hover {
   color: none;
@@ -74,4 +72,13 @@ body {
 }
 a:hover {
   color: inherit;
+}
+.Home_nav_btn__9sZ_F a{
+  color: #fff !important;
+}
+.Home_img_container__e9_28 .Home_header_slider__7fiTB .Home_slick_Container__JGzEo h3 {
+  color: #fff !important;
+}
+.Home_navbar_container__9ZRH2 .Home_Links_container__o3KNF a{
+  margin: 10px 20px;
 }

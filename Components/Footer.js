@@ -16,7 +16,7 @@ const Footer = () => {
     <React.Fragment>
       <footer className={styles.footer}>
         <Container>
-          <Row className="text-center" style={{textAlign:'center'}}>
+          <Row className="text-center flex-column flex-md-row" style={{textAlign:'center'}}>
             <Col md={5} className={styles.column_footer}>
               <h3>عن الدليل</h3>
               <hr />
@@ -40,7 +40,6 @@ const Footer = () => {
                   <CgChevronDoubleLeft className={styles.footer_arrow_icon} />
                 </li>
                 <li>
-                  
                   <Link href="/">اضافة</Link>
                   <CgChevronDoubleLeft className={styles.footer_arrow_icon} />
                 </li>
@@ -55,7 +54,6 @@ const Footer = () => {
                   <CgChevronDoubleLeft className={styles.footer_arrow_icon} />
                 </li>
                 <li>
-                  
                   <Link href="/ads">الاعلانات</Link>
                   <CgChevronDoubleLeft className={styles.footer_arrow_icon} />
                 </li>
@@ -109,7 +107,7 @@ const Footer = () => {
                       );
                     }}
                   >
-                    <LazyLoadImage style={{width:"100%"}}
+                    <LazyLoadImage style={{width:"75%"}}
                       effect="blur"
                       src="https://www.transparentpng.com/thumb/google-play-logo/clipart-google-play-logo-png-photos-14.png"
                       alt="Clipart Google Play Logo PNG Photos @transparentpng.com"
@@ -121,19 +119,16 @@ const Footer = () => {
           </Row>
           <LazyLoadComponent>
             <div className={styles.rights_container}>
-              <h2 className="text-center"  >جميع الحقوق محفوظة لدي</h2>
+              <h2 className="text-center">جميع الحقوق محفوظة لدي</h2>
               <div 
                 className={styles.rights_logo}
-               
               >
-                <Link href={"https://deltawy.com/"} target="_blank">
-
-                
+                <Link href={"https://deltawy.com/"} target="_blank">                
                 <Image
                  
                   src={logo}
                   alt="logo"
-                  style={{width:"150px",height:'100px'}}
+                  style={{width:"100%",height:'100px'}}
                 />
                 </Link>
               </div>

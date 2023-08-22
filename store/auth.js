@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const Url = "https://dalil.deltawy.com/";
-// const Url = "http://192.168.0.201:8080/dalil-New/";
 export const UserLogin = createAsyncThunk(
   "auth/login",
   async (arg, thunkAPI) => {
@@ -17,8 +16,7 @@ export const UserLogin = createAsyncThunk(
   }
 );
 
-export const UserRegister = createAsyncThunk(
-  "auth/register",
+export const UserRegister = createAsyncThunk( "auth/register",
   async (Clientdata, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {

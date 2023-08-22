@@ -2,7 +2,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const Url = "https://dalil.deltawy.com/";
-// const Url = "http://192.168.0.201:8080/dalil-New/";
 export const getAllAds = createAsyncThunk(
   "Ads/getAllAds",
   async (_, thunkAPI) => {
@@ -11,7 +10,6 @@ export const getAllAds = createAsyncThunk(
       const data = await axios
         .get(`${Url}rest/test.ads/getAll/5`)
         .then((res) => res.data);
-        // console.log("api:::", data)
       return data;
     } catch (err) {
       return rejectWithValue(err.message);
@@ -33,7 +31,6 @@ export const getAdDetails = createAsyncThunk(
     }
   }
 );
-// https://deltawy.net/adDetails?id=4
 
 const AdvertSlice = createSlice({
   name: "Ads",
@@ -48,7 +45,6 @@ const AdvertSlice = createSlice({
     [getAllAds.pending]: (state, action) => {
       state.isLoadingAds = true;
       state.error = null;
-      // state.getAllAdsArray = null;
     },
     [getAllAds.fulfilled]: (state, action) => {
       state.isLoadingAds = false;
@@ -59,11 +55,9 @@ const AdvertSlice = createSlice({
       state.error = action.payload;
     },
 
-    // Get The AllAds
     [getAdDetails.pending]: (state, action) => {
       state.isLoadingAds = true;
       state.error = null;
-      // state.getAllAdsArray = null;
     },
     [getAdDetails.fulfilled]: (state, action) => {
       state.isLoadingAds = false;

@@ -11,7 +11,7 @@ const Numbers = () => {
     <>
     
     <div className={styles.Numbers} >
-      <section className={styles.text_center_f} >
+      <section className={`${styles.text_center_f } flex-column flex-md-row`} >
         <Col sm={12} md={2}>
           <div className={styles.column_items} >
             <MdOutlineEmojiPeople className={styles.Icon_item} />
@@ -22,7 +22,8 @@ const Numbers = () => {
         <Col sm={12} md={2} style={{alignContent: 'center',
             alignItems: 'center',
             justifyContent: 'center',
-            display:"flex"
+            display:"flex",
+            
           }}>
           <div className={styles.column_items}>
             <RiPagesLine className={styles.Icon_item} />

@@ -32,7 +32,7 @@ function OffCanvasExample({ ...props }) {
   };
 
   return (
-    <div>
+    <div style={{display : 'flex', justifyContent :'space-between', alignItems : 'flex-start'}} className="mx-md-0 mx-2">
       <button
       className={styles.mobileButton}
         onClick={toggleShow}
@@ -42,6 +42,21 @@ function OffCanvasExample({ ...props }) {
       >
         <RiMenu4Line style={{fontSize:"1.5rem " , color:'#ffffff'}}  />
       </button>
+      
+      <Link  href="/" className="d-block d-md-none">
+              <div  className={styles.logo}>
+              <Image
+              effect="blur"
+              src={logo}
+              alt="logo"
+              width='100px'
+              
+              style={{width:'120px', height:"auto"}}
+            />
+              </div>
+            </Link>
+
+
       <Offcanvas
         show={show}
         
@@ -54,10 +69,10 @@ function OffCanvasExample({ ...props }) {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <div className={styles.Links_nav_container} style={{display: 'flex',
-    gap: '1rem',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',}}>
+            gap: '1rem',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',}}>
             <Link  href="/" >
               <div  className={styles.logo}>
               <Image
@@ -138,7 +153,7 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar_container  } >
-      <Col xs={3} md={1}  >
+      <Col xs={12} md={1}  >
           {options?.map((props, idx) => (
             <OffCanvasExample key={idx} placement={"end"} {...props} />
           ))}
