@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import { Col, Row } from "react-bootstrap";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import styles from  "../styles/Home.module.scss";
-import { UserLogin } from "./store/auth";
+import { UserLogin } from "../store/auth";
 import { useDispatch, useSelector } from "react-redux";
 import {
   LazyLoadImage,

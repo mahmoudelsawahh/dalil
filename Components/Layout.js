@@ -10,9 +10,9 @@ import Numbers from "../pages/Numbers/Numbers";
 import LeftSide from "../pages/LeftSide/LeftSide";
 import RightSide from "../pages/RightSide/RightSide";
 import { Col, Row } from "react-bootstrap";
-import { getGatecories } from "../pages/store/Categories";
-import { getAllAds } from "../pages/store/AdvertisementSlice";
-import { getAllJobs } from "../pages/store/JobsSlice";
+import { getGatecories } from "../store/Categories";
+import { getAllAds } from "../store/AdvertisementSlice";
+import { getAllJobs } from "../store/JobsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import SplashScreen from "../pages/SplashScreen";
 const Layout = ({ children }) => {

@@ -9,44 +9,36 @@ import Head from "next/head";
   return (
     <>
       <div className={styles.Client_Category}>
-      {branches?.map((ele) => {
+      {branches?.map((ele , id) => {
         return(
-<>
-<Head key={ele.id}>
+        <Head key={id}>
               <title>{ele.name}</title>
-              <meta          name="description"          content={ele.shortDescription?.slice(0, 160)}
+              <meta name="description" content={ele.shortDescription?.slice(0, 160)}
               />
               <meta itemprop="name" content={ele.name} />
-              <meta          itemprop="description"          content={ele.shortDescription?.slice(0, 160)}
+              <meta itemprop="description" content={ele.shortDescription?.slice(0, 160)}
               />
-              <meta          itemprop="image"          content={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}
+              <meta itemprop="image" content={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}
               />
       
              
               <meta property="og:type" content="Article" />
               <meta property="og:title" content={ele.name} />
-              <meta          property="og:description"          content={ele.shortDescription?.slice(0, 160)}        />
-              <meta          property="og:image"          content={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}        />
+              <meta property="og:description" content={ele.shortDescription?.slice(0, 160)} />
+              <meta property="og:image" content={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`} />
       
               <meta name="twitter:card" content="summary_large_image" />
               <meta name="twitter:title" content={ele.name} />
-              <meta          name="twitter:description"          content={ele.shortDescription?.slice(0, 160)}        />
-              <meta          name="twitter:image"          content={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}        />
+              <meta name="twitter:description" content={ele.shortDescription?.slice(0, 160)}        />
+              <meta name="twitter:image" content={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`} />
               {/* <link rel="icon" type="image/x-icon" href={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`} /> */}
-      
-              
             </Head> 
-</>
-        )
-        
-            
+        )            
           })}
-        {branches?.map((branch) => {
+        {branches?.map((branch , id) => {
           const pathname = branch.name.replace(/-/g, " ");
           return (
-
-          
-            <Link key={branch.id} href={`/sapesficCategory?id=${branch.id}`} as={`/page/id/${branch.id}/${branch.name.replace(/\s+/g, '-')}`}>
+            <Link key={id} href={`/sapesficCategory?id=${branch.id}`} as={`/page/id/${branch.id}/${branch.name.replace(/\s+/g, '-')}`}>
            <LazyLoadComponent key={branch.id}>
            <div
              md={12}

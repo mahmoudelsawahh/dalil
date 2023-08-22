@@ -12,9 +12,9 @@ const DirectoryItems = ({ Categories }) => {
     Categories?.length > 0
       ? Categories.slice()
           .sort((a, b) => parseFloat(a.id) - parseFloat(b.id))
-          .map((ele, idx) => {
+          .map((ele, id) => {
             return (
-              <LazyLoadComponent key={idx}>
+              <LazyLoadComponent key={id}>
                 <div className={`${styles.Directory} ${styles[`item_${ele.id}`]}`} >
                   <div
                     className={styles.Directory_header }
@@ -23,7 +23,7 @@ const DirectoryItems = ({ Categories }) => {
                     }}
                   >
                     <div className={styles.Directory_card_image } >
-                    <Link key={idx} href={`/subGategories?id=${ele.id}/allGategories`} as={`/subGategories/${ele.id}/allGategories`}>
+                    <Link key={id} href={`/subGategories?id=${ele.id}/allGategories`} as={`/subGategories/${ele.id}/allGategories`}>
                       <LazyLoadImage
                         effect="blur"
                         src={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}
@@ -37,21 +37,18 @@ const DirectoryItems = ({ Categories }) => {
                     </div>
                     <h4>{ele.name}</h4>
                   </div>
-                  {ele.catList?.map((e, indx) => {
+                  {ele.catList?.map((e, id) => {
                     const pathname = e.name.replace(/-/g, " ");
                     return (
-                      <Link href={`/subGategories?id=${ele.id}/allBranches/${e.name}`} key={idx} as={`/subGategories/${ele.id}/allBranches/${e.name}`}>
+                      <Link href={`/subGategories?id=${ele.id}/allBranches/${e.name}`} key={id} as={`/subGategories/${ele.id}/allBranches/${e.name}`}>
                     
                       <div
-                        key={indx}
+                        key={id}
                         className={styles.sapseficItem }
                        
                       >
-                        
-                    
                         <h5>{pathname}</h5>
-                        <span>{e.size}</span>
-                        
+                        <span>{e.size}</span> 
                       </div>
                       </Link>
                     );

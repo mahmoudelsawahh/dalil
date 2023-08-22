@@ -5,7 +5,7 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Link from "next/link";
 import Swal from "sweetalert2/dist/sweetalert2.js";
-import { UserRegister } from "./store/auth";
+import { UserRegister } from "../store/auth";
 import { useDispatch } from "react-redux";
 import {
   LazyLoadImage,

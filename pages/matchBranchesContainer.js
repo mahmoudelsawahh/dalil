@@ -11,7 +11,7 @@ import {
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Rating } from "primereact/rating";
 // import { getLastViews } from "../../../store/Categories";
-import { getMatchBranch } from "./store/Categories";
+import { getMatchBranch } from "../store/Categories";
 import styles from  "../styles/Home.module.scss";
 import  Link  from "next/link";
 

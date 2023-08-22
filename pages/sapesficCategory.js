@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getClientDetails, addMoreViews } from "./store/Categories";
+import { getClientDetails, addMoreViews } from "../store/Categories";
 import Carousel from "react-bootstrap/Carousel";
 import { FaPhone, FaFacebookF, FaPhoneAlt } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";

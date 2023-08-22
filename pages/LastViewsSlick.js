@@ -10,7 +10,7 @@ import {
 } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Rating } from "primereact/rating";
-import { getLastViews } from "./store/Categories";
+import { getLastViews } from "../store/Categories";
 import  Link  from "next/link";
 import styles from  "../styles/Home.module.scss";
 const LastViewsSlick = () => {

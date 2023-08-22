@@ -86,7 +86,7 @@ const HandelLastBranch = () => {
             
           >
           <Link href={`/sapesficCategory?id=${ele.id}/${pathname}/${pathcatName}`} key={idx} passHref as={`/page/${ele.id}/${pathname}/${pathcatName}`}>
-            <p>
+            <div>
               <div  className={styles.content_container}>
                 <div className={styles.img_container_lastbarnch }>
                   <LazyLoadImage
@@ -109,7 +109,7 @@ const HandelLastBranch = () => {
                   </div>
                 </div>
               </div>
-            </p>
+            </div>
           </Link>
           </div>
         );

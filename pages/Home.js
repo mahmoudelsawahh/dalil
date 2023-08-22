@@ -8,7 +8,7 @@ import DirectoryItems from "./DirectoryItems";
 import LastViewsSlick from "./LastViewsSlick";
 import HandelLastBranch from "./HandelLastBranch";
 import { useDispatch } from "react-redux";
-import { getLastBranches } from "../pages/store/Categories";
+import { getLastBranches } from "../store/Categories";
 import  Link  from "next/link";
 import Head from "next/head";
 import LastBranches from "./LastBranches";

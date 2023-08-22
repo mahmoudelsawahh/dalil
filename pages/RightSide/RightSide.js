@@ -7,7 +7,7 @@ import {
 } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import styles from  "../../styles/Home.module.scss";
-import { getRightFrinds } from "../../pages/store/FriendsSlice";
+import { getRightFrinds } from "../../store/FriendsSlice";
 import Link from "next/link";
 import Script from "next/script";
 

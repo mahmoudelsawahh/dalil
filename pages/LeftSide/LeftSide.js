@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styles from  "../../styles/Home.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { getLeftFriends } from "../../pages/store/FriendsSlice";
+import { getLeftFriends } from "../../store/FriendsSlice";
 import {
   LazyLoadImage,
   LazyLoadComponent,

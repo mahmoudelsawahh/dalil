@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAdDetails } from "./store/AdvertisementSlice";
+import { getAdDetails } from "../store/AdvertisementSlice";
 import { FaPhone } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import styles from  "../styles/Home.module.scss";
@@ -14,10 +14,10 @@ const AdDetailsPage = () => {
   const  {getAdDetailsArray}  = useSelector((state) => state.Ads);
   useEffect(() => {
     dispatch(getAdDetails(parseInt(id)));
-  }, [dispatch, id]);    console.log(getAdDetailsArray)
+  }, [dispatch, id]);
 
-  console.log("getAdDetailsArray", getAdDetailsArray)
-  const FinalData = getAdDetailsArray ? (
+  const FinalData = getAdDetailsArray ? 
+  (
     <div>
       <Head key={getAdDetailsArray.ad?.id}>
         
@@ -70,7 +70,6 @@ const AdDetailsPage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {" "}
                 <FaPhone />
               </Link>
             </span>
@@ -90,7 +89,7 @@ const AdDetailsPage = () => {
         </div>
       </div>
     </div>
-  ) : null;
+  ) : "";
   return <div className={styles.job_details} >{FinalData}</div>;
 };
 

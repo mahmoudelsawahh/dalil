@@ -12,6 +12,8 @@ import { useRouter } from 'next/router';
 import styles from "../styles/Home.module.scss";
 import Head from "next/head";
 const Header = ({ Categories }) => {
+  const router = useRouter();
+
   const useProgressiveImage = (src) => {
     const [sourceLoaded, setSourceLoaded] = useState(null);
 
@@ -69,7 +71,6 @@ const Header = ({ Categories }) => {
     Categories?.length > 0 &&
     Categories?.map((ele, idx) => {
       const pathname = ele.name.replace(/-/gi, "-");
-      const router = useRouter();
       return (
         <div key={idx}>
           <div className={styles.slick_Container}>

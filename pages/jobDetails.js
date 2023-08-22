@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getJobDetails } from "./store/JobsSlice";
+import { getJobDetails } from "../store/JobsSlice";
 import { useParams } from "react-router-dom";
 import { FaPhone, FaFacebookF } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";

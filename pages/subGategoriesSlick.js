@@ -14,11 +14,13 @@ const SubGategoriesSlick = ({ Categories }) => {
 
   const router = useRouter();
   const { id } = router.query;
-  const slideNumber = Categories.filter((ele) => ele.id === parseInt(id)).map(
+  const slideNumber = Categories ? 
+  Categories.filter((ele) => ele.id === parseInt(id)).map(
     (e) => {
       return e.catList.length;
     }
-  );
+  )
+  : ""
   const settings = {
     cssEase: "linear",
     dots: false,

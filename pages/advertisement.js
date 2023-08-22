@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllAds } from "./store/AdvertisementSlice";
+import { getAllAds } from "../store/AdvertisementSlice";
 import {
   LazyLoadImage,
   LazyLoadComponent,
