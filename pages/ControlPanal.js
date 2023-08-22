@@ -4,6 +4,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { RiMenu4Line } from "react-icons/ri";
 import { GoPerson } from "react-icons/go";
 import logo from "../public/img/logo.svg";
+import Image from "next/image";
 const ControlPanal = () => {
   const options = [
     {
