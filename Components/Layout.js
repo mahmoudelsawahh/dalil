@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { useRouter } from 'next/router';
 
-import Header from './Header'
 import Footer from './Footer'
 import NavBar from './NavBar'
 import Numbers from "../pages/Numbers/Numbers";
@@ -15,6 +14,7 @@ import { getAllAds } from "../store/AdvertisementSlice";
 import { getAllJobs } from "../store/JobsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import SplashScreen from "../pages/SplashScreen";
+import Header from '/Components/Header';
 const Layout = ({ children }) => {
   
   const dispatch = useDispatch();
@@ -113,9 +113,6 @@ const Layout = ({ children }) => {
             }
           </style>
       </div>
-
-
-
       <Meta />
     </>
   )
