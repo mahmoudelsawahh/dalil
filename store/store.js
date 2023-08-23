@@ -1,3 +1,4 @@
+"use client"
 import { configureStore } from "@reduxjs/toolkit";
 import CategoriesSlice from "./Categories";
 import AdvertSlice from "./AdvertisementSlice";
@@ -10,7 +11,7 @@ export default configureStore({
     categoriesMenu: CategoriesSlice,
     Ads: AdvertSlice,
     JobSlice,
-    AuthSlice,
+    AuthSlice, 
     FriendsSlice,
   },
 });
