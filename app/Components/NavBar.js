@@ -61,7 +61,7 @@ function OffCanvasExample({ ...props }) {
             gap: '1rem',
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'center',}}>
+            justifyContent: 'center'}}>
             <Link  href="/" >
               <div className={styles.logo}>
               <Image

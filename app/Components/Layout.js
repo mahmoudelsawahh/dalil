@@ -1,12 +1,14 @@
 "use client"
-// import Meta from './Meta'
+import dynamic from "next/dynamic";
 import React, { useEffect } from "react";
 import "react-lazy-load-image-component/src/effects/blur.css";
 // import Footer from './Footer'
 import NavBar from './NavBar'
 // import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-// import Header from './Header';
+const Header = dynamic(() => import('./Header'), {
+  ssr : false
+})
 // import LeftSide from './LeftSide';
 // import RightSide from './RightSide';
 // import Numbers from './Numbers';
@@ -15,28 +17,28 @@ import { getAllAds } from '@/store/AdvertisementSlice';
 import { getAllJobs } from '@/store/JobsSlice';
 const Layout = ({ children }) => {
   
-  // const dispatch = useDispatch();
-  // const { AllCategories, isLoading } = useSelector(
-  //   (state) => state.categoriesMenu
-  // );
-  // const { isLoadingAds, getAllAdsArray } = useSelector((state) => state.Ads);
+  const dispatch = useDispatch();
+  const { AllCategories, isLoading } = useSelector(
+    (state) => state.categoriesMenu
+  );
+  const { isLoadingAds, getAllAdsArray } = useSelector((state) => state.Ads);
   
-  // useEffect(() => {
-  //   dispatch(getGatecories());
-  //   dispatch(getAllAds());
-  //   dispatch(getAllJobs());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getGatecories());
+    dispatch(getAllAds());
+    dispatch(getAllJobs());
+  }, [dispatch]);
 
   return (
     <>
     <NavBar/>
       
       
-      {/* <div >
+      <div >
        
       <Header Categories={AllCategories} />
 
-      <Row style={{padding:' 15px 10px' , width:'100%'}} >
+      {/* <Row style={{padding:' 15px 10px' , width:'100%'}} >
       <Col lg={2} md={12}>
       <LeftSide AllAds={getAllAdsArray} />
       </Col>
@@ -49,7 +51,7 @@ const Layout = ({ children }) => {
         
           <Numbers/>
 
-          <Footer/>
+          <Footer/> */}
           <style jsx global>
             {
               `
@@ -100,7 +102,6 @@ const Layout = ({ children }) => {
             }
           </style>
       </div>
-      <Meta /> */}
     </>
   )
 }
