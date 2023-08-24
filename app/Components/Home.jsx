@@ -8,7 +8,6 @@ import styles from "/app/styles/Home.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { getLastBranches } from "/store/Categories";
 import  Link  from "next/link";
-import Head from "next/head";
 import LastBranches from "./LastBranches";
 import HandelLastBranch from "./HandelLastBranch";
 import LastViewsSlick from "./LastViewsSlick";
@@ -22,9 +21,7 @@ const Home = () => {
           return (
               <div className={styles.card_image_rad} key={id}>
                  <Link href={`/cat/${ele.id}/${ele.name}`} key={id} as={`/cat/${ele.id}/${ele.name}`}>
-
                   <div className={styles.card_image}>
-
                     <LazyLoadImage
                       effect="blur"
                       src={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}

@@ -92,6 +92,8 @@ const RightSide = () => {
             onClick={() => {
               window.open("https://deltawy.com/", "_blank");
             }}
+            loading='lazy'
+            style={{width : '100%', height : '100%'}}
             className={styles.side_nave_img_delt}
           />
         </div>
