@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { Row, Col } from "react-bootstrap";
-import {  useNavigate } from "react-router-dom";
+import {Col } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { RiMenu4Line } from "react-icons/ri";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,7 +9,6 @@ import styles from "../styles/Home.module.scss";
 import logo from "/public/img/logo.png"
 const options = [
   {
-    // name: "Enable both scrolling & backdrop",
     scroll: true,
     backdrop: true,
   },
@@ -22,14 +19,6 @@ function OffCanvasExample({ ...props }) {
 
   const handleClose = () => setShow(false);
   const toggleShow = () => setShow((s) => !s);
-
-  const LinkStyles = ({ isActive }) => {
-    return {
-      fontWeight: isActive ? "700" : "normal",
-      color: isActive ? "#253b70" : "#000",
-      fontSize: isActive ? "22px" : "20px",
-    };
-  };
 
   return (
     <div style={{display : 'flex', justifyContent :'space-between', alignItems : 'flex-start'}} className="mx-md-0 mx-2">
@@ -43,7 +32,7 @@ function OffCanvasExample({ ...props }) {
         <RiMenu4Line style={{fontSize:"1.5rem " , color:'#ffffff'}}  />
       </button>
       
-      <Link  href="/" className="d-block d-md-none">
+      {/* <Link  href="/" className="d-block d-md-none">
               <div  className={styles.logo}>
               <Image
               effect="blur"
@@ -54,7 +43,7 @@ function OffCanvasExample({ ...props }) {
               style={{width:'120px', height:"auto"}}
             />
               </div>
-            </Link>
+            </Link> */}
 
 
       <Offcanvas
@@ -74,14 +63,14 @@ function OffCanvasExample({ ...props }) {
             alignItems: 'center',
             justifyContent: 'center',}}>
             <Link  href="/" >
-              <div  className={styles.logo}>
+              <div className={styles.logo}>
               <Image
               effect="blur"
               src={logo}
               alt="logo"
               width='100px'
-              
               style={{width:'150px', height:"auto"}}
+              loading="lazy"
             />
               </div>
             </Link>
@@ -161,8 +150,8 @@ const Navbar = () => {
 
 
       <section className={styles.nav_bar} >
-<div className={styles.mobile_reverse}>
-<Link href="/"
+    <div className={styles.mobile_reverse}>
+          <Link href="/"
              className={styles.logo}
             onClick={() => {
               window.scrollTo({
@@ -180,9 +169,9 @@ const Navbar = () => {
               
             />
           </Link>
-</div>
-<div className={styles.mobile_reverse}>
-<div     className={styles.Links_container }>
+    </div>
+    <div className={styles.mobile_reverse}>
+        <div className={styles.Links_container }>
             <Link
               
               href="/"
@@ -237,8 +226,8 @@ const Navbar = () => {
             </Link>
           </div>
           </div>
-<div className={styles.buttonslogin }>
-<button
+        <div className={styles.buttonslogin }>
+          <button
              className={`${styles.btn} ${styles.nav_btn}` }
             name="login"
             type="button"
@@ -251,9 +240,8 @@ const Navbar = () => {
               // }
             }}
           >
-           <Link href='/loginPage'>أضافة للدليل
-</Link>         
-  </button>
+           <Link href='/loginPage'>أضافة للدليل</Link>         
+        </button>
           <button
             name="add-dalel"
             type="button"
@@ -268,10 +256,9 @@ const Navbar = () => {
               });
             }}
           >
-           <Link href='/loginPage'>أضافة للدليل
-</Link>      
+           <Link href='/loginPage'>أضافة للدليل</Link>      
           </button>
-</div>
+    </div>
       </section>
     </nav>
   );

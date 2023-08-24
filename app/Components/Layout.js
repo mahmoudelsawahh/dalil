@@ -1,51 +1,38 @@
 "use client"
-import Meta from './Meta'
+// import Meta from './Meta'
 import React, { useEffect } from "react";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { useRouter } from 'next/navigation';
-import Footer from './Footer'
+// import Footer from './Footer'
 import NavBar from './NavBar'
-import { Col, Row } from "react-bootstrap";
+// import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import Header from './Header';
-import LeftSide from './LeftSide';
-import RightSide from './RightSide';
-import Numbers from './Numbers';
+// import Header from './Header';
+// import LeftSide from './LeftSide';
+// import RightSide from './RightSide';
+// import Numbers from './Numbers';
 import { getGatecories } from '@/store/Categories';
 import { getAllAds } from '@/store/AdvertisementSlice';
 import { getAllJobs } from '@/store/JobsSlice';
-import SplashScreen from './SplashScreen';
 const Layout = ({ children }) => {
   
-  const dispatch = useDispatch();
-  const { AllCategories, isLoading } = useSelector(
-    (state) => state.categoriesMenu
-  );
-  const { isLoadingAds, getAllAdsArray } = useSelector((state) => state.Ads);
-  useEffect(() => {
-    dispatch(getGatecories());
-    dispatch(getAllAds());
-    dispatch(getAllJobs());
-  }, [dispatch]);
+  // const dispatch = useDispatch();
+  // const { AllCategories, isLoading } = useSelector(
+  //   (state) => state.categoriesMenu
+  // );
+  // const { isLoadingAds, getAllAdsArray } = useSelector((state) => state.Ads);
+  
+  // useEffect(() => {
+  //   dispatch(getGatecories());
+  //   dispatch(getAllAds());
+  //   dispatch(getAllJobs());
+  // }, [dispatch]);
 
-  function ScrollToTop() {
-    const router = useRouter();
-    const { pathname } = router;
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, [pathname]);
-    return null;
-  }
   return (
     <>
-       {isLoading && <SplashScreen />}
-      {isLoadingAds && <SplashScreen />}
-      {isLoading && <ScrollToTop />}
-      
     <NavBar/>
       
       
-      <div >
+      {/* <div >
        
       <Header Categories={AllCategories} />
 
@@ -113,7 +100,7 @@ const Layout = ({ children }) => {
             }
           </style>
       </div>
-      <Meta />
+      <Meta /> */}
     </>
   )
 }
