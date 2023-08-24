@@ -66,11 +66,11 @@ const Header = ({ Categories }) => {
           <Link href={`/subGategories?id=${ele.id}`} key={id} as={`/cat/${ele.id}/${pathname}`}>
             <div
               className={`${styles.img_skick} ${styles.loading_circel}`}>
-              <LazyLoadImage
+              {/* <LazyLoadImage
                 effect="blur"
                 src={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}
                 alt={`${ele.name}-categories`}
-              />
+              /> */}
             </div>
             <h3>{pathname}</h3>
             </Link>
@@ -88,6 +88,7 @@ const Header = ({ Categories }) => {
     {loaded ? (
       <div
         className={styles.img_container}
+        // style={{ backgroundImage: `url(${loaded})` }}
       >
         <div className={styles.Header_content}>
           <div className={styles.text_contet}>
