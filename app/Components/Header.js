@@ -2,13 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
 import  Link  from "next/link";
 import styles from "../styles/Home.module.scss";
-import Head from "next/head";
 const Header = ({ Categories }) => {
   const useProgressiveImage = (src) => {
     const [sourceLoaded, setSourceLoaded] = useState(null);
@@ -24,17 +20,15 @@ const Header = ({ Categories }) => {
   const settings = {
     cssEase: "linear",
     dots: false,
-    // swipeToSlide: true,
     infinite: true,
-    // lazyLoad: true,
-    speed: 1000,
+    speed: 3000,
     slidesToShow: 7,
     slidesToScroll: 1,
     initialSlide: 0,
     autoplay: true,
     rtl: true,
     arrows: false,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
     responsive: [
       {
         breakpoint: 1024,
@@ -64,12 +58,12 @@ const Header = ({ Categories }) => {
 
   const CategoriesSlick =
     Categories?.length > 0 &&
-    Categories?.map((ele, idx) => {
+    Categories?.map((ele, id) => {
       const pathname = ele.name.replace(/-/gi, "-");
       return (
-        <div key={idx}>
+        <div key={id}>
           <div className={styles.slick_Container}>
-          <Link href={`/subGategories?id=${ele.id}`} key={idx} as={`/cat/${ele.id}/${pathname}`}>
+          <Link href={`/subGategories?id=${ele.id}`} key={id} as={`/cat/${ele.id}/${pathname}`}>
             <div
               className={`${styles.img_skick} ${styles.loading_circel}`}>
               <LazyLoadImage
@@ -90,36 +84,6 @@ const Header = ({ Categories }) => {
   );
   return (
     <header className={styles.header_container}>
-
-{
-  Categories?.length > 0 &&
-  Categories?.map((ele, idx) => {
-    return (
-        <Head key={idx}>
-              {/* <title>{ele.name}</title> */}
-              <meta          name="description"          content={ele.shortDescription?.slice(0, 160)}
-              />
-              <meta itemprop="name" content={ele.name} />
-              <meta          itemprop="description"          content={ele.shortDescription?.slice(0, 160)}
-              />
-              <meta          itemprop="image"          content={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}
-              />
-      
-             
-              <meta property="og:type" content="Article" />
-              <meta property="og:title" content={ele.name} />
-              <meta          property="og:description"          content={ele.shortDescription?.slice(0, 160)}        />
-              <meta          property="og:image"          content={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}        />
-      
-              <meta name="twitter:card" content="summary_large_image" />
-              <meta name="twitter:title" content={ele.name} />
-              <meta          name="twitter:description"          content={ele.shortDescription?.slice(0, 160)}        />
-              <meta          name="twitter:image"          content={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}        />
-              <link rel="icon" type="image/x-icon" href={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`} />
-            </Head>
-    )
-  })
-}
 
     {loaded ? (
       <div

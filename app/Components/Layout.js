@@ -15,6 +15,8 @@ const Header = dynamic(() => import('./Header'), {
 import { getGatecories } from '@/store/Categories';
 import { getAllAds } from '@/store/AdvertisementSlice';
 import { getAllJobs } from '@/store/JobsSlice';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 const Layout = ({ children }) => {
   
   const dispatch = useDispatch();
