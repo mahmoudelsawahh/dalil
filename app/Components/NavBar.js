@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import {Col } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { RiMenu4Line } from "react-icons/ri";
-import "react-lazy-load-image-component/src/effects/blur.css";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
