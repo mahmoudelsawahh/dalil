@@ -4,9 +4,9 @@ import styles from "../styles/Home.module.scss";
 import Image from "next/image";
 import mainBg from '/public/img/download.webp'
 import Link from "next/link";
-
+import subImage from '/public/img/images.webp'
 async function catApi() {  
-  const res = await fetch(`https://dalil.deltawy.com/rest/test.category/cats`,{
+  const res = await fetch(`https://dalil.deltawy.com/rest/test.sites/firstGroup`,{
     cache : 'no-store',
     headers : {
       'Content-Type': 'application/json',
@@ -66,7 +66,8 @@ const Header = async () => {
             <div
               className={`${styles.img_skick} ${styles.loading_circel}`} style={{textAlign : 'center', display : 'flex', justifyContent : 'center'}}>
               <Image
-                src={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}
+                // src={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}
+                src={subImage}
                 alt={`${ele.name}-categories`}
                 loading="lazy"
                 width={80}
