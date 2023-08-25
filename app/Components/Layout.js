@@ -14,12 +14,12 @@ const Header = dynamic(() => import('./Header'), {
 const NavBar = dynamic(() => import('./NavBar'), {
   ssr : false
 })
-const LeftSide = dynamic(() => import('./LeftSide'), {
-  ssr : false
-})
-const RightSide = dynamic(() => import('./RightSide'), {
-  ssr : false
-})
+// const LeftSide = dynamic(() => import('./LeftSide'), {
+//   ssr : false
+// })
+// const RightSide = dynamic(() => import('./RightSide'), {
+//   ssr : false
+// })
 // import Numbers from './Numbers';
 // import Footer from './Footer'
 
