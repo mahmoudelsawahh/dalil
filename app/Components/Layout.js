@@ -1,8 +1,14 @@
 "use client"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "react-lazy-load-image-component/src/effects/blur.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { getGatecories } from '@/store/Categories';
+import { getAllAds } from '@/store/AdvertisementSlice';
+import { getAllJobs } from '@/store/JobsSlice';
+
 import dynamic from "next/dynamic";
 import React, { useEffect } from "react";
-import "react-lazy-load-image-component/src/effects/blur.css";
-// import Footer from './Footer'
 import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 const Header = dynamic(() => import('./Header'), {
@@ -14,13 +20,13 @@ const NavBar = dynamic(() => import('./NavBar'), {
 const LeftSide = dynamic(() => import('./LeftSide'), {
   ssr : false
 })
-// import RightSide from './RightSide';
+const RightSide = dynamic(() => import('./RightSide'), {
+  ssr : false
+})
 // import Numbers from './Numbers';
-import { getGatecories } from '@/store/Categories';
-import { getAllAds } from '@/store/AdvertisementSlice';
-import { getAllJobs } from '@/store/JobsSlice';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import Footer from './Footer'
+
+
 const Layout = ({ children }) => {
   
   const dispatch = useDispatch();
@@ -49,10 +55,10 @@ const Layout = ({ children }) => {
       <LeftSide AllAds={getAllAdsArray} />
       </Col>
    
-      {/* <Col lg={8} md={12}  style={{padding:' 10px'}}>
+      <Col lg={8} md={12}  style={{padding:' 10px'}}>
       {children}
-    </Col> */}
-    {/* <Col lg={2} md={12} > <RightSide/> </Col> */}
+    </Col>
+    <Col lg={2} md={12} > <RightSide/> </Col>
     </Row>
         
           {/* <Numbers/>
@@ -108,6 +114,7 @@ const Layout = ({ children }) => {
             }
           </style>
       </div>
+
     </>
   )
 }

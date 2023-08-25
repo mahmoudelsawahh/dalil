@@ -1,17 +1,13 @@
 /* eslint-disable @next/next/inline-script-id */
 import React, { useState, useEffect } from 'react';
-import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  LazyLoadImage,
-  LazyLoadComponent,
-} from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
+import {LazyLoadComponent} from "react-lazy-load-image-component";
 import styles from  "../styles/Home.module.scss";
 import { getRightFrinds } from "../../store/FriendsSlice";
 import Link from "next/link";
 import Script from "next/script";
-
+import Image from 'next/image';
+import deltawyBanner from '/public/img/deltawy.gif.gif'
 const RightSide = () => {
   const [date, setDate] = useState(new Date());
 
@@ -83,25 +79,23 @@ const RightSide = () => {
       
       <aside className={styles.side_nave}>
         <div  className={styles.side_nave_img_delt}>
-          <LazyLoadImage
-            effect="blur"
-            src={
-              "https://dalil.deltawy.com/javax.faces.resource/deltawy.gif.html?ln=images"
-            }
-            alt="deltawy"
-            onClick={() => {
-              window.open("https://deltawy.com/", "_blank");
-            }}
-            loading='lazy'
-            style={{width : '100%', height : '100%'}}
-            className={styles.side_nave_img_delt}
-          />
+        <LazyLoadComponent>
+          <Image
+              src={deltawyBanner}
+              alt="deltawy"
+              onClick={() => {
+                window.open("https://deltawy.com/", "_blank");
+              }}
+              loading='lazy'
+              className={styles.side_nave_img_delt}
+            />
+        </LazyLoadComponent>
         </div>
         <div className={`${styles.display_fflex} ${styles.jobs_side}`}   >
           <h3 className={styles.hthree}>اخر الوظائف</h3>
           <div  className={styles.Links}>{SideJobs}</div>
         </div>
-        
+
         <LazyLoadComponent>
          
           <div  className={`${styles.display_fflex} ${styles.friends}`}  >

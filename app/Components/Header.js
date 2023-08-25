@@ -77,8 +77,6 @@ const Header = ({ Categories }) => {
 
   return (
     <header className={styles.header_container}>
-
-
       <div
         className={styles.img_container}
         // style={{ backgroundImage: `url(${loaded})` }}

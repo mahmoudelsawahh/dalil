@@ -1,16 +1,15 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  LazyLoadImage,
   LazyLoadComponent,
 } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
 import styles from  "../styles/Home.module.scss";
 import { getRightFrinds } from "../../store/FriendsSlice";
 import Link from "next/link";
 import Script from "next/script";
+import deltawyBanner from '/public/img/deltawy.gif.gif'
+import Image from 'next/image';
 
 const RightSide = () => {
   const [date, setDate] = useState(new Date());
@@ -82,18 +81,16 @@ const RightSide = () => {
       
       <aside className={styles.side_nave}>
         <div  className={styles.side_nave_img_delt}>
-          <LazyLoadImage
-            effect="blur"
-            src={
-              "https://dalil.deltawy.com/javax.faces.resource/deltawy.gif.html?ln=images"
-            }
+         <LazyLoadComponent>
+         <Image
+            src={deltawyBanner}
             alt="deltawy"
             onClick={() => {
-              window.open("https://deltawy.com/", "_blank");
+              window.open("https://deltawy.com", "_blank");
             }}
-            style={{width : '100%', height : '100%'}}
             className={styles.side_nave_img_delt}
           />
+         </LazyLoadComponent>
         </div>
         <div className={`${styles.display_fflex} ${styles.jobs_side}`}   >
           <h3 className={styles.hthree}>اخر الوظائف</h3>
