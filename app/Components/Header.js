@@ -103,11 +103,13 @@ const Header = ({ Categories }) => {
             <p>ابحث في مدينتك</p>
             <p> تصفح دليل المحلة و الدلتا</p>
           </div>
-          <Container>
-            <div className={styles.header_slider}>
-              <Slider {...settings}>{CategoriesSlick}</Slider>
-            </div>
-          </Container>
+          <LazyLoadComponent>
+            <Container>
+              <div className={styles.header_slider}>
+                <Slider {...settings}>{CategoriesSlick}</Slider>
+              </div>
+            </Container>
+          </LazyLoadComponent>
         </div>
       </div>
     
