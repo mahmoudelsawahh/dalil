@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import { LazyLoadComponent, LazyLoadImage } from "react-lazy-load-image-component";
 import  Link  from "next/link";
 import styles from "../styles/Home.module.scss";
 import { useRouter } from "next/navigation";
@@ -67,6 +67,7 @@ const Header = ({ Categories }) => {
         <div key={id}>
           <div className={styles.slick_Container}>
           <div onClick={()=> router.push(`/cat/${ele.id}/${pathname}`)} style={{cursor : 'pointer'}}>
+            <LazyLoadComponent>
             <div
               className={`${styles.img_skick} ${styles.loading_circel}`} style={{textAlign : 'center', display : 'flex', justifyContent : 'center'}}>
               <Image
@@ -77,6 +78,7 @@ const Header = ({ Categories }) => {
                 height={80}
               />
             </div>
+            </LazyLoadComponent>
             <h3>{pathname}</h3>
             </div>
           </div>
