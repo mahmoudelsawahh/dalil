@@ -1,6 +1,4 @@
 // import 'bootstrap/dist/css/bootstrap.min.css';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import './globals.css'
 import { Cairo } from 'next/font/google';
 import ProviderLayout from '@/ProviderLayout'

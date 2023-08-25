@@ -1,7 +1,9 @@
 "use client"
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
-import { LazyLoadComponent, LazyLoadImage } from "react-lazy-load-image-component";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 import styles from "../styles/Home.module.scss";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
