@@ -1,16 +1,15 @@
 "use client"
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import { getGatecories } from '@/store/Categories';
 import { getAllAds } from '@/store/AdvertisementSlice';
 import { getAllJobs } from '@/store/JobsSlice';
 import dynamic from "next/dynamic";
 import React, { useEffect } from "react";
-import { Col, Row } from "react-bootstrap";
+// import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { LazyLoadComponent } from 'react-lazy-load-image-component';
-const Header = dynamic(() => import('./Header'), {
-  ssr : false
-})
+// import { LazyLoadComponent } from 'react-lazy-load-image-component';
+// const Header = dynamic(() => import('./Header'), {
+//   ssr : false
+// })
 const NavBar = dynamic(() => import('./NavBar'), {
   ssr : false
 })
@@ -44,8 +43,7 @@ const Layout = ({ children }) => {
       
       
       <div >
-       
-      <Header Categories={AllCategories} />
+      {/* <Header Categories={AllCategories} /> */}
 
       {/* <Row style={{padding:' 15px 10px' , width:'100%'}} >
       <Col lg={2} md={12}>

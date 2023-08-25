@@ -32,7 +32,7 @@ function OffCanvasExample({ ...props }) {
         <RiMenu4Line style={{fontSize:"1.5rem " , color:'#ffffff'}}  />
       </button>
       
-      {/* <Link  href="/" className="d-block d-md-none">
+      <Link  href="/" className="d-block d-md-none">
               <div  className={styles.logo}>
               <Image
               effect="blur"
@@ -43,7 +43,7 @@ function OffCanvasExample({ ...props }) {
               style={{width:'120px', height:"auto"}}
             />
               </div>
-            </Link> */}
+            </Link>
 
 
       <Offcanvas
