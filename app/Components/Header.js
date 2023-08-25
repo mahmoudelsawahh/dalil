@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import  Link  from "next/link";
 import styles from "../styles/Home.module.scss";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 const Header = ({ Categories }) => {
   const router = useRouter()
   // const useProgressiveImage = (src) => {
