@@ -53,18 +53,14 @@ const Layout = ({ children }) => {
 
       <Row style={{padding:' 15px 10px' , width:'100%'}} >
       <Col lg={2} md={12}>
-        <LazyLoadComponent>
             <LeftSide AllAds={getAllAdsArray} />
-        </LazyLoadComponent>
       </Col>
    
       <Col lg={8} md={12}  style={{padding:' 10px'}}>
       {children}
     </Col>
     <Col lg={2} md={12} > 
-        <LazyLoadComponent>
              <RightSide/> 
-        </LazyLoadComponent>
     </Col>
     </Row>
         
