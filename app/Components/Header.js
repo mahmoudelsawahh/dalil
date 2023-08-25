@@ -28,7 +28,7 @@ const Header = ({ Categories }) => {
     slidesToShow: 7,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: true,
+    // autoplay: true,
     rtl: true,
     arrows: false,
     autoplaySpeed: 3000,
@@ -68,11 +68,13 @@ const Header = ({ Categories }) => {
           <div className={styles.slick_Container}>
           <div onClick={()=> router.push(`/cat/${ele.id}/${pathname}`)} style={{cursor : 'pointer'}}>
             <div
-              className={`${styles.img_skick} ${styles.loading_circel}`}>
+              className={`${styles.img_skick} ${styles.loading_circel}`} style={{textAlign : 'center', display : 'flex', justifyContent : 'center'}}>
               <Image
-                loading="lazy"
                 src={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}
                 alt={`${ele.name}-categories`}
+                priority
+                width={80}
+                height={80}
               />
             </div>
             <h3>{pathname}</h3>
