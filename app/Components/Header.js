@@ -6,6 +6,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import  Link  from "next/link";
 import styles from "../styles/Home.module.scss";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 const Header = ({ Categories }) => {
   const router = useRouter()
   // const useProgressiveImage = (src) => {
@@ -65,15 +66,15 @@ const Header = ({ Categories }) => {
       return (
         <div key={id}>
           <div className={styles.slick_Container}>
-          <div key={id} onClick={()=> router.push(`/cat/${ele.id}/${pathname}`)}>
-            {/* <div
+          <div onClick={()=> router.push(`/cat/${ele.id}/${pathname}`)} style={{cursor : 'pointer'}}>
+            <div
               className={`${styles.img_skick} ${styles.loading_circel}`}>
-              <LazyLoadImage
-                effect="blur"
+              <Image
+                loading="lazy"
                 src={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}
                 alt={`${ele.name}-categories`}
               />
-            </div> */}
+            </div>
             <h3>{pathname}</h3>
             </div>
           </div>
