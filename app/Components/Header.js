@@ -80,9 +80,7 @@ const Header = ({ Categories }) => {
       <div
         className={styles.img_container}
       >
-        <LazyLoadComponent>
-        {/* <Image src={mainBg} alt="background-deltawy-image" layout="fill" objectFit="cover" objectPosition="center" loading="lazy"/> */}
-        </LazyLoadComponent>
+        <Image src={mainBg} alt="background-deltawy-image" layout="fill" objectFit="cover" objectPosition="center" priority/>
         <div className={styles.Header_content}>
           <div className={styles.text_contet}>
             <div className={styles.warpper}>
