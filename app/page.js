@@ -1,8 +1,10 @@
-// import Home from './Components/Home'
+const Home = dynamic(() => import('./Components/Home'), {
+  ssr : false
+})
 const page = () => {
   return (
     <>
-      {/* <Home/> */}
+      <Home/>
     </>
   )
 }
