@@ -1,11 +1,14 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './globals.css'
 import { Cairo } from 'next/font/google';
-import Layout from './Components/Layout'
 import ProviderLayout from '@/ProviderLayout'
-
+import dynamic from 'next/dynamic';
+import Navbar from './Components/NavBar';
+const Layout = dynamic(() => import('./Components/Layout'), {
+  ssr : false
+})
 const cairo = Cairo({ 
   subsets: ['latin'] ,
   display : 'swap',
@@ -22,6 +25,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={cairo.className}>
           <ProviderLayout>
+          <Navbar/>
           <Layout>
              {children}
            </Layout>

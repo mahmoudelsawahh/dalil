@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import React, { useEffect } from "react";
 import "react-lazy-load-image-component/src/effects/blur.css";
 // import Footer from './Footer'
-import NavBar from './NavBar'
 // import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 const Header = dynamic(() => import('./Header'), {
@@ -13,29 +12,24 @@ const Header = dynamic(() => import('./Header'), {
 // import RightSide from './RightSide';
 // import Numbers from './Numbers';
 import { getGatecories } from '@/store/Categories';
-import { getAllAds } from '@/store/AdvertisementSlice';
-import { getAllJobs } from '@/store/JobsSlice';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import { getAllAds } from '@/store/AdvertisementSlice';
+// import { getAllJobs } from '@/store/JobsSlice';
 const Layout = ({ children }) => {
   
   const dispatch = useDispatch();
   const { AllCategories, isLoading } = useSelector(
     (state) => state.categoriesMenu
   );
-  const { isLoadingAds, getAllAdsArray } = useSelector((state) => state.Ads);
+  // const { isLoadingAds, getAllAdsArray } = useSelector((state) => state.Ads);
   
   useEffect(() => {
     dispatch(getGatecories());
-    dispatch(getAllAds());
-    dispatch(getAllJobs());
+    // dispatch(getAllAds());
+    // dispatch(getAllJobs());
   }, [dispatch]);
 
   return (
-    <>
-    <NavBar/>
-      
-      
+    <>      
       <div >
        
       <Header Categories={AllCategories} />

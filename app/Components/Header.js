@@ -101,11 +101,11 @@ const Header = ({ Categories }) => {
             <p>ابحث في مدينتك</p>
             <p> تصفح دليل المحلة و الدلتا</p>
           </div>
-          <Container>
+          {/* <Container>
             <div className={styles.header_slider}>
               <Slider {...settings}>{CategoriesSlick}</Slider>
             </div>
-          </Container>
+          </Container> */}
         </div>
       </div>
     
