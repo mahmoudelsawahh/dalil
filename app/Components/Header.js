@@ -65,17 +65,17 @@ const Header = ({ Categories }) => {
       return (
         <div key={id}>
           <div className={styles.slick_Container}>
-          {/* <Link href={`/subGategories?id=${ele.id}`} key={id} as={`/cat/${ele.id}/${pathname}`}> */}
-            <div
-              className={`${styles.img_skick} ${styles.loading_circel}`} key={id} onClick={()=> router.push(`/cat/${ele.id}/${pathname}`)}>
+          <div key={id} onClick={()=> router.push(`/cat/${ele.id}/${pathname}`)}>
+            {/* <div
+              className={`${styles.img_skick} ${styles.loading_circel}`}>
               <LazyLoadImage
                 effect="blur"
                 src={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}
                 alt={`${ele.name}-categories`}
               />
-            </div>
+            </div> */}
             <h3>{pathname}</h3>
-            {/* </Link> */}
+            </div>
           </div>
         </div>
       );
