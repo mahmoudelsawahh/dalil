@@ -1,8 +1,8 @@
 "use client"
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { getGatecories } from '@/store/Categories';
 import { getAllAds } from '@/store/AdvertisementSlice';
 import { getAllJobs } from '@/store/JobsSlice';
-
 import dynamic from "next/dynamic";
 import React, { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";

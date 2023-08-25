@@ -1,17 +1,20 @@
 import './globals.css'
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import "react-lazy-load-image-component/src/effects/blur.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import { Cairo } from 'next/font/google';
-import Layout from './Components/Layout'
 import ProviderLayout from '@/ProviderLayout'
+import dynamic from 'next/dynamic';
 
 const cairo = Cairo({ 
   subsets: ['latin'] ,
   display : 'swap',
   preload : true
+})
+
+const Layout = dynamic(() => import('./Components/Layout'), {
+  ssr : false
 })
 
 export const metadata = {
