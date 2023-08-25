@@ -79,7 +79,7 @@ const RightSide = () => {
       
       <aside className={styles.side_nave}>
         <div  className={styles.side_nave_img_delt}>
-        {/* <LazyLoadComponent>
+        <LazyLoadComponent>
           <Image
               src={deltawyBanner}
               alt="deltawy"
@@ -89,7 +89,7 @@ const RightSide = () => {
               loading='lazy'
               className={styles.side_nave_img_delt}
             />
-        </LazyLoadComponent> */}
+        </LazyLoadComponent>
         </div>
         <div className={`${styles.display_fflex} ${styles.jobs_side}`}   >
           <h3 className={styles.hthree}>اخر الوظائف</h3>

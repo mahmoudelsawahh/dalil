@@ -43,13 +43,14 @@ const Layout = ({ children }) => {
 
       <Row style={{padding:' 15px 10px' , width:'100%'}} >
       <Col lg={2} md={12}>
-      <LeftSide AllAds={getAllAdsArray} />
+          <LeftSide AllAds={getAllAdsArray} />
       </Col>
-   
-      <Col lg={8} md={12}  style={{padding:' 10px'}}>
+      <Col lg={8} md={12} style={{padding:' 10px'}}>
       {children}
     </Col>
-    <Col lg={2} md={12} > <RightSide/> </Col>
+    <Col lg={2} md={12}>
+       <RightSide/> 
+     </Col>
     </Row>
         
           <Numbers/>
