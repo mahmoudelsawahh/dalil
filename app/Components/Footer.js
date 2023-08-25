@@ -111,11 +111,11 @@ const Footer = () => {
                       );
                     }}
                   >
-                    <LazyLoadImage style={{width:"75%"}}
+                    {/* <LazyLoadImage style={{width:"75%"}}
                       effect="blur"
                       src="https://www.transparentpng.com/thumb/google-play-logo/clipart-google-play-logo-png-photos-14.png"
                       alt="Clipart Google Play Logo PNG Photos @transparentpng.com"
-                    />
+                    /> */}
                   </div>
                 </li>
               </ul>

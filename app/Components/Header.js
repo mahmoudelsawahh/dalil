@@ -1,6 +1,6 @@
 "use client"
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
 import { LazyLoadComponent } from "react-lazy-load-image-component";
@@ -105,11 +105,11 @@ const Header = ({ Categories }) => {
             <p>ابحث في مدينتك</p>
             <p> تصفح دليل المحلة و الدلتا</p>
           </div>
-            <Container>
+            {/* <Container>
               <div className={styles.header_slider}>
                 <Slider {...settings}>{CategoriesSlick}</Slider>
               </div>
-            </Container>
+            </Container> */}
         </div>
       </div>
     
