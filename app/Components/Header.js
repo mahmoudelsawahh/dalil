@@ -5,7 +5,7 @@ import { LazyLoadComponent } from "react-lazy-load-image-component";
 import styles from "../styles/Home.module.scss";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import mainBg from '/public/img/download.png'
+import mainBg from '/public/img/download.webp'
 const Header = ({ Categories }) => {
   const router = useRouter()
   const settings = {
@@ -83,9 +83,7 @@ const Header = ({ Categories }) => {
         className={styles.img_container}
         // style={{ backgroundImage: `url(${loaded})` }}
       >
-        <LazyLoadComponent>
         <Image src={mainBg} alt="background-deltawy-image" layout="fill" priority/>
-        </LazyLoadComponent>
         <div className={styles.Header_content}>
           <div className={styles.text_contet}>
             <div className={styles.warpper}>
