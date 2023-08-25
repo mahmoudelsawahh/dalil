@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import React, { useEffect } from "react";
 import "react-lazy-load-image-component/src/effects/blur.css";
 // import Footer from './Footer'
-// import { Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 const Header = dynamic(() => import('./Header'), {
   ssr : false
@@ -11,7 +11,9 @@ const Header = dynamic(() => import('./Header'), {
 const NavBar = dynamic(() => import('./NavBar'), {
   ssr : false
 })
-// import LeftSide from './LeftSide';
+const LeftSide = dynamic(() => import('./LeftSide'), {
+  ssr : false
+})
 // import RightSide from './RightSide';
 // import Numbers from './Numbers';
 import { getGatecories } from '@/store/Categories';
@@ -42,18 +44,18 @@ const Layout = ({ children }) => {
        
       <Header Categories={AllCategories} />
 
-      {/* <Row style={{padding:' 15px 10px' , width:'100%'}} >
+      <Row style={{padding:' 15px 10px' , width:'100%'}} >
       <Col lg={2} md={12}>
       <LeftSide AllAds={getAllAdsArray} />
       </Col>
    
-      <Col lg={8} md={12}  style={{padding:' 10px'}}>
+      {/* <Col lg={8} md={12}  style={{padding:' 10px'}}>
       {children}
-    </Col>
-    <Col lg={2} md={12} > <RightSide/> </Col>
+    </Col> */}
+    {/* <Col lg={2} md={12} > <RightSide/> </Col> */}
     </Row>
         
-          <Numbers/>
+          {/* <Numbers/>
 
           <Footer/> */}
           <style jsx global>
