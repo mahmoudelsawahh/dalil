@@ -1,21 +1,12 @@
+"use client"
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
+import { LazyLoadComponent, LazyLoadImage } from "react-lazy-load-image-component";
 import styles from "../styles/Home.module.scss";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
-import mainBg from '/public/img/download.webp'
-import Link from "next/link";
-
-async function catApi() {  
-  const res = await fetch(`https://dalil.deltawy.com/rest/test.category/cats`,{
-    cache : 'no-store',
-    headers : {
-      'Content-Type': 'application/json',
-    },
-  })
-  return res.json()
-}
-const Header = async () => {
-  const Categories = await catApi()
+const Header = ({ Categories }) => {
+  const router = useRouter()
   const settings = {
     cssEase: "linear",
     dots: false,
@@ -62,7 +53,8 @@ const Header = async () => {
       return (
         <div key={id}>
           <div className={styles.slick_Container}>
-          <Link href={`/cat/${ele.id}/${pathname}`} style={{cursor : 'pointer'}}>
+          <div onClick={()=> router.push(`/cat/${ele.id}/${pathname}`)} style={{cursor : 'pointer'}}>
+            <LazyLoadComponent>
             <div
               className={`${styles.img_skick} ${styles.loading_circel}`} style={{textAlign : 'center', display : 'flex', justifyContent : 'center'}}>
               <Image
@@ -73,8 +65,9 @@ const Header = async () => {
                 height={80}
               />
             </div>
+            </LazyLoadComponent>
             <h3>{pathname}</h3>
-            </Link>
+            </div>
           </div>
         </div>
       );
@@ -83,10 +76,12 @@ const Header = async () => {
 
   return (
     <header className={styles.header_container}>
+
+
       <div
         className={styles.img_container}
+        // style={{ backgroundImage: `url(${loaded})` }}
       >
-       <Image src={mainBg} alt="background-deltawy-image" layout="fill" objectFit="cover" objectPosition="center" priority/>
         <div className={styles.Header_content}>
           <div className={styles.text_contet}>
             <div className={styles.warpper}>
