@@ -1,8 +1,11 @@
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";0
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css'
 import { Cairo } from 'next/font/google';
 import ProviderLayout from '@/ProviderLayout'
 import dynamic from 'next/dynamic';
+import Navbar from "./Components/NavBar";
 
 const cairo = Cairo({ 
   subsets: ['latin'] ,
@@ -10,9 +13,9 @@ const cairo = Cairo({
   preload : true
 })
 
-const Layout = dynamic(() => import('./Components/Layout'), {
-  ssr : false
-})
+// const Layout = dynamic(() => import('./Components/Layout'), {
+//   ssr : false
+// })
 
 export const metadata = {
   title: 'دليل المحلة الإلكتروني',
@@ -23,11 +26,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={cairo.className}>
-          <ProviderLayout>
+          {/* <ProviderLayout>
           <Layout>
              {children}
            </Layout>
-          </ProviderLayout>
+          </ProviderLayout> */}
+          <Navbar/>
       </body>
     </html>
   )

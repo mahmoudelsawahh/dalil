@@ -1,6 +1,4 @@
 "use client"
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
 import { LazyLoadComponent } from "react-lazy-load-image-component";

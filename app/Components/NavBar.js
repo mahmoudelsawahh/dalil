@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import {Col } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
@@ -33,7 +34,7 @@ function OffCanvasExample({ ...props }) {
         <RiMenu4Line style={{fontSize:"1.5rem " , color:'#ffffff'}}  />
       </button>
       
-      {/* <LazyLoadComponent>
+      <LazyLoadComponent>
       <Link  href="/" className="d-block d-md-none">
               <div  className={styles.logo}>
               <Image
@@ -46,7 +47,7 @@ function OffCanvasExample({ ...props }) {
               </div>
             </Link>
 
-      </LazyLoadComponent> */}
+      </LazyLoadComponent>
 
       <Offcanvas
         show={show}
