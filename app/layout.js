@@ -27,9 +27,6 @@ export default function RootLayout({ children }) {
       <body className={cairo.className}>
           <ProviderLayout>
              <Navbar/>
-          <Layout>
-             {children}
-           </Layout>
           </ProviderLayout>
       </body>
     </html>
