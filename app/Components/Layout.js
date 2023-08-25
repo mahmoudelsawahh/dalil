@@ -7,7 +7,7 @@ import React, { useEffect } from "react";
 // import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from './NavBar';
-import Header from './Header';
+// import Header from './Header';
 // import Header from './Header';
 // import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
@@ -47,7 +47,7 @@ const Layout = ({ children }) => {
       
       
       <div >
-      <Header Categories={AllCategories} />
+      {/* <Header Categories={AllCategories} /> */}
 
       {/* <Row style={{padding:' 15px 10px' , width:'100%'}} >
       <Col lg={2} md={12}>
