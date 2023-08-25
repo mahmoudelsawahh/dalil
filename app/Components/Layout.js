@@ -11,6 +11,7 @@ import dynamic from "next/dynamic";
 import React, { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
 const Header = dynamic(() => import('./Header'), {
   ssr : false
 })
@@ -52,13 +53,19 @@ const Layout = ({ children }) => {
 
       <Row style={{padding:' 15px 10px' , width:'100%'}} >
       <Col lg={2} md={12}>
-      <LeftSide AllAds={getAllAdsArray} />
+        <LazyLoadComponent>
+            <LeftSide AllAds={getAllAdsArray} />
+        </LazyLoadComponent>
       </Col>
    
       <Col lg={8} md={12}  style={{padding:' 10px'}}>
       {children}
     </Col>
-    <Col lg={2} md={12} > <RightSide/> </Col>
+    <Col lg={2} md={12} > 
+        <LazyLoadComponent>
+             <RightSide/> 
+        </LazyLoadComponent>
+    </Col>
     </Row>
         
           {/* <Numbers/>
