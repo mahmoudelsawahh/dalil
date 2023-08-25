@@ -1,12 +1,8 @@
-import dynamic from 'next/dynamic'
-
-const Home = dynamic(() => import('./Components/Home'), {
-  ssr : false
-})
+// import Home from './Components/Home'
 const page = () => {
   return (
     <>
-      <Home/>
+      {/* <Home/> */}
     </>
   )
 }
