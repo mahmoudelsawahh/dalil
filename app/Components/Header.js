@@ -5,17 +5,19 @@ import Slider from "react-slick";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import  Link  from "next/link";
 import styles from "../styles/Home.module.scss";
+import { useRouter } from "next/router";
 const Header = ({ Categories }) => {
-  const useProgressiveImage = (src) => {
-    const [sourceLoaded, setSourceLoaded] = useState(null);
-    useEffect(() => {
-      const img = new Image();
-      img.src = src;
-      img.onload = () => setSourceLoaded(src);
-    }, [src]);
+  const router = useRouter()
+  // const useProgressiveImage = (src) => {
+  //   const [sourceLoaded, setSourceLoaded] = useState(null);
+  //   useEffect(() => {
+  //     const img = new Image();
+  //     img.src = src;
+  //     img.onload = () => setSourceLoaded(src);
+  //   }, [src]);
 
-    return sourceLoaded;
-  };
+  //   return sourceLoaded;
+  // };
 
   const settings = {
     cssEase: "linear",
@@ -63,17 +65,17 @@ const Header = ({ Categories }) => {
       return (
         <div key={id}>
           <div className={styles.slick_Container}>
-          <Link href={`/subGategories?id=${ele.id}`} key={id} as={`/cat/${ele.id}/${pathname}`}>
+          {/* <Link href={`/subGategories?id=${ele.id}`} key={id} as={`/cat/${ele.id}/${pathname}`}> */}
             <div
-              className={`${styles.img_skick} ${styles.loading_circel}`}>
-              {/* <LazyLoadImage
+              className={`${styles.img_skick} ${styles.loading_circel}`} key={id} onClick={()=> Router.push(`/cat/${ele.id}/${pathname}`)}>
+              <LazyLoadImage
                 effect="blur"
                 src={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}
                 alt={`${ele.name}-categories`}
-              /> */}
+              />
             </div>
             <h3>{pathname}</h3>
-            </Link>
+            {/* </Link> */}
           </div>
         </div>
       );
