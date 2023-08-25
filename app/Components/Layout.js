@@ -6,9 +6,7 @@ import dynamic from "next/dynamic";
 import React, { useEffect } from "react";
 // import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-// import Header from './Header';
-// import Header from './Header';
-// import { LazyLoadComponent } from 'react-lazy-load-image-component';
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
 // const NavBar = dynamic(() => import('./NavBar'), {
 //   ssr : false
@@ -19,9 +17,9 @@ import { useDispatch, useSelector } from "react-redux";
 // const RightSide = dynamic(() => import('./RightSide'), {
 //   ssr : false
 // })
-// const Header = dynamic(() => import('./Header'), {
-//   ssr : false
-// })
+const Header = dynamic(() => import('./Header'), {
+  ssr : false
+})
 // import Numbers from './Numbers';
 // import Footer from './Footer'
 
@@ -43,7 +41,7 @@ const Layout = ({ children }) => {
   return (
     <>      
       <div >
-      {/* <Header Categories={AllCategories} /> */}
+      <Header Categories={AllCategories} />
 
       {/* <Row style={{padding:' 15px 10px' , width:'100%'}} >
       <Col lg={2} md={12}>
