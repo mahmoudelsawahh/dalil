@@ -6,13 +6,14 @@ import dynamic from "next/dynamic";
 import React, { useEffect } from "react";
 // import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import Navbar from './NavBar';
 // import { LazyLoadComponent } from 'react-lazy-load-image-component';
 // const Header = dynamic(() => import('./Header'), {
 //   ssr : false
 // })
-const NavBar = dynamic(() => import('./NavBar'), {
-  ssr : false
-})
+// const NavBar = dynamic(() => import('./NavBar'), {
+//   ssr : false
+// })
 // const LeftSide = dynamic(() => import('./LeftSide'), {
 //   ssr : false
 // })
@@ -39,7 +40,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-    <NavBar/>
+    <Navbar/>
       
       
       <div >
