@@ -1,5 +1,4 @@
 import './globals.css'
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import { Cairo } from 'next/font/google';
 import ProviderLayout from '@/ProviderLayout'
 import dynamic from 'next/dynamic';
