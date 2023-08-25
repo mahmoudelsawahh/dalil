@@ -7,7 +7,7 @@ import React, { useEffect } from "react";
 // import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from './NavBar';
-import Header from './Header';
+// import Header from './Header';
 // import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
 // const NavBar = dynamic(() => import('./NavBar'), {
@@ -19,6 +19,9 @@ import Header from './Header';
 // const RightSide = dynamic(() => import('./RightSide'), {
 //   ssr : false
 // })
+const Header = dynamic(() => import('./Header'), {
+  ssr : false
+})
 // import Numbers from './Numbers';
 // import Footer from './Footer'
 
