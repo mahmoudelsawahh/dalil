@@ -1,5 +1,4 @@
 "use client"
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { getGatecories } from '@/store/Categories';
 import { getAllAds } from '@/store/AdvertisementSlice';
 import { getAllJobs } from '@/store/JobsSlice';
