@@ -1,7 +1,4 @@
 "use client"
-import "react-lazy-load-image-component/src/effects/blur.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { getGatecories } from '@/store/Categories';
 import { getAllAds } from '@/store/AdvertisementSlice';
 import { getAllJobs } from '@/store/JobsSlice';
@@ -11,7 +8,6 @@ import React, { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
-import Meta from "./Meta";
 const Header = dynamic(() => import('./Header'), {
   ssr : false
 })
@@ -51,7 +47,7 @@ const Layout = ({ children }) => {
        
       <Header Categories={AllCategories} />
 
-      <Row style={{padding:' 15px 10px' , width:'100%'}} >
+      {/* <Row style={{padding:' 15px 10px' , width:'100%'}} >
       <Col lg={2} md={12}>
             <LeftSide AllAds={getAllAdsArray} />
       </Col>
@@ -62,7 +58,7 @@ const Layout = ({ children }) => {
     <Col lg={2} md={12} > 
              <RightSide/> 
     </Col>
-    </Row>
+    </Row> */}
         
           {/* <Numbers/>
 
@@ -117,7 +113,7 @@ const Layout = ({ children }) => {
             }
           </style>
       </div>
-            <Meta/>
+
     </>
   )
 }
