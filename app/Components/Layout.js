@@ -1,5 +1,4 @@
 "use client"
-import 'bootstrap/dist/css/bootstrap.min.css';
 import "react-lazy-load-image-component/src/effects/blur.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -12,6 +11,7 @@ import React, { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
+import Meta from "./Meta";
 const Header = dynamic(() => import('./Header'), {
   ssr : false
 })
@@ -117,7 +117,7 @@ const Layout = ({ children }) => {
             }
           </style>
       </div>
-
+            <Meta/>
     </>
   )
 }
