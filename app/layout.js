@@ -6,6 +6,7 @@ import { Cairo } from 'next/font/google';
 import ProviderLayout from '@/ProviderLayout'
 import dynamic from 'next/dynamic';
 import Layout from "./Components/Layout";
+import Navbar from "./Components/NavBar";
 
 const cairo = Cairo({ 
   subsets: ['latin'] ,
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={cairo.className}>
           <ProviderLayout>
+             <Navbar/>
           <Layout>
              {children}
            </Layout>

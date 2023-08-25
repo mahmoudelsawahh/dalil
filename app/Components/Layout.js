@@ -6,7 +6,6 @@ import dynamic from "next/dynamic";
 import React, { useEffect } from "react";
 // import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import Navbar from './NavBar';
 // import Header from './Header';
 // import Header from './Header';
 // import { LazyLoadComponent } from 'react-lazy-load-image-component';
@@ -42,10 +41,7 @@ const Layout = ({ children }) => {
   }, [dispatch]);
 
   return (
-    <>
-    <Navbar/>
-      
-      
+    <>      
       <div >
       {/* <Header Categories={AllCategories} /> */}
 
