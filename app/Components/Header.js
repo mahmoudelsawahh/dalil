@@ -72,7 +72,7 @@ const Header = ({ Categories }) => {
               <Image
                 src={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}
                 alt={`${ele.name}-categories`}
-                priority
+                loading="lazy"
                 width={80}
                 height={80}
               />
