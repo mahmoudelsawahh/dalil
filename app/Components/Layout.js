@@ -1,7 +1,6 @@
 "use client"
 import dynamic from "next/dynamic";
 import React, { useEffect } from "react";
-import "react-lazy-load-image-component/src/effects/blur.css";
 // import Footer from './Footer'
 // import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
