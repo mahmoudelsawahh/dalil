@@ -7,8 +7,9 @@ import { Cairo } from 'next/font/google';
 import ProviderLayout from '@/ProviderLayout'
 import dynamic from 'next/dynamic';
 import Navbar from "./Components/NavBar";
-import Header from "./Components/Header";
-
+ const Header = dynamic(() => import('./Components/Header'), {
+   ssr : false
+ })
 const cairo = Cairo({ 
   subsets: ['latin'] ,
   display : 'swap',
