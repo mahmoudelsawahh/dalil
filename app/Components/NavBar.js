@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import logo from "/public/img/logo.png"
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 const options = [
   {
     scroll: true,
@@ -32,19 +33,20 @@ function OffCanvasExample({ ...props }) {
         <RiMenu4Line style={{fontSize:"1.5rem " , color:'#ffffff'}}  />
       </button>
       
+      <LazyLoadComponent>
       <Link  href="/" className="d-block d-md-none">
               <div  className={styles.logo}>
               <Image
-              effect="blur"
               src={logo}
               alt="logo"
               width='100px'
-              
               style={{width:'120px', height:"auto"}}
+              priority
             />
               </div>
             </Link>
 
+      </LazyLoadComponent>
 
       <Offcanvas
         show={show}
