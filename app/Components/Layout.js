@@ -4,13 +4,14 @@ import React, { useEffect } from "react";
 // import Footer from './Footer'
 // import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-const Header = dynamic(() => import('./Header'), {
-  ssr : false
-})
+// const Header = dynamic(() => import('./Header'), {
+//   ssr : false
+// })
 // import LeftSide from './LeftSide';
 // import RightSide from './RightSide';
 // import Numbers from './Numbers';
 import { getGatecories } from '@/store/Categories';
+import Header from "./Header";
 // import { getAllAds } from '@/store/AdvertisementSlice';
 // import { getAllJobs } from '@/store/JobsSlice';
 const Layout = ({ children }) => {
