@@ -79,13 +79,11 @@ const Header = ({ Categories }) => {
       );
     });
 
-  const loaded = useProgressiveImage(
-    "https://dalil.deltawy.com/javax.faces.resource/main-back.jpg.html?ln=imgs"
-  );
+
   return (
     <header className={styles.header_container}>
 
-    {loaded ? (
+
       <div
         className={styles.img_container}
         // style={{ backgroundImage: `url(${loaded})` }}
@@ -116,7 +114,7 @@ const Header = ({ Categories }) => {
           </Container>
         </div>
       </div>
-    ) : null}
+    
   </header>
   );
 };
