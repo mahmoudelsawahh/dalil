@@ -83,9 +83,7 @@ const Header = ({ Categories }) => {
         className={styles.img_container}
         // style={{ backgroundImage: `url(${loaded})` }}
       >
-        <LazyLoadComponent>
         <Image src={mainBg} alt="background-deltawy-image" layout="fill" objectFit="cover" objectPosition="center" priority/>
-        </LazyLoadComponent>
         <div className={styles.Header_content}>
           <div className={styles.text_contet}>
             <div className={styles.warpper}>
