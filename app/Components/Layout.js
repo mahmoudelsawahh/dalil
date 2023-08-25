@@ -3,10 +3,12 @@ import dynamic from "next/dynamic";
 import React, { useEffect } from "react";
 import "react-lazy-load-image-component/src/effects/blur.css";
 // import Footer from './Footer'
-import NavBar from './NavBar'
 // import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 const Header = dynamic(() => import('./Header'), {
+  ssr : false
+})
+const NavBar = dynamic(() => import('./NavBar'), {
   ssr : false
 })
 // import LeftSide from './LeftSide';

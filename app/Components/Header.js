@@ -1,25 +1,13 @@
 "use client"
-import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
-import { LazyLoadComponent, LazyLoadImage } from "react-lazy-load-image-component";
-import  Link  from "next/link";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 import styles from "../styles/Home.module.scss";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import mainBg from '/public/img/download.png'
 const Header = ({ Categories }) => {
   const router = useRouter()
-  // const useProgressiveImage = (src) => {
-  //   const [sourceLoaded, setSourceLoaded] = useState(null);
-  //   useEffect(() => {
-  //     const img = new Image();
-  //     img.src = src;
-  //     img.onload = () => setSourceLoaded(src);
-  //   }, [src]);
-
-  //   return sourceLoaded;
-  // };
-
   const settings = {
     cssEase: "linear",
     dots: false,
@@ -28,7 +16,7 @@ const Header = ({ Categories }) => {
     slidesToShow: 7,
     slidesToScroll: 1,
     initialSlide: 0,
-    // autoplay: true,
+    autoplay: true,
     rtl: true,
     arrows: false,
     autoplaySpeed: 3000,
@@ -95,6 +83,7 @@ const Header = ({ Categories }) => {
         className={styles.img_container}
         // style={{ backgroundImage: `url(${loaded})` }}
       >
+         <Image src={mainBg} alt="background-deltawy-image" layout="fill" loading="lazy"/>
         <div className={styles.Header_content}>
           <div className={styles.text_contet}>
             <div className={styles.warpper}>
