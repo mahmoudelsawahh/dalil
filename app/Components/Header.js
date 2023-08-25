@@ -1,13 +1,21 @@
-"use client"
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
-import { LazyLoadComponent } from "react-lazy-load-image-component";
 import styles from "../styles/Home.module.scss";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import mainBg from '/public/img/download.webp'
-const Header = ({ Categories }) => {
-  const router = useRouter()
+import Link from "next/link";
+
+async function catApi() {  
+  const res = await fetch(`https://dalil.deltawy.com/rest/test.category/cats`,{
+    cache : 'no-store',
+    headers : {
+      'Content-Type': 'application/json',
+    },
+  })
+  return res.json()
+}
+const Header = async () => {
+  const Categories = await catApi()
   const settings = {
     cssEase: "linear",
     dots: false,
@@ -54,8 +62,7 @@ const Header = ({ Categories }) => {
       return (
         <div key={id}>
           <div className={styles.slick_Container}>
-          <div onClick={()=> router.push(`/cat/${ele.id}/${pathname}`)} style={{cursor : 'pointer'}}>
-            <LazyLoadComponent>
+          <Link href={`/cat/${ele.id}/${pathname}`} style={{cursor : 'pointer'}}>
             <div
               className={`${styles.img_skick} ${styles.loading_circel}`} style={{textAlign : 'center', display : 'flex', justifyContent : 'center'}}>
               <Image
@@ -66,9 +73,8 @@ const Header = ({ Categories }) => {
                 height={80}
               />
             </div>
-            </LazyLoadComponent>
             <h3>{pathname}</h3>
-            </div>
+            </Link>
           </div>
         </div>
       );
@@ -80,9 +86,7 @@ const Header = ({ Categories }) => {
       <div
         className={styles.img_container}
       >
-       <LazyLoadComponent>
        <Image src={mainBg} alt="background-deltawy-image" layout="fill" objectFit="cover" objectPosition="center" priority/>
-       </LazyLoadComponent>
         <div className={styles.Header_content}>
           <div className={styles.text_contet}>
             <div className={styles.warpper}>
