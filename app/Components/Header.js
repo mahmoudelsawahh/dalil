@@ -54,7 +54,6 @@ const Header = () => {
 
       <div
         className={`${styles.img_container} headerResponsive`} 
-        // style={{ backgroundImage: `url(${loaded})` }}
       >
         <Image src={mainBg} alt="deltawy" layout="fill" objectFit="cover" priority/>
         <div className={styles.Header_content}>
