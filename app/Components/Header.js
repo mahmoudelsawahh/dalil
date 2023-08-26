@@ -1,13 +1,13 @@
 "use client"
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import 'swiper/css';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Container } from "react-bootstrap";
-import Slider from "react-slick";
 import styles from "../styles/Home.module.scss";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import mainBg from '/public/img/download.webp'
 import { useEffect, useState } from "react";
+import { Autoplay } from 'swiper';
 const Header = () => {
   const [Categories , setCategories] = useState(null)
 
@@ -21,51 +21,13 @@ const Header = () => {
   }, [])
 
   const router = useRouter()
-  const settings = {
-    cssEase: "linear",
-    dots: false,
-    infinite: true,
-    speed: 3000,
-    slidesToShow: 7,
-    slidesToScroll: 1,
-    initialSlide: 0,
-    autoplay: true,
-    rtl: true,
-    arrows: false,
-    autoplaySpeed: 3000,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
 
   const CategoriesSlick =
     Categories?.length > 0 &&
     Categories?.map((ele, id) => {
       const pathname = ele.name.replace(/-/gi, "-");
       return (
-        <div key={id}>
+        <SwiperSlide key={id}>
           <div className={styles.slick_Container}>
           <div onClick={()=> router.push(`/cat/${ele.id}/${pathname}`)} style={{cursor : 'pointer'}}>
             <div
@@ -81,7 +43,7 @@ const Header = () => {
             <h3>{pathname}</h3>
             </div>
           </div>
-        </div>
+        </SwiperSlide>
       );
     });
 
@@ -114,11 +76,33 @@ const Header = () => {
             <p>ابحث في مدينتك</p>
             <p> تصفح دليل المحلة و الدلتا</p>
           </div>
-            {/* <Container>
+            <Container>
               <div className={styles.header_slider}>
-                <Slider {...settings}>{CategoriesSlick}</Slider>
+                <Swiper
+                  slidesPerView={2}
+                     autoplay={{
+                      delay: 2500,
+                      disableOnInteraction: false,
+                    }}
+                    breakpoints={{
+                      640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                      },
+                      768: {
+                        slidesPerView: 4,
+                        spaceBetween: 40,
+                      },
+                      1024: {
+                        slidesPerView: 5,
+                        spaceBetween: 50,
+                      },
+                    }}
+                    modules={[Autoplay]}
+                    className="mySwiper"
+                >{CategoriesSlick}</Swiper>
               </div>
-            </Container> */}
+            </Container>
         </div>
       </div>
     
