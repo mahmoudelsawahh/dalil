@@ -1,9 +1,12 @@
 "use client"
 import dynamic from "next/dynamic";
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import Header from "./Header";
 import LazyLoad from "react-lazyload";
+import { usePathname } from 'next/navigation';
+import { useDispatch, useSelector } from "react-redux";
+import { getGatecories } from "@/store/Categories";
 
 
 const LeftSide = dynamic(() => import('./LeftSide'), {
@@ -19,11 +22,25 @@ const Footer = dynamic(() => import('./Footer'), {
   ssr : false
 })
 const Layout = ({ children}) => {
+  const dispatch = useDispatch();
+  const getParam  = usePathname();
+  const param = getParam.split('/')
+  console.log(param)
+  const { AllCategories, isLoading } = useSelector(
+    (state) => state.categoriesMenu
+  );
+  useEffect(() => {
+    dispatch(getGatecories());
+  }, [dispatch]);
 
   return (
     <>      
       <div>
-           <Header />
+           {
+            param[2] === "id" || param[1] === "sapesficCategory"? 
+            null
+            : <Header Categories={AllCategories}/>
+           }
       <Row style={{padding:' 15px 10px' , width:'100%'}} >
       <Col lg={2} md={12}>
          <LazyLoad height={"100%"} once>

@@ -2,7 +2,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBranches } from "../../../store/Categories";
-import Head from "next/head"  
 import styles from  "../../styles/Home.module.scss";
 import SubGategoriesSlick from "../../Components/subGategoriesSlick";
 import Cat from "../../Components/Cat";
@@ -66,8 +65,7 @@ const SubGategories = ({ Categories, params }) => {
 
       <div className={styles.sub_gateogry}>
         <div>
-          {MinTitle}
-            <SubGategoriesSlick Categories={AllCategories} id={id}/>
+          
             <Cat branches={ALLBranches}
             //  type={router.query.type} 
             // type={133} 
