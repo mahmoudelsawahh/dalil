@@ -1,18 +1,31 @@
 "use client"
+import dynamic from "next/dynamic";
 import React, {  useEffect } from "react";
-import {
-  LazyLoadImage,
-  LazyLoadComponent,
-} from "react-lazy-load-image-component";
 import styles from "/app/styles/Home.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { getLastBranches } from "/store/Categories";
 import  Link  from "next/link";
-import LastBranches from "./LastBranches";
-import HandelLastBranch from "./HandelLastBranch";
-import LastViewsSlick from "./LastViewsSlick";
-import DirectoryItems from "./DirectoryItems";
+const LastBranches = dynamic(() => import('./LastBranches'), {
+  ssr : false
+})
+const HandelLastBranch = dynamic(() => import('./HandelLastBranch'), {
+  ssr : false
+})
+const DirectoryItems = dynamic(() => import('./DirectoryItems'), {
+  ssr : false
+})
+const LastViewsSlick = dynamic(() => import('./LastViewsSlick'), {
+  ssr : false
+})
+import { getGatecories } from "@/store/Categories";
+import Image from "next/image";
 const Home = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getLastBranches());
+    dispatch(getGatecories())
+
+  }, [dispatch]);
   const { AllCategories } = useSelector((state) => state.categoriesMenu);
   const CategoriesColumn =
   AllCategories?.length > 0
@@ -22,12 +35,11 @@ const Home = () => {
               <div className={styles.card_image_rad} key={id}>
                  <Link href={`/cat/${ele.id}/${ele.name}`} key={id} as={`/cat/${ele.id}/${ele.name}`}>
                   <div className={styles.card_image}>
-                    <LazyLoadImage
-                      effect="blur"
+                    <Image
                       src={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}
                       alt={`${ele.name}-categories`}
-                      width="360px"
-                      height="250px"
+                      width={360}
+                      height={250}
                     />
                   </div>
                   <h4>{pathname}</h4>
@@ -37,10 +49,6 @@ const Home = () => {
           );
         })
       : "loading....";
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getLastBranches());
-  }, [dispatch]);
 
   return (
     <div>
@@ -74,18 +82,14 @@ const Home = () => {
               })
             : "loading...."
           }
-      <div  style={{direction:'rtl'}}>    
+      <div style={{direction:'rtl'}}>    
         <LastBranches/>
         <section style={{textAlign:'center'}}>
           <h2 className={styles.main_title} >تصفح ادلة الدليل</h2>
-          <LazyLoadComponent>
             <div className={styles.card_image_rad_flex}>{CategoriesColumn}</div>
-          </LazyLoadComponent>
           <HandelLastBranch />
           <LastViewsSlick />
-          <LazyLoadComponent>
             <DirectoryItems Categories={AllCategories} />
-          </LazyLoadComponent>
         </section>
       </div>
     </React.Fragment>

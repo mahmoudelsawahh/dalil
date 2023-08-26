@@ -92,6 +92,11 @@ a:hover {
   color: #fff !important;
 }
 
+@media (max-width: 767.98px) { 
+  .headerResponsive{
+    height: 100vh !important;
+  }  
+ }
 
 
 

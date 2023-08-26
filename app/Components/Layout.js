@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
 
   return (
     <>      
-      <div >
+      <div>
            <Header />
       <Row style={{padding:' 15px 10px' , width:'100%'}} >
       <Col lg={2} md={12}>
@@ -31,7 +31,9 @@ const Layout = ({ children }) => {
          </LazyLoad>
       </Col>
       <Col lg={8} md={12} style={{padding:' 10px'}}>
-      {children}
+       <LazyLoad height={"100%"} once>
+       {children}
+       </LazyLoad>
     </Col>
     <Col lg={2} md={12}>
        <LazyLoad height={"100%"} once>
@@ -97,4 +99,3 @@ const Layout = ({ children }) => {
 }
 
 export default Layout;
-
