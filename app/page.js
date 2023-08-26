@@ -1,8 +1,8 @@
-// import Home from './Components/Home'
+import Home from './Components/Home'
 const page = () => {
   return (
     <>
-      {/* <Home/> */}
+      <Home/>
     </>
   )
 }
