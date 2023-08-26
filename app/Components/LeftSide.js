@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/inline-script-id */
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import {LazyLoadComponent} from "react-lazy-load-image-component";
 import styles from  "../styles/Home.module.scss";
 import { getRightFrinds } from "../../store/FriendsSlice";
 import Link from "next/link";
 import Script from "next/script";
 import Image from 'next/image';
 import deltawyBanner from '/public/img/deltawy.gif.gif'
+import LazyLoad from 'react-lazyload';
 const RightSide = () => {
   const [date, setDate] = useState(new Date());
 
@@ -79,7 +79,7 @@ const RightSide = () => {
       
       <aside className={styles.side_nave}>
         <div  className={styles.side_nave_img_delt}>
-        <LazyLoadComponent>
+        <LazyLoad height={"100%"} once>
           <Image
               src={deltawyBanner}
               alt="deltawy"
@@ -89,14 +89,14 @@ const RightSide = () => {
               loading='lazy'
               className={styles.side_nave_img_delt}
             />
-        </LazyLoadComponent>
+        </LazyLoad>
         </div>
         <div className={`${styles.display_fflex} ${styles.jobs_side}`}   >
           <h3 className={styles.hthree}>اخر الوظائف</h3>
           <div  className={styles.Links}>{SideJobs}</div>
         </div>
 
-        <LazyLoadComponent>
+        <LazyLoad height={"100%"} once>
          
           <div  className={`${styles.display_fflex} ${styles.friends}`}  >
             <h3 className={`${styles.display_friends} ${styles.friends}`} >مواقع صديقة</h3>
@@ -107,7 +107,7 @@ const RightSide = () => {
                
             </div>
           </div>
-        </LazyLoadComponent>
+        </LazyLoad>
       </aside>
     </React.Fragment>
   );

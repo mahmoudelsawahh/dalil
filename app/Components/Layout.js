@@ -1,12 +1,11 @@
 "use client"
 import dynamic from "next/dynamic";
-import React, { useEffect } from "react";
+import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { getGatecories } from '@/store/Categories';
 import Header from "./Header";
-import { getAllAds } from '@/store/AdvertisementSlice';
-import { getAllJobs } from '@/store/JobsSlice';
+import LazyLoad from "react-lazyload";
+// import { getAllAds } from '@/store/AdvertisementSlice';
+// import { getAllJobs } from '@/store/JobsSlice';
 
 
 const LeftSide = dynamic(() => import('./LeftSide'), {
@@ -22,34 +21,26 @@ const Footer = dynamic(() => import('./Footer'), {
   ssr : false
 })
 const Layout = ({ children }) => {
-  
-  const dispatch = useDispatch();
-  const { AllCategories, isLoading } = useSelector(
-    (state) => state.categoriesMenu
-  );
-  const { isLoadingAds, getAllAdsArray } = useSelector((state) => state.Ads);
-  
-  useEffect(() => {
-    dispatch(getGatecories());
-    dispatch(getAllAds());
-    dispatch(getAllJobs());
-  }, [dispatch]);
 
   return (
     <>      
       <div >
-       
-      <Header Categories={AllCategories} />
-
+       <LazyLoad height={"100%"} once>
+           <Header />
+       </LazyLoad>
       <Row style={{padding:' 15px 10px' , width:'100%'}} >
       <Col lg={2} md={12}>
-          <LeftSide AllAds={getAllAdsArray} />
+         <LazyLoad height={"100%"} once>
+             <LeftSide />
+         </LazyLoad>
       </Col>
       <Col lg={8} md={12} style={{padding:' 10px'}}>
       {children}
     </Col>
     <Col lg={2} md={12}>
+       <LazyLoad height={"100%"} once>
        <RightSide/> 
+       </LazyLoad>
      </Col>
     </Row>
         

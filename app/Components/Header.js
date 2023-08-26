@@ -1,14 +1,26 @@
 "use client"
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
-import { LazyLoadComponent } from "react-lazy-load-image-component";
 import styles from "../styles/Home.module.scss";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import mainBg from '/public/img/download.webp'
-const Header = ({ Categories }) => {
+import { useEffect, useState } from "react";
+import LazyLoad from "react-lazyload";
+const Header = () => {
+  const [Categories , setCategories] = useState(null)
+
+  useEffect(() => {
+    fetch(`https://dalil.deltawy.com/rest/test.category/cats`,{
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setCategories(data)
+      })
+  }, [])
+
   const router = useRouter()
   const settings = {
     cssEase: "linear",
@@ -57,7 +69,7 @@ const Header = ({ Categories }) => {
         <div key={id}>
           <div className={styles.slick_Container}>
           <div onClick={()=> router.push(`/cat/${ele.id}/${pathname}`)} style={{cursor : 'pointer'}}>
-            <LazyLoadComponent>
+            <LazyLoad height={"100%"} once>
             <div
               className={`${styles.img_skick} ${styles.loading_circel}`} style={{textAlign : 'center', display : 'flex', justifyContent : 'center'}}>
               <Image
@@ -68,7 +80,7 @@ const Header = ({ Categories }) => {
                 height={80}
               />
             </div>
-            </LazyLoadComponent>
+            </LazyLoad>
             <h3>{pathname}</h3>
             </div>
           </div>
@@ -105,11 +117,11 @@ const Header = ({ Categories }) => {
             <p>ابحث في مدينتك</p>
             <p> تصفح دليل المحلة و الدلتا</p>
           </div>
-            {/* <Container>
+            <Container>
               <div className={styles.header_slider}>
                 <Slider {...settings}>{CategoriesSlick}</Slider>
               </div>
-            </Container> */}
+            </Container>
         </div>
       </div>
     
