@@ -40,8 +40,8 @@ const Layout = ({ children }) => {
      </Col>
     </Row>
         
-          {/* <Numbers/>
-          <Footer/> */}
+          <Numbers/>
+          <Footer/>
           <style jsx global>
             {
               `
