@@ -4,8 +4,6 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import Header from "./Header";
 import LazyLoad from "react-lazyload";
-// import { getAllAds } from '@/store/AdvertisementSlice';
-// import { getAllJobs } from '@/store/JobsSlice';
 
 
 const LeftSide = dynamic(() => import('./LeftSide'), {

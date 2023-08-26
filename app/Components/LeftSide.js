@@ -9,16 +9,20 @@ import Script from "next/script";
 import Image from 'next/image';
 import deltawyBanner from '/public/img/deltawy.gif.gif'
 import LazyLoad from 'react-lazyload';
+import { getAllAds } from '@/store/AdvertisementSlice';
+import { getAllJobs } from '@/store/JobsSlice';
 const RightSide = () => {
+  const dispatch = useDispatch();
   const [date, setDate] = useState(new Date());
-
   useEffect(() => {
+    dispatch(getAllAds())
+    dispatch(getAllJobs())
     const interval = setInterval(() => {
       setDate(new Date());
     }, 1000);
     return () => clearInterval(interval);
-  }, []);
-  const dispatch = useDispatch();
+  }, [dispatch]);
+
   const  { AllJobs }  = useSelector((state) => state.JobSlice);
   const fristGroupArray = useSelector((state) => state.FriendsSlice.fristGroupArray);
     const SideJobs = AllJobs
