@@ -97,14 +97,18 @@ a:hover {
     height: 100vh !important;
   }  
  } */
-.headerResponsive{
+/* .headerResponsive{
+  height: 100vh !important;
+} */
+
+
+
+.activePath{
   height: 100vh !important;
 }
-
-
-
-
-
+.notActive{
+  height: auto !important;
+}
 
 
 

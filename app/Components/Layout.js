@@ -18,7 +18,7 @@ const Numbers = dynamic(() => import('./Numbers'), {
 const Footer = dynamic(() => import('./Footer'), {
   ssr : false
 })
-const Layout = ({ children }) => {
+const Layout = ({ children}) => {
 
   return (
     <>      

@@ -8,9 +8,9 @@ import Image from "next/image";
 import mainBg from '/public/img/download.webp'
 import { useEffect, useState } from "react";
 import { Autoplay } from 'swiper';
-const Header = () => {
+const Header = ({params}) => {
   const [Categories , setCategories] = useState(null)
-
+  const [locationStyle , setLocationStyle] = useState('activePath');
   useEffect(() => {
     fetch(`https://dalil.deltawy.com/rest/test.category/cats`,{
     })
@@ -18,6 +18,7 @@ const Header = () => {
       .then((data) => {
         setCategories(data)
       })
+      setLocationStyle(window.location.pathname)
   }, [])
 
   const router = useRouter()
@@ -50,10 +51,8 @@ const Header = () => {
 
   return (
     <header className={styles.header_container}>
-
-
       <div
-        className={`${styles.img_container} headerResponsive`} 
+        className={`${styles.img_container} ${locationStyle === '/' ? 'activePath' : 'notActive'}`} 
       >
         <Image src={mainBg} alt="deltawy" layout="fill" objectFit="cover" priority/>
         <div className={styles.Header_content}>
