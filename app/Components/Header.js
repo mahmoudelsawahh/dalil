@@ -1,6 +1,6 @@
 "use client"
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
 import styles from "../styles/Home.module.scss";
@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import mainBg from '/public/img/download.webp'
 import { useEffect, useState } from "react";
-import LazyLoad from "react-lazyload";
 const Header = () => {
   const [Categories , setCategories] = useState(null)
 
@@ -115,11 +114,11 @@ const Header = () => {
             <p>ابحث في مدينتك</p>
             <p> تصفح دليل المحلة و الدلتا</p>
           </div>
-            <Container>
+            {/* <Container>
               <div className={styles.header_slider}>
                 <Slider {...settings}>{CategoriesSlick}</Slider>
               </div>
-            </Container>
+            </Container> */}
         </div>
       </div>
     
