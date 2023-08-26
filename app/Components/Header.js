@@ -69,7 +69,6 @@ const Header = () => {
         <div key={id}>
           <div className={styles.slick_Container}>
           <div onClick={()=> router.push(`/cat/${ele.id}/${pathname}`)} style={{cursor : 'pointer'}}>
-            <LazyLoad height={"100%"} once>
             <div
               className={`${styles.img_skick} ${styles.loading_circel}`} style={{textAlign : 'center', display : 'flex', justifyContent : 'center'}}>
               <Image
@@ -80,7 +79,6 @@ const Header = () => {
                 height={80}
               />
             </div>
-            </LazyLoad>
             <h3>{pathname}</h3>
             </div>
           </div>
@@ -94,7 +92,7 @@ const Header = () => {
 
 
       <div
-        className={styles.img_container}
+        className={`${styles.img_container} headerResponsive`} 
         // style={{ backgroundImage: `url(${loaded})` }}
       >
         <Image src={mainBg} alt="deltawy" layout="fill" objectFit="cover" priority/>

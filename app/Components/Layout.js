@@ -25,9 +25,7 @@ const Layout = ({ children }) => {
   return (
     <>      
       <div >
-       <LazyLoad height={"100%"} once>
            <Header />
-       </LazyLoad>
       <Row style={{padding:' 15px 10px' , width:'100%'}} >
       <Col lg={2} md={12}>
          <LazyLoad height={"100%"} once>
@@ -39,7 +37,7 @@ const Layout = ({ children }) => {
     </Col>
     <Col lg={2} md={12}>
        <LazyLoad height={"100%"} once>
-       <RightSide/> 
+           <RightSide/> 
        </LazyLoad>
      </Col>
     </Row>

@@ -4,9 +4,7 @@
   position: relative;
   width: 100%;
   // min-height: 70vh;
-  height: auto;
   padding-bottom: 20px;
-
   &::after {
     content: '';
     width: 100%;
@@ -265,3 +263,6 @@
     padding: 10px;
   }
 }
+
+
+

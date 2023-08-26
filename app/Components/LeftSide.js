@@ -1,3 +1,4 @@
+"use client"
 /* eslint-disable @next/next/inline-script-id */
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
