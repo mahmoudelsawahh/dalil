@@ -85,7 +85,7 @@ const HandelLastBranch = () => {
             className={styles.StaticSlik }
             
           >
-          <Link href={`/sapesficCategory?id=${ele.id}/${pathname}/${pathcatName}`} key={idx} passHref as={`/sapesficCategory/${ele.id}/${pathname}/${pathcatName}`}>
+          <Link href={`/page?id=${ele.id}/${pathname}/${pathcatName}`} key={idx} passHref as={`/page/${ele.id}/${pathname}/${pathcatName}`}>
             <div>
               <div  className={styles.content_container}>
                 <div className={styles.img_container_lastbarnch }>

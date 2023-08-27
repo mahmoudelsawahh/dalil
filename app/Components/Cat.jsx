@@ -34,7 +34,7 @@ import styles from "../styles/Home.module.scss";
         {branches?.map((branch , id) => {
           const pathname = branch.name.replace(/-/g, " ");
           return (
-            <Link key={id} href={`/sapesficCategory?id=${branch.id}`} as={`/page/${branch.id}/${branch.name.replace(/\s+/g, '-')}`}>
+            <Link key={id} href={`/page/${branch.id}/${branch.name.replace(/\s+/g, '-')}`}>
            <LazyLoadComponent key={branch.id}>
            <div
              md={12}

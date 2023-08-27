@@ -61,7 +61,7 @@ const LastBranches = () => {
             key={idx}
              className={styles.lastbranches_top_container}
           >
-            <Link href={`/sapesficCategory?id=${ele.id}/${pathname}/${pathcatName}`} key={idx} as={`sapesficCategory/${ele.id}/${pathname}/${pathcatName}`}>
+            <Link href={`/page?id=${ele.id}/${pathname}/${pathcatName}`} key={idx} as={`page/${ele.id}/${pathname}/${pathcatName}`}>
             <div  className={styles.content_container}>
             
               <p>{ele.name}</p>

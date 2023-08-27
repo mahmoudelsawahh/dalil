@@ -23,6 +23,8 @@ import Link from "next/link";
 import Script from "next/script"  
 
 import Branche from "/app/Components/branche"
+import Image from "next/image";
+import LazyLoad from "react-lazyload";
  const SapesficCategory = ({params}) => {
   const [val1, setVal1] = useState(null);
   const  id  = params.id[0];
@@ -52,11 +54,17 @@ import Branche from "/app/Components/branche"
   const clientDescrip = ALLClientDetails ? (
     <div  className={styles.client_descrip}>
       <div className={styles.image_header}>
-        <LazyLoadImage
+        {/* <LazyLoadImage
           effect="blur"
           src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.logo}&type=tab`}
           alt={ALLClientDetails.name}
           // placeholderSrc={process.env.PUBLIC_URL + loading}
+        /> */}
+        <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.logo}&type=tab`} 
+           alt={ALLClientDetails.name}
+           loading="lazy"
+           width={120}
+           height={120}
         />
       </div>
       <h2>{ALLClientDetails.name}</h2>
@@ -72,7 +80,6 @@ import Branche from "/app/Components/branche"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {" "}
                 <FaPhone />
               </Link>
             </span>
@@ -128,11 +135,16 @@ import Branche from "/app/Components/branche"
   ) : null;
 
   const ImageHeader = ALLClientDetails ? (
-    <LazyLoadImage
-      effect="blur"
-      src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`}
-      alt={ALLClientDetails.name}
-      placeholderSrc={process.env.PUBLIC_URL + loading}
+    // <LazyLoadImage
+    //   effect="blur"
+    //   src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`}
+    //   alt={ALLClientDetails.name}
+    //   placeholderSrc={process.env.PUBLIC_URL + loading}
+    // />
+    <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} alt={ALLClientDetails.name}
+      loading="lazy"
+      layout="fill"
+
     />
   ) : null;
   return (
@@ -185,8 +197,8 @@ import Branche from "/app/Components/branche"
         <link rel="icon" type="image/x-icon" href={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} />
       </head>
       ) : null}
-      <div  className={styles.image_header}>{ImageHeader}</div>
-      <div  className={styles.client_content_container}>
+      <div  className={styles.image_header} style={{height : '250px'}}>{ImageHeader}</div>
+      {/* <div  className={styles.client_content_container}>
         <div  className={styles.grid_section}>
           <div  className={styles.section_right}>
             {clientDescrip}
@@ -244,7 +256,7 @@ import Branche from "/app/Components/branche"
             <div className={styles.servises}>
               <h3> فيديو</h3>
             </div>
-            <LazyLoadComponent>
+            <LazyLoad height={'100%'} once>
               <div className={styles.servises}>
                 <h3> التقييمات </h3>
                 <div className={styles.rating_section}>
@@ -288,8 +300,8 @@ import Branche from "/app/Components/branche"
                   </div>
                 </div>
               </div>
-            </LazyLoadComponent>
-            <LazyLoadComponent>
+            </LazyLoad>
+            <LazyLoad height={"100%"} once>
               <div className={styles.comment_section}>
                 <div className={`${styles.stars} ${styles.comment_stars}`}>
                   <Rating value={val1} onChange={(e) => setVal1(e.value)} style={{display:"flex" , flexDirection:'row', color: '#FFDD66' ,gap:'.4rem'}}/>
@@ -303,7 +315,7 @@ import Branche from "/app/Components/branche"
                   />
                 </FloatingLabel>
               </div>
-            </LazyLoadComponent>
+            </LazyLoad>
           </div>
           <div  className={styles.section_left}>
             <div  className={styles.test}>
@@ -312,17 +324,18 @@ import Branche from "/app/Components/branche"
                 </LazyLoadComponent>
             </div>
             {ALLClientDetails ? (
-              <LazyLoadComponent>
+              <LazyLoad height={"100%"} once>
                 <div  className={styles.Facebook_iframe_container}>
                   <h2 className="text-center" >تابعنا علي صفحتنا </h2>
                   <iframe
                     src={`https://www.facebook.com/plugins/page.php?href=${ALLClientDetails.face}%2Ffacebook&tabs=timeline&width=300&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId`}
                     style={{ width: "300px", height: "500px" }}
                     scrolling="no"
-                    frameBorder="0"
+                    frameBorderr="0"
                     allowFullScreen={true}
                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                     title="Facebook"
+                    loading="lazy"
                   />
                 </div>
                 <div  className={styles.Views_section}>
@@ -330,12 +343,14 @@ import Branche from "/app/Components/branche"
                   <ImEye />
                   <p>{ALLClientDetails.views}</p>
                 </div>
-              </LazyLoadComponent>
+              </LazyLoad>
             ) : null}
           </div>
         </div>
-      </div>
-      <MatchBranchesContainer id={id} />
+      </div> */}
+     <LazyLoad height={"100%"} once>
+        <MatchBranchesContainer id={id} />
+     </LazyLoad>
     </div>
   );
 };

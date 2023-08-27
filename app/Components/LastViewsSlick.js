@@ -92,7 +92,7 @@ const LastViewsSlick = () => {
            className={styles.StaticSlik}
             
           >
-            <Link href={`/sapesficCategory?id=${ele.id}/${pathname}/${pathCatName}`} key={idx} as={`/page/${ele.id}/${pathname}/${pathCatName}`}>
+            <Link href={`/page?id=${ele.id}/${pathname}/${pathCatName}`} key={idx} as={`/page/${ele.id}/${pathname}/${pathCatName}`}>
             <div  className={styles.content_container}>
               <div  className={styles.img_container_lastbarnch}>
                 <LazyLoadImage

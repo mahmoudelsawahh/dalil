@@ -99,7 +99,7 @@ const MatchBranchesContainer = ({ id }) => {
              className={styles.StaticSlik}
       
           >
-            <Link  href={`/sapesficCategory?id=${ele.id}/${pathname}/${pathcatName}`} key={idx} as={`/sapesficCategory/${ele.id}/${pathname}/${pathcatName}`}>
+            <Link  href={`/page?id=${ele.id}/${pathname}/${pathcatName}`} key={idx} as={`/page/${ele.id}/${pathname}/${pathcatName}`}>
             <div  className={styles.content_container}>
               <div  className={styles.img_container_lastbarnch}>
                 <Image
