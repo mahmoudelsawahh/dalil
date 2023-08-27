@@ -54,12 +54,6 @@ import LazyLoad from "react-lazyload";
   const clientDescrip = ALLClientDetails ? (
     <div  className={styles.client_descrip}>
       <div className={styles.image_header}>
-        {/* <LazyLoadImage
-          effect="blur"
-          src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.logo}&type=tab`}
-          alt={ALLClientDetails.name}
-          // placeholderSrc={process.env.PUBLIC_URL + loading}
-        /> */}
         <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.logo}&type=tab`} 
            alt={ALLClientDetails.name}
            loading="lazy"
@@ -135,12 +129,6 @@ import LazyLoad from "react-lazyload";
   ) : null;
 
   const ImageHeader = ALLClientDetails ? (
-    // <LazyLoadImage
-    //   effect="blur"
-    //   src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`}
-    //   alt={ALLClientDetails.name}
-    //   placeholderSrc={process.env.PUBLIC_URL + loading}
-    // />
     <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} alt={ALLClientDetails.name}
       layout="fill"
     priority={true}
@@ -200,13 +188,16 @@ import LazyLoad from "react-lazyload";
       <div  className={styles.client_content_container}>
         <div  className={styles.grid_section}>
           <div  className={styles.section_right}>
-            {clientDescrip}
+                <div style={{minHeight : '300px'}}>
+                   {clientDescrip}
+                </div>
             <div  className={styles.ImageList_container}>
               <LazyLoadComponent>
                 <Carousel fade>{imageCarousel}</Carousel>
               </LazyLoadComponent>
             </div>
-            {ALLClientDetails ? (
+     <LazyLoad height={"100%"} once>
+     {ALLClientDetails ? (
                 <div  className={styles.detials_container} >
                   <h2>{ALLClientDetails.name}</h2>
                   <p>{ALLClientDetails.description}</p>
@@ -247,6 +238,7 @@ import LazyLoad from "react-lazyload";
                   </div>
                 </div>
             ) : null}
+     </LazyLoad>
           <LazyLoad height={"100%"} once>
           <div className={styles.servises} >
               <h3>الخدمات المتاحة</h3>
