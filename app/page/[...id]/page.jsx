@@ -348,7 +348,7 @@ import LazyLoad from "react-lazyload";
         </div>
       </div> */}
      <LazyLoad height={"100%"} once>
-        {/* <MatchBranchesContainer id={id} /> */}
+        <MatchBranchesContainer id={id} />
      </LazyLoad>
     </div>
   );
