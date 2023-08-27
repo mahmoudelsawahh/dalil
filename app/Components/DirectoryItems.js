@@ -40,7 +40,7 @@ const DirectoryItems = ({ Categories }) => {
                   {ele.catList?.map((e, id) => {
                     const pathname = e.name.replace(/-/g, " ");
                     return (
-                      <Link href={`/subGategories?id=${ele.id}/allBranches/${e.name}`} key={id} as={`/subGategories/${ele.id}/allBranches/${e.name}`}>
+                      <Link style={{color : '#024878'}} href={`/subGategories?id=${ele.id}/allBranches/${e.name}`} key={id} as={`/subGategories/${ele.id}/allBranches/${e.name}`}>
                     
                       <div
                         key={id}

@@ -93,9 +93,7 @@ const Home = () => {
         </section>
       </div>
     </React.Fragment>
-    
     </div>
-   
   );
 };
 

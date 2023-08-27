@@ -37,17 +37,17 @@ const Layout = ({ children}) => {
     <>      
       <div>
            {
-            param[2] === "id" || param[1] === "sapesficCategory"? 
+            param[1] === "page" || param[1] === "sapesficCategory"? 
             null
             : <Header Categories={AllCategories}/>
            }
-      <Row style={{padding:' 15px 10px' , width:'100%'}} >
-      <Col lg={2} md={12}>
+      <Row style={{width:'100%', margin : 0 , padding : '40px 0px'}} >
+      <Col lg={2} md={12} className="d-none d-md-flex">
          <LazyLoad height={"100%"} once>
              <LeftSide />
          </LazyLoad>
       </Col>
-      <Col lg={8} md={12} style={{padding:' 10px'}}>
+      <Col lg={8} md={12}>
        <LazyLoad height={"100%"} once>
        {children}
        </LazyLoad>

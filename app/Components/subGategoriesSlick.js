@@ -75,7 +75,7 @@ const SubGategoriesSlick = ({ Categories, id}) => {
               className={styles.slick_Container}
               style={{ textAlign: "center" }}
             >
-              <Link key={e.id} href={`/subGategories?id=${e.id}/${pathname}`} as={`/page/${e.id}/${e.name.replace(/\s+/g, '-')}`}>
+              <Link key={e.id} href={`/subGategories?id=${e.id}/${pathname}`} as={`/cat/${e.id}/${e.name.replace(/\s+/g, '-')}`}>
                 <section className={styles.img_skick}>
                   <div className={`${styles.img_skick} ${styles.loading_circel}`}>
                     <LazyLoadImage

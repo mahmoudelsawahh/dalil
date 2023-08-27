@@ -65,8 +65,7 @@ const SubGategories = ({ Categories, params }) => {
         <div>
           {MinTitle}
             <SubGategoriesSlick Categories={AllCategories} id={id}/>
-            <Cat branches={ALLBranches}
-             />
+            <Cat branches={ALLBranches} />
         </div>
       </div>
     </React.Fragment>

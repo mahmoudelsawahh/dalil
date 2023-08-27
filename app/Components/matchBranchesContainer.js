@@ -8,12 +8,12 @@ import {
   LazyLoadImage,
   LazyLoadComponent,
 } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
 import { Rating } from "primereact/rating";
 // import { getLastViews } from "../../../store/Categories";
 import { getMatchBranch } from "/store/Categories";
 import styles from  "../styles/Home.module.scss";
 import  Link  from "next/link";
+import Image from "next/image";
 
 const MatchBranchesContainer = ({ id }) => {
   // const navigate = useNavigate();
@@ -102,12 +102,11 @@ const MatchBranchesContainer = ({ id }) => {
             <Link  href={`/sapesficCategory?id=${ele.id}/${pathname}/${pathcatName}`} key={idx} as={`/sapesficCategory/${ele.id}/${pathname}/${pathcatName}`}>
             <div  className={styles.content_container}>
               <div  className={styles.img_container_lastbarnch}>
-                <LazyLoadImage
-                  effect="blur"
-                  src={`https://www.deltawy.net/images?id=${ele.logo}&type=tab`}
+                <Image
+                  src={`https://dalil.deltawy.com/images?id=${ele.logo}&type=tab`}
                   alt={`${ele.name}-categories`}
-                  width="100%"
-                  height="auto"
+                width={200}
+                height={200}
                 />
               </div>
               <div className={styles.info_container} >
@@ -129,13 +128,11 @@ const MatchBranchesContainer = ({ id }) => {
     : "null";
   return (
     <div className={styles.lastBranches} >
-      <h2>اكثر الامان زيارة</h2>
+      <h2>اكثر الاماكن زيارة</h2>
       <p>تصفح اكثر الاماكن زيارة في مدينتك</p>
-      <LazyLoadComponent>
         <DeferredContent>
           <Slider {...settings}>{matchBranchesArray && Data}</Slider>
         </DeferredContent>
-      </LazyLoadComponent>
     </div>
   );
 };

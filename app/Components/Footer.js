@@ -2,7 +2,6 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { CgChevronDoubleLeft } from "react-icons/cg";
 import {
-  LazyLoadImage,
   LazyLoadComponent,
 } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -10,7 +9,8 @@ import styles from "../styles/Home.module.scss";
 import  Link  from "next/link";
 import  Image  from "next/image";
 import logo from "/public/img/logo.png"
-
+import googleImage from '/public/img/google-play.png'
+import LazyLoad from "react-lazyload";
 const Footer = () => {
   return (
     <React.Fragment>
@@ -103,7 +103,7 @@ const Footer = () => {
               <hr />
               <ul className={styles.googleplay_container}>
                 <li>
-                  <div style={{width:"100%"}}
+                  <div style={{width:"100%" , display : 'flex', justifyContent : 'center', alignItems : 'center'}}
                     onClick={() => {
                       window.open(
                         "https://play.google.com/store/apps/details?id=com.Deltawy.DeltawyNet",
@@ -111,11 +111,9 @@ const Footer = () => {
                       );
                     }}
                   >
-                    {/* <LazyLoadImage style={{width:"75%"}}
-                      effect="blur"
-                      src="https://www.transparentpng.com/thumb/google-play-logo/clipart-google-play-logo-png-photos-14.png"
-                      alt="Clipart Google Play Logo PNG Photos @transparentpng.com"
-                    /> */}
+                    <LazyLoad height={"100%"} once>
+                        <Image src={googleImage} alt="googleImage" width={140} loading="lazy"/>
+                    </LazyLoad>
                   </div>
                 </li>
               </ul>

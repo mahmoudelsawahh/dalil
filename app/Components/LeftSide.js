@@ -29,7 +29,7 @@ const RightSide = () => {
     ? AllJobs.jobs?.map((ele, id) => {
         const pathname = ele.name.replace(/\s/g, "-");
         return (
-          <Link style={{borderBottom:' 1px solid #dee2e6', width:"100%" }}
+          <Link style={{borderBottom:' 1px solid #dee2e6', width:"100%", color : '#024878' }}
             key={id}
             href={`/jobDetails?id=${ele.id}/${pathname}`} as={`/jobDetails/${ele.id}/${pathname}`}
             onClick={() => {
@@ -49,7 +49,7 @@ const RightSide = () => {
   const FriendsData = fristGroupArray
     ? fristGroupArray?.map((ele, id) => {
         return (
-          <Link target={"_blank"} href={`${ele.link}`} key={id} rel="noreferrer" style={{ borderBottom:' 1px solid #dee2e6',  padding:"10px 0" , width:"100%" , fontWeight:"bold"}}>
+          <Link target={"_blank"} href={`${ele.link}`} key={id} rel="noreferrer" style={{ borderBottom:' 1px solid #dee2e6',  color : '#024878',padding:"10px 0" , width:"100%" , fontWeight:"bold"}}>
            <p style={{fontSize:"13px"}}>{ele.name}</p> 
           </Link>
         );

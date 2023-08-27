@@ -122,7 +122,7 @@ const LastViewsSlick = () => {
     : "null";
   return (
     <div  className={styles.lastBranches} >
-      <h2>اكثر الامان زيارة</h2>
+      <h2>اكثر الاماكن زيارة</h2>
       <p>تصفح اكثر الاماكن زيارة في مدينتك</p>
       <LazyLoadComponent>
         <DeferredContent onLoad={DataLoad}>
