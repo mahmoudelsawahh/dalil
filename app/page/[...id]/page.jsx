@@ -197,7 +197,7 @@ import LazyLoad from "react-lazyload";
       </head>
       ) : null}
       <div  className={styles.image_header} style={{height : '350px'}}>{ImageHeader}</div>
-      {/* <div  className={styles.client_content_container}>
+      <div  className={styles.client_content_container}>
         <div  className={styles.grid_section}>
           <div  className={styles.section_right}>
             {clientDescrip}
@@ -207,7 +207,6 @@ import LazyLoad from "react-lazyload";
               </LazyLoadComponent>
             </div>
             {ALLClientDetails ? (
-              <LazyLoadComponent>
                 <div  className={styles.detials_container} >
                   <h2>{ALLClientDetails.name}</h2>
                   <p>{ALLClientDetails.description}</p>
@@ -247,9 +246,9 @@ import LazyLoad from "react-lazyload";
                     ) : null}
                   </div>
                 </div>
-              </LazyLoadComponent>
             ) : null}
-            <div className={styles.servises} >
+          <LazyLoad height={"100%"} once>
+          <div className={styles.servises} >
               <h3>الخدمات المتاحة</h3>
             </div>
             <div className={styles.servises}>
@@ -315,6 +314,7 @@ import LazyLoad from "react-lazyload";
                 </FloatingLabel>
               </div>
             </LazyLoad>
+          </LazyLoad>
           </div>
           <div  className={styles.section_left}>
             <div  className={styles.test}>
@@ -346,7 +346,7 @@ import LazyLoad from "react-lazyload";
             ) : null}
           </div>
         </div>
-      </div> */}
+      </div>
      <LazyLoad height={"100%"} once>
         <MatchBranchesContainer id={id} />
      </LazyLoad>
