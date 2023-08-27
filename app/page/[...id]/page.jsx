@@ -11,20 +11,24 @@ import { ImEye } from "react-icons/im";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import {
-  LazyLoadImage,
   LazyLoadComponent,
 } from "react-lazy-load-image-component";
-import { useRouter } from 'next/router';
-import loading from "/public/img/loading.gif";
 import { Rating } from "primereact/rating";
-import MatchBranchesContainer from "/app/Components/matchBranchesContainer.js";
 import styles from  "/app/styles/Home.module.scss";
 import Link from "next/link";
 import Script from "next/script"  
 
-import Branche from "/app/Components/branche"
 import Image from "next/image";
 import LazyLoad from "react-lazyload";
+
+
+const MatchBranchesContainer = dynamic(() => import('/app/Components/matchBranchesContainer.js'), {
+  ssr : false
+})
+const Branche = dynamic(() => import('/app/Components/branche'), {
+  ssr : false
+})
+
  const SapesficCategory = ({params}) => {
   const [val1, setVal1] = useState(null);
   const  id  = params.id[0];
