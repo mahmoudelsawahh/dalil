@@ -23,6 +23,7 @@ import Link from "next/link";
 import Script from "next/script"  
 
 import Branche from "/app/Components/branche"
+import LazyLoad from "react-lazyload";
  const SapesficCategory = ({params}) => {
   const [val1, setVal1] = useState(null);
   const  id  = params.id[0];
@@ -315,7 +316,8 @@ import Branche from "/app/Components/branche"
               <LazyLoadComponent>
                 <div  className={styles.Facebook_iframe_container}>
                   <h2 className="text-center" >تابعنا علي صفحتنا </h2>
-                  <iframe
+                 <LazyLoad height={"100%"} once>
+                 <iframe
                     src={`https://www.facebook.com/plugins/page.php?href=${ALLClientDetails.face}%2Ffacebook&tabs=timeline&width=300&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId`}
                     style={{ width: "300px", height: "500px" }}
                     scrolling="no"
@@ -324,6 +326,7 @@ import Branche from "/app/Components/branche"
                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                     title="Facebook"
                   />
+                 </LazyLoad>
                 </div>
                 <div  className={styles.Views_section}>
                   <h3>عدد المشاهدات</h3>

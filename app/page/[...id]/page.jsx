@@ -1,3 +1,4 @@
+
 "use client"
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -59,12 +60,14 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
   const clientDescrip = ALLClientDetails ? (
     <div  className={styles.client_descrip}>
       <div className={styles.image_header}>
+        <LazyLoad height={"100%"} once>
         <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.logo}&type=tab`} 
            alt={ALLClientDetails.name}
            loading="lazy"
            width={120}
            height={120}
         />
+        </LazyLoad>
       </div>
       <h2>{ALLClientDetails.name}</h2>
       <div className={styles.clientinfo}>
@@ -90,7 +93,6 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
                 href={`mailto:${ALLClientDetails.email}`}
                 rel="noopener noreferrer"
               >
-                {" "}
                 <GrMail />
               </Link>
             </span>
@@ -134,10 +136,12 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
   ) : null;
 
   const ImageHeader = ALLClientDetails ? (
-    <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} alt={ALLClientDetails.name}
-      layout="fill"
-    priority={true}
-    />
+   <LazyLoad height={"100%"} once>
+        <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} alt={ALLClientDetails.name}
+          layout="fill"
+        priority={true}
+        />
+   </LazyLoad>
   ) : null;
   return (
     <div className={styles.ClientPage}>
@@ -315,15 +319,16 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
           </div>
           <div  className={styles.section_left}>
             <div  className={styles.test}>
-              <LazyLoadComponent>
+              <LazyLoad height={"100%"} once>
                 <Branche latt={ALLClientDetails} ></Branche>
-                </LazyLoadComponent>
+                </LazyLoad>
             </div>
             {ALLClientDetails ? (
               <LazyLoad height={"100%"} once>
                 <div  className={styles.Facebook_iframe_container}>
                   <h2 className="text-center" >تابعنا علي صفحتنا </h2>
-                  <iframe
+                    <LazyLoad height={"100%"} once>
+                    <iframe
                     src={`https://www.facebook.com/plugins/page.php?href=${ALLClientDetails.face}%2Ffacebook&tabs=timeline&width=300&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId`}
                     style={{ width: "300px", height: "500px" }}
                     scrolling="no"
@@ -333,6 +338,7 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
                     title="Facebook"
                     loading="lazy"
                   />
+                    </LazyLoad>
                 </div>
                 <div  className={styles.Views_section}>
                   <h3>عدد المشاهدات</h3>
