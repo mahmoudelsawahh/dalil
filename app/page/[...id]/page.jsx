@@ -142,9 +142,8 @@ import LazyLoad from "react-lazyload";
     //   placeholderSrc={process.env.PUBLIC_URL + loading}
     // />
     <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} alt={ALLClientDetails.name}
-      loading="lazy"
       layout="fill"
-
+    priority={true}
     />
   ) : null;
   return (
@@ -197,7 +196,7 @@ import LazyLoad from "react-lazyload";
         <link rel="icon" type="image/x-icon" href={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} />
       </head>
       ) : null}
-      <div  className={styles.image_header} style={{height : '250px'}}>{ImageHeader}</div>
+      <div  className={styles.image_header} style={{height : '350px'}}>{ImageHeader}</div>
       {/* <div  className={styles.client_content_container}>
         <div  className={styles.grid_section}>
           <div  className={styles.section_right}>
@@ -349,7 +348,7 @@ import LazyLoad from "react-lazyload";
         </div>
       </div> */}
      <LazyLoad height={"100%"} once>
-        <MatchBranchesContainer id={id} />
+        {/* <MatchBranchesContainer id={id} /> */}
      </LazyLoad>
     </div>
   );
