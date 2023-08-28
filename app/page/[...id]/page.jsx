@@ -171,7 +171,6 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
              
 
       <head>
-        
         <title>{ALLClientDetails.name}</title>
         <meta name="description" content={ALLClientDetails.description.slice(0, 160)}
         />
@@ -182,7 +181,7 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
         />
         <meta property="og:type" content="Article" />
         <meta property="og:title" content={ALLClientDetails.name} />
-        <meta property="og:description" content={ALLClientDetails.description.slice(0, 160)}        />
+        <meta property="og:description" content={ALLClientDetails.description.slice(0, 160)}/>
         <meta property="og:image" content={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`}        />
 
         {/* <!-- Twitter Meta Tags --> */}

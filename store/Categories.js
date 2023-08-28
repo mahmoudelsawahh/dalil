@@ -26,7 +26,6 @@ export const getBranches = createAsyncThunk(
       const data = await result.json();
       
       return data;
-      console.log( "data",data)
     } catch (error) {
       return rejectWithValue(error.message);
     }

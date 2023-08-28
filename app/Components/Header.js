@@ -9,17 +9,6 @@ import mainBg from '/public/img/download.webp'
 import { useEffect, useState } from "react";
 import { Autoplay } from 'swiper';
 const Header = ({Categories}) => {  
-  // useEffect(() => {
-  //   fetch(`https://dalil.deltawy.com/rest/test.category/cats`,{
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setCategories(data)
-  //     })
-  // }, [])
-
-
-  
   const router = useRouter()
   const CategoriesSlick =
     Categories?.length > 0 &&

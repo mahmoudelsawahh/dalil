@@ -47,7 +47,6 @@ const Jobs = () => {
         );
       })
     : null;
-    console.log(AllJobs)
 
   return (
     <>

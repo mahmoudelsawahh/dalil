@@ -55,7 +55,7 @@ const nextConfig = {
         ];
       },
       compiler: {
-        removeConsole: false,
+        removeConsole: true,
       },
       reactStrictMode : false,
 }

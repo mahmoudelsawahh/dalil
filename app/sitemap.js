@@ -51,12 +51,12 @@ async function jobApi() {
 
 
 export default async function sitemap(){
-  const baseUrl = "https://dalil.deltawy.com"
+  const baseUrl = "https://deltawy.net"
   // ----------------------------------------------------
   const firstGroupUrl = await firstGroup()
   const groupUrl = firstGroupUrl? firstGroupUrl.map((item)=>{
     return {
-        url : `${baseUrl}/${item.name}`,
+        url : `${item.link}`,
         lastModified : new Date()
     }
 }) : []
@@ -64,34 +64,16 @@ export default async function sitemap(){
   const branches = await branchesApi()
   const branchesUrl = branches? branches.branches.map((item)=>{
     return {
-        url : `${baseUrl}/${item.name}`,
+        url : `${baseUrl}/page/${item.id}/${item.name}`,
         lastModified : new Date()
     }
 }) : []
  // ----------------------------------------------------
-  const cat = await catApi()
-//   const catUrl = cat ?cat[0].catList.map((item)=>{
-//     return {
-//         url : `${baseUrl}/${item.name}`,
-//         lastModified : new Date()
-//     }
-// }) : []
-
- const catUrl = cat ? cat.map((item)=>{
-  return item.catList.map((ele)=>{
-    return {
-               url : `${baseUrl}/${ele.name}`,
-               lastModified : new Date()
-          } 
-  })
- }):[]
-
-  // ----------------------------------------------------
 
   const posts = await postApi()
   const postsUrl = posts? posts.ads.map((item)=>{
     return {
-        url : `${baseUrl}/${item.name}`,
+        url : `${baseUrl}/adDetailsPage/${item.id}/${item.name}`,
         lastModified : new Date()
     }
 }) : []
@@ -101,10 +83,43 @@ export default async function sitemap(){
  const jobs = await jobApi()
  const jobsUrl = jobs? jobs.jobs.map((item)=>{
    return {
-       url : `${baseUrl}/${item.name}`,
+       url : `${baseUrl}/jobDetails/${item.id}/${item.name}`,
        lastModified : new Date()
    }
 }) : []
+ // ----------------------------------------------------
+
+const cat = await catApi()
+const catUrl = cat ? cat.map((item)=>{
+   return {
+              url : `${baseUrl}/cat/${item.id}/${item.name.replace(/\s+/g, '-')}`,
+              lastModified : new Date()
+         } 
+}): []
+
+ 
+// ----------------------------------------------------------------
+
+const catStock = []
+    const catCategory = ()=>{
+   if(cat){
+    cat.forEach( function(childArray) {
+      childArray.catList.forEach(function(item){
+        catStock.push(item)
+      });
+     });
+   }
+    }
+    catCategory()
+
+
+    const doneData = catStock ? catStock.map((item)=>{
+      return {
+        url : `${baseUrl}/cat/${item.id}/${item.name.replace(/\s+/g, '-')}`,
+        lastModified : new Date()
+      }
+    }) : null
+
 
     return [
         {
@@ -123,10 +138,19 @@ export default async function sitemap(){
             url: 'https://deltawy.net/privacy',
             lastModified: new Date(),
           },
+          {
+            url: 'https://deltawy.net/loginPage',
+            lastModified: new Date(),
+          },
+          {
+            url: 'https://deltawy.net/register',
+            lastModified: new Date(),
+          },
+          ...catUrl,
+          ...jobsUrl,
+          ...postsUrl,
           ...groupUrl,
           ...branchesUrl,
-          // ...catUrl,
-          postsUrl,
-          jobsUrl
+          ...doneData
     ]
 }

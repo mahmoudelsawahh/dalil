@@ -25,13 +25,22 @@ const Layout = ({ children}) => {
   const dispatch = useDispatch();
   const getParam  = usePathname();
   const param = getParam.split('/')
-  console.log(param)
   const { AllCategories, isLoading } = useSelector(
     (state) => state.categoriesMenu
   );
   useEffect(() => {
     dispatch(getGatecories());
   }, [dispatch]);
+
+
+
+const filterData = AllCategories? 
+  AllCategories.map((item)=>{
+    return item.catList
+  })
+: null
+
+
 
   return (
     <>      

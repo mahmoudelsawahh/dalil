@@ -17,8 +17,8 @@ const Footer = () => {
       <footer className={styles.footer}>
         <Container>
           <Row className="text-center flex-column flex-md-row" style={{textAlign:'center'}}>
-            <Col md={5} className={styles.column_footer}>
-              <h3>عن الدليل</h3>
+            <Col md={3} className={styles.column_footer}>
+              <h4>عن الدليل</h4>
               <hr />
               <p>
                 دليل المحلة الإلكتروني - هو دليل ومحرك بحث شامل للشركات وهو دليل
@@ -32,13 +32,9 @@ const Footer = () => {
               </p>
             </Col>
             <Col className={styles.column_footer}>
-              <h3>خريطة الموقع</h3>
+              <h4> الصفحات الرئيسية</h4>
               <hr />
               <ul>
-              <li>
-                  <Link href="/sitemap.xml">خريطة الموقع</Link>
-                  <CgChevronDoubleLeft className={styles.footer_arrow_icon} />
-                </li>
                 <li>
                   <Link href="/">الرئيسية</Link>
                   <CgChevronDoubleLeft className={styles.footer_arrow_icon} />
@@ -49,7 +45,7 @@ const Footer = () => {
                 </li>
                 <li>
                   
-                  <Link href="/loginPage"> تسجيلا الدخول</Link>
+                  <Link href="/loginPage"> تسجيل الدخول</Link>
                   <CgChevronDoubleLeft className={styles.footer_arrow_icon} />
                 </li>
                 <li>
@@ -64,7 +60,29 @@ const Footer = () => {
               </ul>
             </Col>
             <Col className={styles.column_footer}>
-              <h3>التواصل</h3>
+              <h4> الصفحات الداخلية</h4>
+              <hr />
+              <ul>
+              <li>
+                  <Link href="/sitemap.xml">خريطة الموقع</Link>
+                  <CgChevronDoubleLeft className={styles.footer_arrow_icon} />
+                </li>
+                <li>
+                  <Link href="/rss.xml">الرئيسية</Link>
+                  <CgChevronDoubleLeft className={styles.footer_arrow_icon} />
+                </li>
+                <li>
+                  <Link href="/jobs/sitemap.xml">الوظائف</Link>
+                  <CgChevronDoubleLeft className={styles.footer_arrow_icon} />
+                </li>
+                <li>
+                  <Link href="/advertisement/sitemap.xml">الاعلانات</Link>
+                  <CgChevronDoubleLeft className={styles.footer_arrow_icon} />
+                </li>
+              </ul>
+            </Col>
+            <Col className={styles.column_footer}>
+              <h4>التواصل</h4>
               <hr />
 
               <ul>
@@ -98,8 +116,8 @@ const Footer = () => {
                 
               </ul>
             </Col>
-            <Col className={styles.column_footer}>
-              <h3>حمل التطبيق</h3>
+            <Col  className={styles.column_footer}>
+              <h4>حمل التطبيق</h4>
               <hr />
               <ul className={styles.googleplay_container}>
                 <li>

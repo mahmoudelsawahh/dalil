@@ -95,10 +95,18 @@ const SubGategoriesSlick = ({ Categories, id}) => {
       });
     })
   : null;
+
   return (
     <React.Fragment>
       <div  className={`${styles.header_slider} ${styles.subCategirySlick}`}>
-      {slideNumber[0] > 1 && <Slider {...settings}>{subGateogry}</Slider>}
+      {/* {slideNumber[0] > 1 && <Slider {...settings}>{subGateogry}</Slider>} */}
+      {slideNumber[0] > 2 ? 
+       <div>
+       <Slider {...settings}>{subGateogry}</Slider>
+       </div>
+      :
+        <div style={{display : 'flex', justifyContent : 'center', gap : '40px'}}>{subGateogry}</div>
+       }
     </div>
    
     </React.Fragment>

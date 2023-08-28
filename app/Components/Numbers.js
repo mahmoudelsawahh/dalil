@@ -15,8 +15,8 @@ const Numbers = () => {
         <Col sm={12} md={2}>
           <div className={styles.column_items} >
             <MdOutlineEmojiPeople className={styles.Icon_item} />
-            <h5>عضو</h5>
-            <h5>1112</h5>
+            <h1 style={{fontSize : '22px'}}>عضو</h1>
+            <h1 style={{fontSize : '22px'}}>1112</h1>
           </div>
         </Col>
         <Col sm={12} md={2} style={{alignContent: 'center',
@@ -27,8 +27,8 @@ const Numbers = () => {
           }}>
           <div className={styles.column_items}>
             <RiPagesLine className={styles.Icon_item} />
-            <h5>صفحة</h5>
-            <h5>548</h5>
+            <h1 style={{fontSize : '22px'}}>صفحة</h1>
+            <h1 style={{fontSize : '22px'}}>548</h1>
           </div>
         </Col>
 
@@ -39,8 +39,8 @@ const Numbers = () => {
           }}>
           <div className={styles.column_items}>
             <FcAdvertising className={styles.Icon_item} />
-            <h5>اعلان</h5>
-            <h5>298</h5>
+            <h1 style={{fontSize : '22px'}}>اعلان</h1>
+            <h1 style={{fontSize : '22px'}}>298</h1>
           </div>
         </Col>
 
@@ -51,8 +51,8 @@ const Numbers = () => {
           }}>
           <div className={styles.column_items}>
             <MdWork className={styles.Icon_item} />
-            <h5>وظيفة</h5>
-            <h5>16</h5>
+            <h1 style={{fontSize : '22px'}}>وظيفة</h1>
+            <h1 style={{fontSize : '22px'}}>16</h1>
           </div>
         </Col>
 
@@ -63,8 +63,8 @@ const Numbers = () => {
           }}>
           <div className={styles.column_items}>
             <IoIosPeople className={styles.Icon_item} />
-            <h5>زائر</h5>
-            <h5>365</h5>
+            <h1 style={{fontSize : '22px'}}>زائر</h1>
+            <h1 style={{fontSize : '22px'}}>365</h1>
           </div>
         </Col>
       </section>

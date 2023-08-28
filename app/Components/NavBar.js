@@ -27,6 +27,7 @@ function OffCanvasExample({ ...props }) {
       className={styles.mobileButton}
         onClick={toggleShow}
         name="navbar"
+        aria-label="navbar"
         type="button"
         style={{margin:" 1rem 1rem  0 0"}}
       >
@@ -106,7 +107,7 @@ function OffCanvasExample({ ...props }) {
             </Link>
             <Link
               
-              href="/advertisement"cfx 
+              href="/advertisement" 
 
               
               onClick={() => {
@@ -241,14 +242,15 @@ const Navbar = () => {
               });
               // }
             }}
+            aria-label="LOGIN-btn"
           >
-           <Link href='/loginPage'>أضافة للدليل</Link>         
+           <Link href='/loginPage' aria-label="LOGIN">أضافة للدليل</Link>         
         </button>
           <button
             name="add-dalel"
             type="button"
            className={`${styles.btn} ${styles.nav_btn}`}
- 
+           aria-label="LOGIN-btn"
             onClick={() => {
              
               window.scrollTo({
@@ -258,7 +260,7 @@ const Navbar = () => {
               });
             }}
           >
-           <Link href='/loginPage'>أضافة للدليل</Link>      
+           <Link href='/loginPage' aria-label="LOGIN-">أضافة للدليل</Link>      
           </button>
     </div>
       </section>

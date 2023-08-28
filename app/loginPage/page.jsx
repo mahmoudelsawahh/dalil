@@ -36,7 +36,6 @@ const LoginPage = () => {
         useName: AddEmail,
         password: AddPassword,
       };
-      console.log(clientLogin);
       dispatch(UserLogin(clientLogin));
       if (login.Result === false) {
         Swal.fire({
