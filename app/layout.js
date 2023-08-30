@@ -2,8 +2,7 @@ import './globals.css'
 import { Cairo } from 'next/font/google';
 import ProviderLayout from '@/ProviderLayout'
 import dynamic from 'next/dynamic';
-import Navbar from './Components/NavBar';
-const Layout = dynamic(() => import('./Components/Layout'), {
+const ContainerLayout = dynamic(() => import('./contanerLayoute'), {
   ssr : false
 })
 const cairo = Cairo({ 
@@ -22,10 +21,9 @@ export default function RootLayout({ children }) {
     <html lang="ar">
       <body className={cairo.className}>
           <ProviderLayout>
-          <Navbar/>
-          <Layout>
-             {children}
-           </Layout>
+           <ContainerLayout>
+              {children}
+           </ContainerLayout>
           </ProviderLayout>
       </body>
     </html>

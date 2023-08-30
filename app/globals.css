@@ -5,6 +5,7 @@ body {
   font-family: 'Cairo', sans-serif;
   font-family: 'IBM Plex Sans Arabic', sans-serif;
   direction: rtl;
+  overflow-x: hidden !important;
 }
 a {
   color: inherit;
@@ -38,11 +39,75 @@ font-weight: bold;
   }
 }
 
-@media (max-width: 767.98px) { 
+/* @media (max-width: 767.98px) { 
   .headerResponsive{
     height: 100vh !important;
   }  
- }
+ } */
+
+
+ .offcanvas-backdrop {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 1040 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: #000 !important;
+}
+
+.offcanvas-body, offcanvas-header{
+  background-color: #333333 !important;
+}
+
+.Home_grid_section__A_kQo{
+  justify-content: center !important;
+}
+
+
+.breadcrumb-bar {
+  background-color: #15558d;
+  padding: 15px 0;
+}
+.breadcrumb-bar .breadcrumb-title {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 700;
+  margin: 5px 0 0;
+}
+.page-breadcrumb ol {
+  background-color: transparent;
+  font-size: 14px;
+  padding: 20px;
+}
+.page-breadcrumb ol li a {
+  color: #fff;
+}
+.page-breadcrumb ol li.active {
+  color: #fff;
+}
+.page-breadcrumb .breadcrumb-item + .breadcrumb-item:before {
+color: #fff;
+font-size: 10px;
+}
+
+
+.dashboard-input input ,.dashboard-input select{
+	padding: 12px;
+	font-size: 18px;
+	font-weight: 600;
+	text-align: center;
+}
+
+.dashboard-input label{
+	font-size: 16px;
+	font-weight: 700;
+	color: #055c97;
+	padding: 0px 15px;
+}
+
+
+
 
 :root {
   --white-color: #fff;

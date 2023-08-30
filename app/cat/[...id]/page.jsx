@@ -1,77 +1,38 @@
-"use client"
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getBranches } from "../../../store/Categories";
-import styles from  "../../styles/Home.module.scss";
-import SubGategoriesSlick from "../../Components/subGategoriesSlick";
-import Cat from "../../Components/Cat";
+import SubCategoriesComponent from '@/app/Components/SubGategories'
 
-const SubGategories = ({ Categories, params }) => {
-  const { AllCategories } = useSelector((state) => state.categoriesMenu);
-  const dispatch = useDispatch();
-  const  id  = params.id[0];
-  const { ALLBranches } = useSelector((state) => state.categoriesMenu);
 
-  useEffect(() => {
-    dispatch(getBranches(parseInt(id)));
-  }, [dispatch, id]);
+export async function getDetails(param) {
+  const res = await fetch(`https://dalil.deltawy.com/rest/test.branch/subCat/${param}`,{
+    cache : 'no-store',
+})
 
-  const MinTitle = AllCategories
-    ? AllCategories
-        .filter((ele) => ele.id === parseInt(id))
-        .map((e, id) => {
-          return (
-            <h2 style={{ textAlign: "center" }} key={id} className={styles.main_title}>
-              {e.name}
-            </h2>
-          );
-        })
-    : null;
+  // Recommendation: handle errors
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    return ""
+  }
+ 
+  return res.json()
+}
+
+export const metadata = {
+  title: 'دليل المحلة الإلكتروني',
+  description: 'دليل المحلة الإلكتروني - هو دليل ومحرك بحث شامل للشركات وهو دليل صناعي وتجاري وخدمي يشمل كافة القطاعات والأشخاص المهنيين ، من مميزات الدليل: طريقة العرض والبحث حداثة ودقة بياناته في جميع المجالات يتميز بأنه مطور بتقنيات برمجية حديثة الدليل بالكامل مجاناً لمن يريد البحث عن أي شئ يتميز بقوة نتائجه في محركات البحث يتميز الدليل بالسرعة في أرشفة البيانات في محركات البحث العالمية الدليل إشهار ممتاز للشركات التجارية والقطاعات الخدمية والأشخاص أصحاب الأعمال  ',
+}
+
+
+
+const page = async({params}) => {
+
+  const data = await getDetails(Number(params.id[0]))
+  metadata.title = data.name
 
 
   return (
-    <React.Fragment>
-      {
-        AllCategories
-        ? AllCategories
-            .filter((e) => e.id === parseInt(id))
-            .map((ele, id) => {
-              
-              return (
-                <head key={id}>
-              <title>{`دليل المحلة - قسم ${ele.name}`}</title>
-              <meta name="description" content={ele.shortDescription?.slice(0, 160)}
-              />
-              <meta itemprop="name" content={ele.name} />
-              <meta itemprop="description" content={ele.shortDescription?.slice(0, 160)}
-              />
-              <meta itemprop="image" content={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}
-              />
-              <meta property="og:type" content="Article" />
-              <meta property="og:title" content={ele.name} />
-              <meta property="og:description" content={ele.shortDescription?.slice(0, 160)} />
-              <meta property="og:image" content={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`} />
-              <meta name="twitter:card" content="summary_large_image" />
-              <meta name="twitter:title" content={ele.name} />
-              <meta name="twitter:description" content={ele.shortDescription?.slice(0, 160)} />
-              <meta name="twitter:image" content={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`} />
-              <link rel="icon" type="image/x-icon" href={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`} />
-            </head> 
-              );
-            })
-        : null
-      }
-      <div className={styles.sub_gateogry}>
-        <div>
-          {MinTitle}
-            <SubGategoriesSlick Categories={AllCategories} id={id}/>
-            <Cat branches={ALLBranches} />
-        </div>
-      </div>
-    </React.Fragment>
-  );
-};
+    <>
+      <SubCategoriesComponent params={params}/>
+    </>
+  )
+}
 
-export default SubGategories;
-
-
+export default page

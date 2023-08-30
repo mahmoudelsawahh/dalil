@@ -1,12 +1,3 @@
- async function firstGroup() {  
-  const res = await fetch(`https://dalil.deltawy.com/rest/test.sites/firstGroup`,{
-    cache : 'no-store',
-    headers : {
-      'Content-Type': 'application/json',
-    },
-  })
-  return res.json()
-}
 
 async function branchesApi() {  
   const res = await fetch(`https://dalil.deltawy.com/rest/test.branch/last/0`,{
@@ -52,14 +43,6 @@ async function jobApi() {
 
 export default async function sitemap(){
   const baseUrl = "https://deltawy.net"
-  // ----------------------------------------------------
-  const firstGroupUrl = await firstGroup()
-  const groupUrl = firstGroupUrl? firstGroupUrl.map((item)=>{
-    return {
-        url : `${item.link}`,
-        lastModified : new Date()
-    }
-}) : []
   // ----------------------------------------------------
   const branches = await branchesApi()
   const branchesUrl = branches? branches.branches.map((item)=>{
@@ -149,7 +132,6 @@ const catStock = []
           ...catUrl,
           ...jobsUrl,
           ...postsUrl,
-          ...groupUrl,
           ...branchesUrl,
           ...doneData
     ]

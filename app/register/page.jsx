@@ -5,38 +5,33 @@ import logo from "/public/img/logo.svg";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Link from "next/link";
-import Swal from "sweetalert2/dist/sweetalert2.js";
-import { UserRegister } from "/store/auth";
-import { useDispatch } from "react-redux";
 import {
   LazyLoadImage,
   LazyLoadComponent,
 } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import styles from  "../styles/Home.module.scss";
+import { localUrl } from "@/lib/baseUrl";
 const Register = () => {
+  const [RegisterError, setRegisterError] = useState(null);
+  const [LessData , setLessData] = useState(false)
+
   const [userName, setUserName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [genderType, setGenderType] = useState("1");
   const [jobType, setJobType] = useState("1");
-  const dispatch = useDispatch();
-  const SendData = () => {
+  const SendData = async() => {
     if (
       userName.length === 0 ||
       phone.length === 0 ||
       email.length === 0 ||
       password.length === 0
     ) {
-      Swal.fire({
-        position: "top-start",
-        icon: "error",
-        title: "يجب عليك ادخال جميع البيانات المطلوبة",
-        showConfirmButton: false,
-        timer: 1500,
-      });
+     setLessData(true)
     } else {
+      setLessData(false)
       const data = {
         name: userName,
         email: email,
@@ -45,13 +40,46 @@ const Register = () => {
         state: jobType,
         gender: genderType,
       };
-      dispatch(UserRegister(data));
-      // navigate("https://www.deltawy.net/user/index.html");
+      
+    const res =  await fetch(`${localUrl}/rest/test.peoples/register`,{
+      method : 'POST',
+      headers : {
+        'Content-Type': 'application/json',
+      },
+      body : JSON.stringify(data),
+    })
+    const result = await res.json()
+     if(result.Errors.length > 0){
+      setRegisterError(result.Errors)
+     }else{
+      window.localStorage.setItem('dalilElmahalla', result.token)
+      window.open(`dashboard/${result.name.replace(/\s+/g, '-')}}` , '_top')
+     }
     }
   };
 
   return (
     <div>
+      {LessData ? 
+        <div class="alert alert-warning" role="alert">
+        يجب عليك ادخال جميع البيانات المطلوبة
+        </div>
+      : null}
+      {
+        RegisterError ? 
+        <>
+          {RegisterError.map((ele , id)=>{
+            return (
+              <div key={id}>
+                 <div class="alert alert-danger" role="alert">
+                     خطا :  {ele.errorMSG}
+                 </div>
+              </div>
+            )
+          })}
+        </>
+        : null
+      }
       <LazyLoadComponent>
         <h2  className={styles.main_title} >انشاء حساب جديد</h2>
         <div    className={`${styles.Login_page} ${styles.register}`}>

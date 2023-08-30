@@ -82,14 +82,13 @@ const RightSide = () => {
       <aside className={styles.side_nave}>
         <div  className={styles.side_nave_img_delt}>
          <LazyLoadComponent>
+         <Link href={"https://deltawy.com"} target='_blank'>
          <Image
             src={deltawyBanner}
             alt="deltawy"
-            onClick={() => {
-              window.open("https://deltawy.com", "_blank");
-            }}
             className={styles.side_nave_img_delt}
           />
+         </Link>
          </LazyLoadComponent>
         </div>
         <div className={`${styles.display_fflex} ${styles.jobs_side}`}   >

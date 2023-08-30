@@ -15,58 +15,65 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import  Link  from "next/link";
 import Image from "next/image";
 import logoo from "/public/img/logo.png"
+import { localUrl } from "@/lib/baseUrl";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
   const [AddEmail, SetEmail] = useState("");
   const [AddPassword, SetPassword] = useState("");
+  const [LessData , setLessData] = useState(false)
+  const [LoginError, setLoginError] = useState(null);
+
   const login  = useSelector((state) => state.AuthSlice);
 
-  const SendData = () => {
+  const SendData = async () => {
     if (AddEmail.length === 0 || AddPassword.length === 0) {
-      Swal.fire({
-        position: "top-start",
-        icon: "error",
-        title: "يجب عليك ادخال جميع البيانات المطلوبة",
-        showConfirmButton: false,
-        timer: 1500,
-      });
+      setLessData(true)
     } else {
+      setLessData(false)
       const clientLogin = {
-        useName: AddEmail,
+        name: AddEmail,
         password: AddPassword,
       };
-      dispatch(UserLogin(clientLogin));
-      if (login.Result === false) {
-        Swal.fire({
-          position: "top-start",
-          icon: "error",
-          title: "بيانات المستخد غير موجودة برجاء التأكد او انشاء حساب جديد",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      } else {
-        Swal.fire({
-          position: "top-start",
-          icon: "success",
-          title: "تم تسجيل الدخول بنجاح",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        // navigate("/controlpanal");
-        window.scrollTo({
-          top: 0,
-          left: 100,
-          behavior: "instant",
-        });
-      }
+      
+      const res =  await fetch(`${localUrl}/rest/test.peoples/inlogin`,{
+        method : 'POST',
+        headers : {
+          'Content-Type': 'application/json',
+        },
+        body : JSON.stringify(clientLogin),
+      })
+      const result = await res.json()
+      if(result.Errors.length > 0){
+        setLoginError(result.Errors[0].errorMSG)
+       }else{
+        window.localStorage.setItem('dalilElmahalla', result.token)
+        window.open(`dashboard/${result.name}` , '_top')
+       }
     }
   };
 
   return (
 
- 
        <LazyLoadComponent>
+
+        {LessData ? 
+        <div class="alert alert-warning" role="alert">
+        يجب عليك ادخال جميع البيانات المطلوبة
+        </div>
+      : null}
+      {
+        LoginError ? 
+        <>
+        <div>
+                 <div class="alert alert-danger" role="alert">
+                     خطا :  {LoginError}
+                 </div>
+              </div>
+        </>
+        : null
+      }
+
         <h2  className={styles.main_title} >تسجيل الدخول</h2>
         <div   className= {styles.Login_page} >
           <Row>

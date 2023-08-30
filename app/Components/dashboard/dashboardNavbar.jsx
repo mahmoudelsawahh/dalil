@@ -5,7 +5,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { RiMenu4Line } from "react-icons/ri";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "../styles/Home.module.scss";
+import styles from "../../styles/Home.module.scss";
 import logo from "/public/img/logo.png"
 import { LazyLoadComponent } from "react-lazy-load-image-component";
 const options = [
@@ -87,7 +87,7 @@ function OffCanvasExample({ ...props }) {
                 handleClose();
               }}
             >
-              الرئيسية
+              بيانات النشاط
             </Link>
             <Link
               
@@ -101,7 +101,7 @@ function OffCanvasExample({ ...props }) {
                 handleClose();
               }}
             >
-              الوظائف
+                انشاء اعلان     
             </Link>
             <Link
               
@@ -117,7 +117,7 @@ function OffCanvasExample({ ...props }) {
                 handleClose();
               }}
             >
-              الاعلانات
+                انشاء عرض     
             </Link>
             <Link
               
@@ -131,7 +131,7 @@ function OffCanvasExample({ ...props }) {
                 handleClose();
               }}
             >
-              سياسة الخصوصية
+                طلب موظفين       
             </Link>
           </div>
         </Offcanvas.Body>
@@ -149,7 +149,7 @@ const Navbar = () => {
     }
    },[])
   return (
-    <nav className={styles.navbar_container } >
+    <nav className={styles.navbar_container  } >
       <Col xs={12} md={1}  >
           {options?.map((props, idx) => (
             <OffCanvasExample key={idx} placement={"end"} {...props} />
@@ -191,7 +191,7 @@ const Navbar = () => {
                 });
               }}
             >
-              الرئيسية
+              بيانات النشاط
             </Link>
             <Link
               
@@ -204,7 +204,7 @@ const Navbar = () => {
                 });
               }}
             >
-              الوظائف
+                انشاء اعلان     
             </Link>
             <Link
               
@@ -217,7 +217,7 @@ const Navbar = () => {
                 });
               }}
             >
-              الاعلانات
+                انشاء عرض     
             </Link>
             <Link
               
@@ -230,7 +230,7 @@ const Navbar = () => {
                 });
               }}
             >
-              سياسة الخصوصية
+                طلب موظفين       
             </Link>
           </div>
           </div>
@@ -249,9 +249,7 @@ const Navbar = () => {
             }}
             aria-label="LOGIN-btn"
           >
-           <Link href='/loginPage' aria-label="LOGIN"> 
-              الاعدادات
-           </Link>         
+           <Link href='/loginPage' aria-label="LOGIN">الرئيسية</Link>         
         </button>
            {
             StateUser ? 

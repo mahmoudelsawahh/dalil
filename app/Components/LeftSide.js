@@ -12,26 +12,27 @@ import LazyLoad from 'react-lazyload';
 import { getAllAds } from '@/store/AdvertisementSlice';
 import { getAllJobs } from '@/store/JobsSlice';
 const RightSide = () => {
+  const getAllAdsDetails =  useSelector((state) => state.Ads.getAllAdsArray);
   const dispatch = useDispatch();
   const [date, setDate] = useState(new Date());
   useEffect(() => {
-    dispatch(getAllAds())
     dispatch(getAllJobs())
+    dispatch(getAllAds())
     const interval = setInterval(() => {
       setDate(new Date());
     }, 1000);
     return () => clearInterval(interval);
   }, [dispatch]);
 
-  const  { AllJobs }  = useSelector((state) => state.JobSlice);
+  
   const fristGroupArray = useSelector((state) => state.FriendsSlice.fristGroupArray);
-    const SideJobs = AllJobs
-    ? AllJobs.jobs?.map((ele, id) => {
+    const SideJobs = getAllAdsDetails
+    ? getAllAdsDetails.ads?.map((ele, id) => {
         const pathname = ele.name.replace(/\s/g, "-");
         return (
           <Link style={{borderBottom:' 1px solid #dee2e6', width:"100%", color : '#024878' }}
             key={id}
-            href={`/jobDetails?id=${ele.id}/${pathname}`} as={`/jobDetails/${ele.id}/${pathname}`}
+            href={`/adDetailsPage?id=${ele.id}/${pathname}`} as={`/adDetailsPage/${ele.id}/${pathname}`}
             onClick={() => {
               window.scrollTo(0, 0);
             }}
@@ -59,8 +60,8 @@ const RightSide = () => {
   return (
     <React.Fragment>
       {
-        AllJobs
-        ? AllJobs.jobs?.map((ele, id) => {
+        getAllAdsDetails
+        ? getAllAdsDetails.ads?.map((ele, id) => {
             return (
               <Script key={id} type="application/ld+json">
               {JSON.stringify({
@@ -85,19 +86,18 @@ const RightSide = () => {
       <aside className={styles.side_nave}>
         <div  className={styles.side_nave_img_delt}>
         <LazyLoad height={"100%"} once>
-          <Image
+         <Link href={"https://deltawy.com"} target='_blank'>
+         <Image
               src={deltawyBanner}
               alt="deltawy"
-              onClick={() => {
-                window.open("https://deltawy.com/", "_blank");
-              }}
               loading='lazy'
               className={styles.side_nave_img_delt}
             />
+         </Link>
         </LazyLoad>
         </div>
         <div className={`${styles.display_fflex} ${styles.jobs_side}`}   >
-          <h3 className={styles.hthree}>اخر الوظائف</h3>
+          <h3 className={styles.hthree}>اخر الاعلانات</h3>
           <div  className={styles.Links}>{SideJobs}</div>
         </div>
 

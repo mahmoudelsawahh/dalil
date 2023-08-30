@@ -6,7 +6,6 @@ import styles from "../styles/Home.module.scss";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import mainBg from '/public/img/download.webp'
-import { useEffect, useState } from "react";
 import { Autoplay } from 'swiper';
 const Header = ({Categories}) => {  
   const router = useRouter()
@@ -19,16 +18,23 @@ const Header = ({Categories}) => {
           <div className={styles.slick_Container}>
           <div onClick={()=> router.push(`/cat/${ele.id}/${pathname}`)} style={{cursor : 'pointer'}}>
             <div
-              className={`${styles.img_skick} ${styles.loading_circel}`} style={{textAlign : 'center', display : 'flex', justifyContent : 'center'}}>
+              className={`${styles.img_skick} ${styles.loading_circel}`} 
+              
+              style={{textAlign : 'center', display : 'flex', justifyContent : 'center', width : '80px' , height : '80px'}}>
               <Image
                 src={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`}
                 alt={`${ele.name}-categories`}
                 loading="lazy"
                 width={80}
                 height={80}
+                objectPosition='center'
+                objectFit='cover'
+                title='images'
+                layout='responsive'
+
               />
             </div>
-            <h3>{pathname}</h3>
+            <h1 style={{fontSize : '22px'}}>{pathname}</h1>
             </div>
           </div>
         </SwiperSlide>
@@ -38,8 +44,6 @@ const Header = ({Categories}) => {
 
   return (
     <header className={styles.header_container}>
-
-
       <div
         className={`${styles.img_container} headerResponsive`} 
       >
@@ -92,7 +96,6 @@ const Header = ({Categories}) => {
             </Container>
         </div>
       </div>
-    
   </header>
   );
 };

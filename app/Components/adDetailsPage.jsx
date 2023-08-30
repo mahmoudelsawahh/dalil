@@ -19,6 +19,9 @@ const AdDetailsPage = ({params}) => {
   (
     <div>
       <head key={getAdDetailsArray.ad?.id}>
+        <title>{getAdDetailsArray.ad?.name}</title>
+        <meta name="description" content={getAdDetailsArray.ad?.shortDescription?.slice(0, 160)}
+        />
         <meta itemprop="name" content={getAdDetailsArray.ad?.name} />
         <meta itemprop="description" content={getAdDetailsArray.ad?.shortDescription?.slice(0, 160)}
         />

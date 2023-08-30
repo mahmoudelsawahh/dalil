@@ -18,7 +18,7 @@ const Footer = () => {
         <Container>
           <Row className="text-center flex-column flex-md-row" style={{textAlign:'center'}}>
             <Col md={3} className={styles.column_footer}>
-              <h4>عن الدليل</h4>
+              <h1 style={{fontSize : '22px'}}>عن الدليل</h1>
               <hr />
               <p>
                 دليل المحلة الإلكتروني - هو دليل ومحرك بحث شامل للشركات وهو دليل
@@ -32,7 +32,7 @@ const Footer = () => {
               </p>
             </Col>
             <Col className={styles.column_footer}>
-              <h4> الصفحات الرئيسية</h4>
+              <h1 style={{fontSize : '22px'}}> الصفحات الرئيسية</h1>
               <hr />
               <ul>
                 <li>
@@ -60,7 +60,7 @@ const Footer = () => {
               </ul>
             </Col>
             <Col className={styles.column_footer}>
-              <h4> الصفحات الداخلية</h4>
+              <h1 style={{fontSize : '22px'}}> الصفحات الداخلية</h1>
               <hr />
               <ul>
               <li>
@@ -82,7 +82,7 @@ const Footer = () => {
               </ul>
             </Col>
             <Col className={styles.column_footer}>
-              <h4>التواصل</h4>
+              <h1  style={{fontSize : '22px'}}>التواصل</h1>
               <hr />
 
               <ul>
@@ -117,7 +117,7 @@ const Footer = () => {
               </ul>
             </Col>
             <Col  className={styles.column_footer}>
-              <h4>حمل التطبيق</h4>
+              <h1  style={{fontSize : '22px'}}>حمل التطبيق</h1>
               <hr />
               <ul className={styles.googleplay_container}>
                 <li>
