@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation'
 const ContainerLayout = ({children}) => {
     const pathName = usePathname();
     const param = pathName.split('/')[1]
-    console.log(param)
   return (
     <>
       {

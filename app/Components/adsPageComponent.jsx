@@ -22,7 +22,6 @@ import Image from "next/image";
 import LazyLoad from "react-lazyload";
 import dynamic from "next/dynamic";
 
-
 const MatchBranchesContainer = dynamic(() => import('/app/Components/matchBranchesContainer.js'), {
   ssr : false
 })
