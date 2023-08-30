@@ -8,7 +8,7 @@ const page = () => {
   return (
     <>
         <Navbar/>
-       		 <div style={{backgroundColor : '#f8f9fe', height : "910vh"}}>
+       		 <div style={{backgroundColor : '#f8f9fe', height : "100%"}}>
 				<div className="breadcrumb-bar">
 						<div className="container">
 							<div className="row align-items-center">
