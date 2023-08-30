@@ -33,10 +33,10 @@ const page = async({params}) => {
 
   return (
     <>
-        <div style={{textAlign : 'center', marginBottom : '20px', height : '100vh'}}>
+        {/* <div style={{textAlign : 'center', marginBottom : '20px', height : '100vh'}}>
             <h1 style={{padding : '2px 0px'}}>برمجيات دلتاوي</h1>
             <p style={{padding : '5px 0px', lineHeight : '50px'}}>لدى شركة دلتاوي سابقة أعمال كبيرة في مجال الحلول البرمجية مما يجعلها تنافس الشركات الكبرى في مصر بشكل خاص والعالم العربي بشكل عام كما تعد  شركة دلتاوي  الشركة الرائدة في مجال تصميم برامج محاسبة الشركات .</p>
-        </div>
+        </div> */}
       <SapesficCategory params={params}/>
     </>
   )

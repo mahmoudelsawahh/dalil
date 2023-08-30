@@ -195,10 +195,10 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
       </head>
       ) : null}
       {/* <div  className={`${styles.image_header} d-md-block d-none`} style={{height : '350px'}}> */}
-      <div  className={`${styles.image_header}`} style={{height : '350px'}}>
+      {/* <div  className={`${styles.image_header}`} style={{height : '350px'}}>
 
       {ImageHeader}
-      </div>
+      </div> */}
       <div  className={styles.client_content_container}>
         <div  className={styles.grid_section}>
           <div  className={styles.section_right}>
@@ -325,12 +325,12 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
           <div  className={styles.section_left}>
             <div  className={styles.test}>
               <LazyLoad height={"100%"} once>
-                <Branche latt={ALLClientDetails} ></Branche>
+                {/* <Branche latt={ALLClientDetails} ></Branche> */}
                 </LazyLoad>
             </div>
             {ALLClientDetails ? (
               <LazyLoad height={"100%"} once>
-                <div  className={styles.Facebook_iframe_container}>
+                {/* <div  className={styles.Facebook_iframe_container}>
                   <h2 className="text-center" >تابعنا علي صفحتنا </h2>
                     <LazyLoad height={"100%"} once>
                     <iframe
@@ -344,7 +344,7 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
                     loading="lazy"
                   />
                     </LazyLoad>
-                </div>
+                </div> */}
                 <div  className={styles.Views_section}>
                   <h3>عدد المشاهدات</h3>
                   <ImEye />
