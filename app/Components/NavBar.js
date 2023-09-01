@@ -35,13 +35,13 @@ function OffCanvasExample({ ...props }) {
       <LazyLoadComponent>
       <Link  href="/" className="d-block d-md-none">
               <div  className={styles.logo}>
-              <Image
+              {/* <Image
               src={logo}
               alt="logo"
               width='100px'
               style={{width:'120px', height:"auto"}}
               priority
-            />
+            /> */}
               </div>
             </Link>
 
@@ -65,14 +65,13 @@ function OffCanvasExample({ ...props }) {
             justifyContent: 'center'}}>
             <Link  href="/" >
               <div className={styles.logo}>
-              <Image
-              effect="blur"
+              {/* <Image
               src={logo}
               alt="logo"
               width='100px'
               style={{width:'150px', height:"auto"}}
               loading="lazy"
-            />
+            /> */}
               </div>
             </Link>
             <Link
@@ -169,13 +168,12 @@ const Navbar = () => {
               });
             }}
           >
-            <Image
-              effect="blur"
+            {/* <Image
               src={logo}
               alt="logo"
              style={{width:'100px' , height:"auto" }}
               
-            />
+            /> */}
           </Link>
     </div>
     <div className={styles.mobile_reverse}>
