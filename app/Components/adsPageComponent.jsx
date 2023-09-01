@@ -201,9 +201,9 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
       <div  className={styles.client_content_container}>
         <div  className={styles.grid_section}>
           <div  className={styles.section_right}>
-                <div style={{minHeight : '300px'}}>
+                {/* <div style={{minHeight : '300px'}}>
                    {clientDescrip}
-                </div>
+                </div> */}
             <div  className={styles.ImageList_container}>
               <LazyLoadComponent>
                 <Carousel fade>{imageCarousel}</Carousel>
