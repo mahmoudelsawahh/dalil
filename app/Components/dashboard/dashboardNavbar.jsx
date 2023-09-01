@@ -15,7 +15,7 @@ const options = [
   },
 ];
 
-function OffCanvasExample({ ...props }) {
+function OffCanvasExample({ ...props}, {params}) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const toggleShow = () => setShow((s) => !s);
@@ -77,7 +77,7 @@ function OffCanvasExample({ ...props }) {
             </Link>
             <Link
               
-              href="/"
+              href={`/dashboard/${params}`}
               onClick={() => {
                 window.scrollTo({
                   top: 0,
@@ -91,7 +91,7 @@ function OffCanvasExample({ ...props }) {
             </Link>
             <Link
               
-              href="/jobs"
+              href={`/dashboard/ads/${params}`}
               onClick={() => {
                 window.scrollTo({
                   top: 0,
@@ -105,9 +105,7 @@ function OffCanvasExample({ ...props }) {
             </Link>
             <Link
               
-              href="/advertisement" 
-
-              
+              href={`/dashboard/offer/${params}`}
               onClick={() => {
                 window.scrollTo({
                   top: 0,
@@ -121,7 +119,7 @@ function OffCanvasExample({ ...props }) {
             </Link>
             <Link
               
-              href="/privacy"
+              href={`/dashboard/staff-request/${params}`}
               onClick={() => {
                 window.scrollTo({
                   top: 0,
@@ -139,7 +137,7 @@ function OffCanvasExample({ ...props }) {
     </div>
   );
 }
-const Navbar = () => {
+const Navbar = ({params}) => {
   const [StateUser , setStateUser] = useState(false)
   useEffect(()=>{
     if(window.localStorage.getItem('dalilElmahalla')){
@@ -152,14 +150,14 @@ const Navbar = () => {
     <nav className={styles.navbar_container  } >
       <Col xs={12} md={1}  >
           {options?.map((props, idx) => (
-            <OffCanvasExample key={idx} placement={"end"} {...props} />
+            <OffCanvasExample key={idx} placement={"end"} {...props} params={params}/>
           ))}
       </Col>
 
 
       <section className={styles.nav_bar} >
     <div className={styles.mobile_reverse}>
-          <Link href="/"
+          <Link href={`/dashboard/${params}`}
              className={styles.logo}
             onClick={() => {
               window.scrollTo({
@@ -181,8 +179,7 @@ const Navbar = () => {
     <div className={styles.mobile_reverse}>
         <div className={styles.Links_container }>
             <Link
-              
-              href="/"
+              href={`/dashboard/${params}`}
               onClick={() => {
                 window.scrollTo({
                   top: 0,
@@ -195,7 +192,7 @@ const Navbar = () => {
             </Link>
             <Link
               
-              href="/jobs"
+              href={`/dashboard/ads/${params}`}
               onClick={() => {
                 window.scrollTo({
                   top: 0,
@@ -208,7 +205,7 @@ const Navbar = () => {
             </Link>
             <Link
               
-              href="/advertisement"
+              href={`/dashboard/offer/${params}`}
               onClick={() => {
                 window.scrollTo({
                   top: 0,
@@ -221,7 +218,7 @@ const Navbar = () => {
             </Link>
             <Link
               
-              href="/privacy"
+              href={`/dashboard/staff-request/${params}`}
               onClick={() => {
                 window.scrollTo({
                   top: 0,

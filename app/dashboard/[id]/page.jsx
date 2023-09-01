@@ -3,12 +3,12 @@ import UserDetails from "@/app/Components/dashboard/UserDetails"
 import UserMap from "@/app/Components/dashboard/UserMap"
 import Navbar from "@/app/Components/dashboard/dashboardNavbar"
 
-const page = () => {
+const page = ({params}) => {
 
   return (
     <>
-        <Navbar/>
-       		 <div style={{backgroundColor : '#f8f9fe', height : "100%"}}>
+        <Navbar params={params.id}/>
+       		 <div style={{backgroundColor : '#f8f9fe', height : "100%", marginBottom : '50px'}}>
 				<div className="breadcrumb-bar">
 						<div className="container">
 							<div className="row align-items-center">
@@ -44,6 +44,11 @@ const page = () => {
      		 </div>
 			 <div className="container">	    
 			 		<DashboardImages/>
+			  </div>
+			  <div className="container">	    
+			     <div style={{marginTop : '50px'}}>
+					 <button className="btn" style={{backgroundColor : '#055c97', fontSize : '16px', fontWeight : 700, color : '#fff', width : '100%', padding : '10px 0px'}}>تسجيل النشاط</button>
+				 </div>
 			  </div>
            </div>
     </>
