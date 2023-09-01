@@ -68,7 +68,7 @@ const Header = ({Categories}) => {
             <p> تصفح دليل المحلة و الدلتا</p>
           </div>
             <Container>
-              <div className={styles.header_slider}>
+              {/* <div className={styles.header_slider}>
                 <Swiper
                   slidesPerView={2}
                      autoplay={{
@@ -92,7 +92,7 @@ const Header = ({Categories}) => {
                     modules={[Autoplay]}
                     className="mySwiper"
                 >{CategoriesSlick}</Swiper>
-              </div>
+              </div> */}
             </Container>
         </div>
       </div>
