@@ -149,7 +149,7 @@ const Navbar = () => {
     }
    },[])
   return (
-    <nav className={styles.navbar_container } >
+    <nav className={styles.navbar_container  } >
       <Col xs={12} md={1}  >
           {options?.map((props, idx) => (
             <OffCanvasExample key={idx} placement={"end"} {...props} />

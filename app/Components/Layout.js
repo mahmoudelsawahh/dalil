@@ -49,7 +49,7 @@ const filterData = AllCategories?
       <div>
            {
             param[1] === "page" || param[1] === "sapesficCategory"? 
-            <Header Categories={AllCategories}/>
+            null
             : <Header Categories={AllCategories}/>
            }
       <Row style={{width:'100%', margin : 0 , padding : '40px 0px'}} >

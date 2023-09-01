@@ -32,7 +32,7 @@ const page = async({params}) => {
 
   return (
     <>
-      <SapesficCategory params={params}/>
+      {/* <SapesficCategory params={params}/> */}
     </>
   )
 }
