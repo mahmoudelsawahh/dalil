@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css'
 import { Cairo } from 'next/font/google';
 import ProviderLayout from '@/ProviderLayout'
