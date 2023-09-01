@@ -59,14 +59,14 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
   const clientDescrip = ALLClientDetails ? (
     <div  className={styles.client_descrip}>
       <div className={styles.image_header}>
-        <LazyLoad height={"100%"} once>
+        {/* <LazyLoad height={"100%"} once>
         <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.logo}&type=tab`} 
            alt={ALLClientDetails.name}
            loading="lazy"
            width={120}
            height={120}
         />
-        </LazyLoad>
+        </LazyLoad> */}
       </div>
       <h1>{ALLClientDetails.name}</h1>
       <div className={styles.clientinfo}>
