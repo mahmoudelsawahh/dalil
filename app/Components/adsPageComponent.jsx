@@ -195,7 +195,7 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
         <link rel="icon" type="image/x-icon" href={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} />
       </head>
       ) : null}
-      <div  className={`${styles.image_header} d-md-block d-none`} style={{height : '350px'}}>
+      <div  className={`${styles.image_header}`} style={{height : '350px'}}>
       {ImageHeader}
       </div>
       <div  className={styles.client_content_container}>
