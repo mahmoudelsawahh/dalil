@@ -1,8 +1,4 @@
-import dynamic from 'next/dynamic'
-
-const SapesficCategory = dynamic(() => import('@/app/Components/adsPageComponent'), {
-  ssr : false
-})
+import SapesficCategory from "@/app/Components/adsPageComponent"
 export async function getDetails(param) {
   const res = await fetch(`https://dalil.deltawy.com/rest/test.branch/branche`,{
     method : 'POST',
