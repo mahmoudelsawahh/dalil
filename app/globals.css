@@ -45,6 +45,15 @@ font-weight: bold;
   }  
  }
 
+ .Home_Header_content__GWEpd{
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+
+
 
  .offcanvas-backdrop {
   position: fixed !important;

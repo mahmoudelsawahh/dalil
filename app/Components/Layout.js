@@ -28,9 +28,11 @@ const Layout = ({ children}) => {
   const { AllCategories, isLoading } = useSelector(
     (state) => state.categoriesMenu
   );
-  // useEffect(() => {
-  //   dispatch(getGatecories());
-  // }, [dispatch]);
+  useEffect(() => {
+     if(!param[1] === "page" || !param[1] === "sapesficCategory"){
+      dispatch(getGatecories());
+     }
+  }, [dispatch, param]);
 
 
 
