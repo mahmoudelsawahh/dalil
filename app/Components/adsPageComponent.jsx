@@ -59,14 +59,14 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
   const clientDescrip = ALLClientDetails ? (
     <div  className={styles.client_descrip}>
       <div className={styles.image_header}>
-        {/* <LazyLoad height={"100%"} once>
-        <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.logo}&type=tab`} 
+        <LazyLoad height={"100%"} once>
+        {/* <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.logo}&type=tab`} 
            alt={ALLClientDetails.name}
            loading="lazy"
            width={120}
            height={120}
-        />
-        </LazyLoad> */}
+        /> */}
+        </LazyLoad>
       </div>
       <h1>{ALLClientDetails.name}</h1>
       <div className={styles.clientinfo}>
@@ -143,10 +143,10 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
   const ImageHeader 
   = ALLClientDetails ? (
    <LazyLoad height={"100%"} once>
-        <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} alt={ALLClientDetails.name}
+        {/* <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} alt={ALLClientDetails.name}
           layout="fill"
         priority={true}
-        />
+        /> */}
    </LazyLoad>
   ) : null;
   return (
@@ -195,15 +195,15 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
         <link rel="icon" type="image/x-icon" href={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} />
       </head>
       ) : null}
-      <div  className={`${styles.image_header}`} style={{height : '350px'}}>
+      <div  className={`${styles.image_header} d-md-block d-none`} style={{height : '350px'}}>
       {ImageHeader}
       </div>
       <div  className={styles.client_content_container}>
         <div  className={styles.grid_section}>
           <div  className={styles.section_right}>
-                {/* <div style={{minHeight : '300px'}}>
+                <div style={{minHeight : '300px'}}>
                    {clientDescrip}
-                </div> */}
+                </div>
             <div  className={styles.ImageList_container}>
               <LazyLoadComponent>
                 <Carousel fade>{imageCarousel}</Carousel>
