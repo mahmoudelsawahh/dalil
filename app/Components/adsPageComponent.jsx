@@ -252,7 +252,7 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
                 </div>
             ) : null}
      </LazyLoad>
-          <LazyLoad height={"100%"} once>
+          {/* <LazyLoad height={"100%"} once>
           <div className={styles.servises} >
               <h3>الخدمات المتاحة</h3>
             </div>
@@ -319,7 +319,7 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
                 </FloatingLabel>
               </div>
             </LazyLoad>
-          </LazyLoad>
+          </LazyLoad> */}
           </div>
           <div  className={styles.section_left}>
             <div  className={styles.test}>
