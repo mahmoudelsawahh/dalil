@@ -18,7 +18,9 @@ const ContainerLayout = ({children}) => {
         :
          <>
             <Navbar/>
+            <Layout>
                 {children}
+            </Layout>    
          </>
       }
     </>

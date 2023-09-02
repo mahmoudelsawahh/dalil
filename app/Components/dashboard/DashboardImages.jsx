@@ -222,7 +222,7 @@ const DashboardImages = () => {
                       marginTop: "15px",
                     }}
                   >
-                    صور الغلاف{" "}
+                    صور اللوجو
                   </button>
                 </Paper>
               </div>

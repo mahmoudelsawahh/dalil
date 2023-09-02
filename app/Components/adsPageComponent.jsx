@@ -58,9 +58,18 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
 
   const clientDescrip = ALLClientDetails ? (
     <div  className={styles.client_descrip}>
+      <div className={styles.image_header}>
+        <LazyLoad height={"100%"} once>
+        <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.logo}&type=tab`} 
+           alt={ALLClientDetails.name}
+           loading="lazy"
+           width={120}
+           height={120}
+        />
+        </LazyLoad>
+      </div>
       <h1>{ALLClientDetails.name}</h1>
       <div className={styles.clientinfo}>
-        {/* <p className="description">{ALLClientDetails.description}</p> */}
         <p className={styles.address}>العنوان: {ALLClientDetails.address}</p>
         <p className={styles.address}>التليفون: {ALLClientDetails.phone}</p>
         <div className={styles.icons_section}>
@@ -133,10 +142,10 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
   const ImageHeader 
   = ALLClientDetails ? (
    <LazyLoad height={"100%"} once>
-        {/* <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} alt={ALLClientDetails.name}
+        <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} alt={ALLClientDetails.name}
           layout="fill"
         priority={true}
-        /> */}
+        />
    </LazyLoad>
   ) : null;
   return (
@@ -185,7 +194,9 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
         <link rel="icon" type="image/x-icon" href={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} />
       </head>
       ) : null}
-      <div  className={`${styles.image_header} d-md-block d-none`}></div>
+      <div  className={`${styles.image_header} d-md-block`} style={{height : '350px'}}>
+      {ImageHeader}
+      </div>
       <div  className={styles.client_content_container}>
         <div  className={styles.grid_section}>
           <div  className={styles.section_right}>
@@ -194,7 +205,7 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
                 </div>
             <div  className={styles.ImageList_container}>
               <LazyLoadComponent>
-                {/* <Carousel fade>{imageCarousel}</Carousel> */}
+                <Carousel fade>{imageCarousel}</Carousel>
               </LazyLoadComponent>
             </div>
      <LazyLoad height={"100%"} once>
@@ -312,7 +323,7 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
           <div  className={styles.section_left}>
             <div  className={styles.test}>
               <LazyLoad height={"100%"} once>
-                {/* <Branche latt={ALLClientDetails} ></Branche> */}
+                <Branche latt={ALLClientDetails} ></Branche>
                 </LazyLoad>
             </div>
             {ALLClientDetails ? (
@@ -320,7 +331,7 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
                 <div  className={styles.Facebook_iframe_container}>
                   <h2 className="text-center" >تابعنا علي صفحتنا </h2>
                     <LazyLoad height={"100%"} once>
-                    {/* <iframe
+                    <iframe
                     src={`https://www.facebook.com/plugins/page.php?href=${ALLClientDetails.face}%2Ffacebook&tabs=timeline&width=300&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId`}
                     style={{ width: "300px", height: "500px" }}
                     scrolling="no"
@@ -329,7 +340,7 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                     title="Facebook"
                     loading="lazy"
-                  /> */}
+                  />
                     </LazyLoad>
                 </div>
                 <div  className={styles.Views_section}>

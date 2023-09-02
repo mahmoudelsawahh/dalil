@@ -8,6 +8,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import logo from "/public/img/logo.png"
 import { LazyLoadComponent } from "react-lazy-load-image-component";
+import { useRouter } from "next/navigation";
 const options = [
   {
     scroll: true,
@@ -140,10 +141,13 @@ function OffCanvasExample({ ...props }) {
   );
 }
 const Navbar = () => {
+  const router = useRouter()
   const [StateUser , setStateUser] = useState(false)
+  const [pathName , setPathName] = useState(null)
   useEffect(()=>{
     if(window.localStorage.getItem('dalilElmahalla')){
-      return setStateUser(true)
+      setPathName(window.localStorage.getItem('dalilElmahalla'))
+       setStateUser(true)
     }else{
       setStateUser(false)
     }
@@ -235,25 +239,40 @@ const Navbar = () => {
           </div>
           </div>
         <div className={styles.buttonslogin }>
-          <button
-             className={`${styles.btn} ${styles.nav_btn}` }
-            name="login"
+        {
+          pathName ? 
+            <button
+            name="add-dalel"
             type="button"
+           className={`${styles.btn} ${styles.nav_btn}`}
+           aria-label="LOGIN-btn"
             onClick={() => {
+              router.push(`/dashboard/${pathName.id}`)
+            }}
+          >
+              الاعدادات 
+          </button>
+            : 
+            <button
+            name="add-dalel"
+            type="button"
+           className={`${styles.btn} ${styles.nav_btn}`}
+           aria-label="LOGIN-btn"
+            onClick={() => {
+             
               window.scrollTo({
                 top: 0,
                 left: 100,
                 behavior: "instant",
               });
-              // }
             }}
-            aria-label="LOGIN-btn"
           >
-           <Link href='/loginPage' aria-label="LOGIN"> 
-              الاعدادات
-           </Link>         
-        </button>
-           {
+           <Link href='/loginPage' aria-label="LOGIN-">
+               اضافه دليل 
+           </Link>      
+          </button>
+           }
+        {
             StateUser ? 
             <button
             name="add-dalel"

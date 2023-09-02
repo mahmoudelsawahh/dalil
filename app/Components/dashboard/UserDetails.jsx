@@ -1,34 +1,100 @@
+"use client"
+import { useEffect, useRef, useState } from "react"
+import { redirect, useRouter } from 'next/navigation';
+import { localUrl } from "@/lib/baseUrl";
 
 const UserDetails = () => {
+	const router = useRouter()
+	if(!window.localStorage.getItem('dalilElmahalla')){
+		redirect('/loginPage')
+	}
+	const [GetGovAllData , setGetGovAllData] = useState([]);
+	const [GetGovId , seGetGovId] = useState(1);
+	const [GetAllCity , setGetAllCity] = useState([]);
+	const [Cat , setCat] = useState([]);
+	const [CatId , setCatId] = useState(null);
+	const [SubCat , SetSubCat] = useState([]);
+	const ref = useRef()
+	useEffect(() => {
+		fetch(`http://192.168.0.201:8080/dalil-New/rest/test.branch/getStates/`)
+		  .then((res) => res.json())
+		  .then((data) => {
+			setGetGovAllData(data)
+		  })
+
+
+		  fetch(`http://192.168.0.201:8080/dalil-New/rest/test.branch/getCities/`,{
+			method : 'POST',
+			headers : {
+			  'Content-Type': 'application/json',
+			},
+			body : JSON.stringify({"id" : GetGovId}),
+		})
+		  .then((res) => res.json())
+		  .then((data) => {
+			setGetAllCity(data.cities)
+		  })
+
+		  fetch(`http://192.168.0.201:8080/dalil-New/rest/test.category/cats`)
+		  .then((res) => res.json())
+		  .then((data) => {
+			setCat(data)
+		  })
+
+		  if(CatId){
+			const data = Cat.filter((item)=>{
+				return item.id == CatId
+			  })
+			  SetSubCat(data)
+		  }
+
+	  }, [Cat, CatId, GetGovId])
   return (
     <>
         <form>
 					<div className="row dashboard-input row-gap-4 mt-5">
 						<div className="col-12 col-md-6">
 							<label for="exampleFormControlInput1" class="form-label">المحافظة </label>
-							<input type="tel" class="form-control" value={"الغربية"} readOnly />
-						</div>
+							<select class="form-select" aria-label="Default select example"  onChange={event => seGetGovId(event.target.value)}>
+								{GetGovAllData.reverse().map((item)=>{
+									return (
+											<option value={item.id}  key={item.id}>{item.name}</option>
+											)
+								})}
+							</select>
+					</div>
 						<div className="col-12 col-md-6">
 							<label for="exampleFormControlInput1" class="form-label">المدينة </label>
-							<input type="tel" class="form-control" value={"المحله الكبري"} readOnly />
+							<select class="form-select" aria-label="Default select example">
+								{GetAllCity.map((item)=>{
+									return (
+											<option value={item.id} key={item.id}>{item.name}</option>
+											)
+								})}
+							</select>
 						</div>
 						<div className="col-12 col-md-6">
 						<label for="exampleFormControlInput1" class="form-label">التصنيف الاساسي </label>
-							<select class="form-select" aria-label="Default select example">
-								<option selected>اختر تصنيف النشاط</option>
-								<option value="1">One</option>
-								<option value="2">Two</option>
-								<option value="3">Three</option>
-							</select>
+							<select class="form-select" aria-label="Default select example" onChange={event => setCatId(event.target.value)} >
+									{Cat.map((item)=>{
+										return (
+												<option ref={ref} value={item.id}  key={item.id}>{item.name}</option>
+												)
+									})}
+								</select>
 						</div>
 						<div className="col-12 col-md-6">
 						<label for="exampleFormControlInput1" class="form-label">التصنيف الفرعي  </label>
-							<select class="form-select" aria-label="Default select example">
-								<option selected>اختر تصنيف النشاط</option>
-								<option value="1">One</option>
-								<option value="2">Two</option>
-								<option value="3">Three</option>
-							</select>
+						<select class="form-select" aria-label="Default select example">
+									{SubCat.length > 0 ? 
+										SubCat[0].catList.map((item)=>{
+										return (
+												<option value={item.id}  key={item.id}>{item.name}</option>
+												)
+									}):
+									null
+									}
+								</select>
 						</div>
 						<div className="col-12 col-md-6">
 							<label for="exampleFormControlInput1" class="form-label">اسم النشاط  </label>
