@@ -60,12 +60,12 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
     <div  className={styles.client_descrip}>
       <div className={styles.image_header}>
         <LazyLoad height={"100%"} once>
-        <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.logo}&type=tab`} 
+        {/* <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.logo}&type=tab`} 
            alt={ALLClientDetails.name}
            loading="lazy"
            width={120}
            height={120}
-        />
+        /> */}
         </LazyLoad>
       </div>
       <h1>{ALLClientDetails.name}</h1>
@@ -251,7 +251,7 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
                 </div>
             ) : null}
      </LazyLoad>
-          {/* <LazyLoad height={"100%"} once>
+          <LazyLoad height={"100%"} once>
           <div className={styles.servises} >
               <h3>الخدمات المتاحة</h3>
             </div>
@@ -318,7 +318,7 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
                 </FloatingLabel>
               </div>
             </LazyLoad>
-          </LazyLoad> */}
+          </LazyLoad>
           </div>
           <div  className={styles.section_left}>
             <div  className={styles.test}>
