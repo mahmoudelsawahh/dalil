@@ -1,26 +1,19 @@
-"use client"
+  "use client"
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getClientDetails, addMoreViews } from "/store/Categories";
-import Carousel from "react-bootstrap/Carousel";
-import { FaPhone, FaFacebookF, FaPhoneAlt } from "react-icons/fa";
-import { GrMail } from "react-icons/gr";
-import { IoLogoWhatsapp } from "react-icons/io";
-import { BsTwitter } from "react-icons/bs";
-import { ImEye } from "react-icons/im";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
-import Form from "react-bootstrap/Form";
-import {
-  LazyLoadComponent,
-} from "react-lazy-load-image-component";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+import LazyLoad from "react-lazyload";
+import {FaLocationArrow} from "react-icons/fa";
+import whastappLogo from '/public/img/whatsapp (1).png'
+import mobilePhone from '/public/img/phone-call.png'
+import mailLogo from '/public/img/email.png'
 import { Rating } from "primereact/rating";
 import styles from  "/app/styles/Home.module.scss";
 import Link from "next/link";
-import Script from "next/script"  
-
-import Image from "next/image";
-import LazyLoad from "react-lazyload";
-import dynamic from "next/dynamic";
+import { FloatingLabel, Form } from "react-bootstrap";
+import { ImEye } from "react-icons/im";
 
 
 const MatchBranchesContainer = dynamic(() => import('/app/Components/matchBranchesContainer.js'), {
@@ -39,218 +32,135 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
     dispatch(getClientDetails(parseInt(id)));
     dispatch(addMoreViews(parseInt(id)));
   }, [dispatch, id]);
-  const imageCarousel = ALLClientDetails
-    ? ALLClientDetails.imagesList?.map((ele, idx) => {
-        return (
-          <Carousel.Item
-            key={idx}
-            data-url={ele}
-            src={`https://dalil.deltawy.com/images?id=${ele}&type=bran`}
-            style={{
-              backgroundImage: `url(
-                https://dalil.deltawy.com/images?id=${ele}&type=bran
-              )`,
-            }}
-          ></Carousel.Item>
-        );
-      })
-    : null;
-
-  const clientDescrip = ALLClientDetails ? (
-    <div  className={styles.client_descrip}>
-      <div className={styles.image_header}>
-        <LazyLoad height={"100%"} once>
-        {/* <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.logo}&type=tab`} 
-           alt={ALLClientDetails.name}
-           loading="lazy"
-           width={120}
-           height={120}
-        /> */}
-        </LazyLoad>
-      </div>
-      <h1>{ALLClientDetails.name}</h1>
-      <div className={styles.clientinfo}>
-        <p className={styles.address}>العنوان: {ALLClientDetails.address}</p>
-        <p className={styles.address}>التليفون: {ALLClientDetails.phone}</p>
-        <div className={styles.icons_section}>
-          {ALLClientDetails.phone?.length > 0 ? (
-            <span>
-              <Link aria-label="social-media"
-              title="social-media"
-                href={`tel:${ALLClientDetails.phone}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              
-              >
-                <FaPhone />
-              </Link>
-            </span>
-          ) : null}
-
-          {ALLClientDetails.email?.length > 0 ? (
-            <span>
-              <Link aria-label="social-media"
-              title="social-media"
-                href={`mailto:${ALLClientDetails.email}`}
-                rel="noopener noreferrer"
-              >
-                <GrMail />
-              </Link>
-            </span>
-          ) : null}
-          {ALLClientDetails.phone?.length > 0 ? (
-            <span>
-              <Link aria-label="social-media"
-              title="social-media"
-                href={`http://api.whatsapp.com/send?phone=${ALLClientDetails.phone}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <IoLogoWhatsapp />
-              </Link>
-            </span>
-          ) : null}
-          {ALLClientDetails.face?.length > 0 ? (
-            <span>
-              <Link aria-label="social-media"
-              title="social-media"
-                href={`${ALLClientDetails.face}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaFacebookF />
-              </Link>
-            </span>
-          ) : null}
-          {ALLClientDetails.twitter?.length > 0 ? (
-            <span>
-              <Link aria-label="social-media"
-              title="social-media"
-                href={`${ALLClientDetails.twitter}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <BsTwitter />
-              </Link>
-            </span>
-          ) : null}
-        </div>
-      </div>
-    </div>
-  ) : null;
-
-  const ImageHeader 
-  = ALLClientDetails ? (
-   <LazyLoad height={"100%"} once>
+ console.log(ALLClientDetails)
+  return (
+    <>
+       {ALLClientDetails ? 
+       <div style={{minHeight : '100vh'}}>
+         <div style={{position : 'relative', width : '100%', height : '400px'}}>
         <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} alt={ALLClientDetails.name}
           layout="fill"
         priority={true}
         />
-   </LazyLoad>
-  ) : null;
-  return (
-    <div className={styles.ClientPage}>
-      {ALLClientDetails ? (
-               // eslint-disable-next-line @next/next/inline-script-id
-               <Script type="application/ld+json">
-               {JSON.stringify({
-                 "@context": `${ALLClientDetails.url}`,
-                 "@type": "Place",
-                 "geo": {
-                   "@type": "GeoCoordinates",
-                   "latitude": `${ALLClientDetails.lat}`,
-                   "longitude": `${ALLClientDetails.lng}`
-                 },
-                 "name": `${ALLClientDetails.name}`,
-                 "description":`${ALLClientDetails.description}`,
-                 "telephone": `${ALLClientDetails.phone}`,
-                  "address": {
-                      "@type": "PostalAddress",
-                      "addressLocality": `${ALLClientDetails.address}`
-                    },
-               })}
-             </Script>
-            ) : null}
+         </div>
+
+          <div style={{alignItems : 'center', gap : '20px', padding : '30px 0px', padding : '50px 0px'}} className="d-flex flex-md-row flex-column">
+                <LazyLoad height={"100%"} once>
+                <div style={{boxShadow : '5px 5px 12px rgba(0,0,0,.15)', border : '5px solid #fff', width : '140px', height : '140px', borderRadius : '50%', overflow : 'hidden'}}>
+                <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.logo}&type=tab`} alt={ALLClientDetails.name}
+                  width={140}
+                  height={140}
+                  style={{borderRadius : '50%', transform : 'scaleX(-1)'}}
+                  loading="lazy"
+                />
+                </div>
+                </LazyLoad>
+                  <div  className="text-center text-md-end">
+                    <h1 style={{fontSize : '28px', color : '#000', fontWeight : 'bold'}}>{ALLClientDetails.name}</h1>
+                    <p style={{color : '#055c97', fontSize : '16px', fontWeight : 'bold', padding : '5px 0px'}}>
+                    <FaLocationArrow /> {ALLClientDetails.address}
+                    </p>
+                      <div style={{marginLeft : '5px'}} className="d-flex justify-content-md-start justify-content-center">
+                        <Link aria-label="social-media" style={{color : '#333', marginLeft : '20px'}}
+                        title="social-media"
+                        href={`tel:${ALLClientDetails.phone}`}
+                          rel="noopener noreferrer"
+                        >
+                            <LazyLoad height={"100%"} once>
+                               <Image src={whastappLogo} alt="whastapp" width={32} height={32} loading="lazy"/>
+                            </LazyLoad>
+                        </Link>
+                        <Link aria-label="social-media" style={{color : '#333', marginLeft : '20px'}}
+                        title="social-media"
+                        href={`tel:${ALLClientDetails.phone}`}
+                          rel="noopener noreferrer"
+                        >
+                               <LazyLoad height={"100%"} once>
+                                  <Image src={mobilePhone} alt="whastapp" width={32} height={32} loading="lazy"/>
+                               </LazyLoad>
+                        </Link>
+                        <Link aria-label="social-media" style={{color : '#333', marginLeft : '20px'}}
+                        title="social-media"
+                        href={`tel:${ALLClientDetails.phone}`}
+                          rel="noopener noreferrer"
+                        >
+                            <LazyLoad height={"100%"} once>
+                              <Image src={mailLogo} alt="whastapp" width={32} height={32} loading="lazy"/>
+                            </LazyLoad>
+                        </Link>
+                    
+                    
+                      </div>
             
-     {ALLClientDetails ? (
-             
-
-      <head>
-        <meta itemprop="name" content={ALLClientDetails.name} />
-        <meta itemprop="description" content={ALLClientDetails.description.slice(0, 160)}
-        />
-        <meta itemprop="image" content={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`}
-        />
-        <meta property="og:type" content="Article" />
-        <meta property="og:title" content={ALLClientDetails.name} />
-        <meta property="og:description" content={ALLClientDetails.description.slice(0, 160)}/>
-        <meta property="og:image" content={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`}        />
-
-        {/* <!-- Twitter Meta Tags --> */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={ALLClientDetails.name} />
-        <meta name="twitter:description" content={ALLClientDetails.description.slice(0, 160)}        />
-        <meta name="twitter:image" content={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`}        />
-        <link rel="icon" type="image/x-icon" href={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} />
-      </head>
-      ) : null}
-      <div  className={`${styles.image_header} d-md-block`} style={{height : '350px'}}>
-      {ImageHeader}
-      </div>
-      <div  className={styles.client_content_container}>
-        <div  className={styles.grid_section}>
-          <div  className={styles.section_right}>
-                <div style={{minHeight : '300px'}}>
-                   {clientDescrip}
-                </div>
-            <div  className={styles.ImageList_container}>
-              <LazyLoadComponent>
-                <Carousel fade>{imageCarousel}</Carousel>
-              </LazyLoadComponent>
-            </div>
-     <LazyLoad height={"100%"} once>
-     {ALLClientDetails ? (
-                <div  className={styles.detials_container} >
-                  <h1>{ALLClientDetails.name}</h1>
-                  <p>{ALLClientDetails.description}</p>
-                  <div  className={styles.icons_section}>
-                    {ALLClientDetails.phone?.length > 0 ? (
-                      <span>
-                        <Link
-                          href={`http://api.whatsapp.com/send?phone=${ALLClientDetails.phone}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <IoLogoWhatsapp />
-                        </Link>
-                      </span>
-                    ) : null}
-                    {ALLClientDetails.email?.length > 0 ? (
-                      <span>
-                        <Link
-                          href={`mailto:${ALLClientDetails.email}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <GrMail />
-                        </Link>
-                      </span>
-                    ) : null}
-                    {ALLClientDetails.phone?.length > 0 ? (
-                      <span>
-                        <Link
-                          href={`tel:${ALLClientDetails.phone}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {ALLClientDetails?.phone} <FaPhoneAlt />
-                        </Link>
-                      </span>
-                    ) : null}
+                    <div>
                   </div>
-                </div>
-            ) : null}
-     </LazyLoad>
+                  </div>
+                  
+          </div>
+           <div style={{color : '#fff', marginBottom : '50px'}}>
+               <div className="card text-center">
+                    <div className="card-header" style={{ backgroundColor : '#fff'}}>
+                       <h1 style={{fontSize : '32px', color : '#055c97', textAlign : 'start'}}>الوصف</h1>
+                    </div>
+                    <div className="card-body">
+                      <h5 className="card-title">{ALLClientDetails.name}</h5>
+                      <p className="card-text" style={{lineHeight : '50px', direction : 'ltr'}}>{ALLClientDetails.description}</p>
+                    </div>
+                    <div className="card-footer text-muted" style={{backgroundColor : '#fff'}}>
+                        <div style={{marginLeft : '5px', display : 'flex', justifyContent : 'center'}}>
+                            <Link aria-label="social-media" style={{color : '#333', marginLeft : '20px'}}
+                            title="social-media"
+                            href={`tel:${ALLClientDetails.phone}`}
+                              rel="noopener noreferrer"
+                            >
+                                <LazyLoad height={"100%"} once>
+                                  <Image src={whastappLogo} alt="whastapp" width={32} height={32} loading="lazy"/>
+                                </LazyLoad>
+                            </Link>
+                            <Link aria-label="social-media" style={{color : '#333', marginLeft : '20px'}}
+                            title="social-media"
+                            href={`tel:${ALLClientDetails.phone}`}
+                              rel="noopener noreferrer"
+                            >
+                                  <LazyLoad height={"100%"} once>
+                                      <Image src={mobilePhone} alt="whastapp" width={32} height={32} loading="lazy"/>
+                                  </LazyLoad>
+                            </Link>
+                            <Link aria-label="social-media" style={{color : '#333', marginLeft : '20px'}}
+                            title="social-media"
+                            href={`tel:${ALLClientDetails.phone}`}
+                              rel="noopener noreferrer"
+                            >
+                                <LazyLoad height={"100%"} once>
+                                  <Image src={mailLogo} alt="whastapp" width={32} height={32} loading="lazy"/>
+                                </LazyLoad>
+                            </Link>
+                        
+                        
+                          </div>
+                    </div>
+              </div>
+           </div>
+
+           <div style={{color : '#fff', marginBottom : '50px'}}>
+               <div className="card text-center">
+               <div className="card-header" style={{ backgroundColor : '#fff'}}>
+                       <h1 style={{fontSize : '32px', color : '#055c97', textAlign : 'start'}}>الخريطه</h1>
+                    </div>
+                    <div className="card-body">
+                    <div >
+                        <LazyLoad height={"100%"} once>
+                          <Branche latt={ALLClientDetails} ></Branche>
+                          </LazyLoad>
+                      </div>
+                  </div>
+                   
+              </div>
+           </div>
+
+         
+         <div className="row" style={{marginBottom : '50px'}}>
+          <div className="col-12 col-md-8">
           <LazyLoad height={"100%"} once>
           <div className={styles.servises} >
               <h3>الخدمات المتاحة</h3>
@@ -320,19 +230,13 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
             </LazyLoad>
           </LazyLoad>
           </div>
-          <div  className={styles.section_left}>
-            <div  className={styles.test}>
-              <LazyLoad height={"100%"} once>
-                <Branche latt={ALLClientDetails} ></Branche>
-                </LazyLoad>
-            </div>
-            {ALLClientDetails ? (
-              <LazyLoad height={"100%"} once>
+          <div className="col-12 col-md-4">
+          <LazyLoad height={"100%"} once>
                 <div  className={styles.Facebook_iframe_container}>
                   <h2 className="text-center" >تابعنا علي صفحتنا </h2>
                     <LazyLoad height={"100%"} once>
                     <iframe
-                    src={`https://www.facebook.com/plugins/page.php?href=${ALLClientDetails.face}%2Ffacebook&tabs=timeline&width=300&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId`}
+                    src={`https://www.facebook.com/plugins/page.php?href=${ALLClientDetails.face}%2Ffacebook&tabs=timeline&width=300&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId`}
                     style={{ width: "300px", height: "500px" }}
                     scrolling="no"
                     frameBorderr="0"
@@ -343,20 +247,22 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
                   />
                     </LazyLoad>
                 </div>
-                <div  className={styles.Views_section}>
+                <div style={{padding : '0px 20px'}}  className={styles.Views_section}>
                   <h3>عدد المشاهدات</h3>
                   <ImEye />
                   <p>{ALLClientDetails.views}</p>
                 </div>
               </LazyLoad>
-            ) : null}
           </div>
-        </div>
-      </div>
-     <LazyLoad height={"100%"} once>
+         </div>
+       </div>
+       : 
+       <div style={{height : '100vh'}}></div>
+       }
+       <LazyLoad height={"100%"} once>
         <MatchBranchesContainer id={id} />
      </LazyLoad>
-    </div>
+    </>
   );
 };
 export default SapesficCategory;

@@ -1,7 +1,8 @@
 "use client"
 import { useEffect, useRef, useState } from "react"
 import { redirect, useRouter } from 'next/navigation';
-import { localUrl } from "@/lib/baseUrl";
+import UserMap from "./UserMap";
+import DashboardImages from "./DashboardImages";
 
 const UserDetails = () => {
 	const router = useRouter()
@@ -22,17 +23,13 @@ const UserDetails = () => {
 			setGetGovAllData(data)
 		  })
 
-
-		  fetch(`http://192.168.0.201:8080/dalil-New/rest/test.branch/getCities/`,{
+		  fetch(`http://192.168.0.201:8080/dalil-New/rest/test.branch/getCities`,{
 			method : 'POST',
-			headers : {
-			  'Content-Type': 'application/json',
-			},
 			body : JSON.stringify({"id" : GetGovId}),
 		})
 		  .then((res) => res.json())
 		  .then((data) => {
-			setGetAllCity(data.cities)
+			return setGetAllCity(data.cities)
 		  })
 
 		  fetch(`http://192.168.0.201:8080/dalil-New/rest/test.category/cats`)
@@ -49,14 +46,17 @@ const UserDetails = () => {
 		  }
 
 	  }, [Cat, CatId, GetGovId])
+
+	  	
   return (
     <>
         <form>
+					<div className="container-xxl">
 					<div className="row dashboard-input row-gap-4 mt-5">
 						<div className="col-12 col-md-6">
 							<label for="exampleFormControlInput1" class="form-label">المحافظة </label>
 							<select class="form-select" aria-label="Default select example"  onChange={event => seGetGovId(event.target.value)}>
-								{GetGovAllData.reverse().map((item)=>{
+								{GetGovAllData.map((item)=>{
 									return (
 											<option value={item.id}  key={item.id}>{item.name}</option>
 											)
@@ -169,7 +169,38 @@ const UserDetails = () => {
 
 						</div>
 					</div>
+					</div>
+					<div className="breadcrumb-bar my-5">
+				<div className="container-xxl">
+					<div className="row align-items-center">
+						<div className="col-md-12 col-12">
+							<h2 className="breadcrumb-title"> عنوان النشاط </h2>
+						</div>
+					</div>
+				</div>
+     		 </div>
+			  <div className="container-xxl">	    
+				  <UserMap/>
+			  </div>
+			  <div className="breadcrumb-bar my-5">
+				<div className="container-xxl">
+					<div className="row align-items-center">
+						<div className="col-md-12 col-12">
+							<h2 className="breadcrumb-title"> صور النشاط </h2>
+						</div>
+					</div>
+				</div>
+     		 </div>
+			 <div className="container-xxl">	    
+			 		<DashboardImages/>
+			  </div>
+			  <div className="container-xxl">	    
+			     <div style={{marginTop : '50px'}}>
+					 <button type="submit" className="btn" style={{backgroundColor : '#055c97', fontSize : '16px', fontWeight : 700, color : '#fff', width : '100%', padding : '10px 0px'}}>تسجيل النشاط</button>
+				 </div>
+			  </div>
 		   		</form>
+				
     </>
   )
 }

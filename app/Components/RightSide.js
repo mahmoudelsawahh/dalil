@@ -10,6 +10,7 @@ import Link from "next/link";
 import Script from "next/script";
 import deltawyBanner from '/public/img/deltawy.gif.gif'
 import Image from 'next/image';
+import LazyLoad from 'react-lazyload';
 
 const RightSide = () => {
   const [date, setDate] = useState(new Date());
@@ -27,14 +28,19 @@ const RightSide = () => {
     ? AllJobs.jobs?.map((ele, id) => {
         const pathname = ele.name.replace(/\s/g, "-");
         return (
-          <Link style={{borderBottom:' 1px solid #dee2e6', width:"100%" , color : '#024878'}}
+          <Link style={{borderBottom:' 1px solid #dee2e6', width:"100%" , color : '#024878', display : 'flex'}}
             key={id}
             href={`/jobDetails?id=${ele.id}/${pathname}`} as={`/jobDetails/${ele.id}/${pathname}`}
             onClick={() => {
               window.scrollTo(0, 0);
             }}
           >
+            <LazyLoad height={"100%"}>
+             <Image src={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`} width={50} height={50} alt={ele.name} loading='lazy'/>
+
+            </LazyLoad>
             <p className={styles.pp}>{ele.name}</p>
+
           </Link>
         );
       })

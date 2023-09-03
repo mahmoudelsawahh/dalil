@@ -131,6 +131,20 @@ function OffCanvasExample({ ...props}, {params}) {
             >
                 طلب موظفين       
             </Link>
+            <Link
+              
+              href={`/dashboard/Marriage-request/${params}`}
+              onClick={() => {
+                window.scrollTo({
+                  top: 0,
+                  left: 100,
+                  behavior: "instant",
+                });
+                handleClose();
+              }}
+            >
+                 طلب زواج       
+            </Link>
           </div>
         </Offcanvas.Body>
       </Offcanvas>
@@ -228,6 +242,19 @@ const Navbar = ({params}) => {
               }}
             >
                 طلب موظفين       
+            </Link>
+            <Link
+              
+              href={`/dashboard/Marriage-request/${params}`}
+              onClick={() => {
+                window.scrollTo({
+                  top: 0,
+                  left: 100,
+                  behavior: "instant",
+                });
+              }}
+            >
+                  طلب زواج
             </Link>
           </div>
           </div>

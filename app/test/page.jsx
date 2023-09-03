@@ -1,91 +1,55 @@
 "use client"
-
-// import { useEffect, useState } from "react";
-// import axios from "axios";
-
-// function App() {
-//   const [currLocation, setCurrLocation] = useState({});
-//   const [currLocationJs, setCurrLocationJs] = useState({});
-//   useEffect(() => {
-//     getLocation();
-//     getLocationJs();
-//   }, []);
-
-//   const getLocation = async () => {
-//     const location = await axios.get("https://ipapi.co/json");
-//     setCurrLocation(location.data);
-//   };
-
-//   const getLocationJs = () => {
-//     navigator.geolocation.getCurrentPosition((position) => {
-//       const { latitude, longitude } = position.coords;
-//       setCurrLocationJs({ latitude, longitude });
-//     });
-//   };
-
-//   return (
-//     <div>
-//       <h1>Current Location JS</h1>
-//       <p>Latitude: {currLocationJs.latitude}</p>
-//       <p>Longitude: {currLocationJs.longitude}</p>
-
-
-//       <iframe src={`https://maps.google.com/maps?q=${currLocationJs.latitude},${currLocationJs.longitude}&hl=es;&output=embed`} style={{width : '100%', height : '100%'}}/>
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
-
-import React, {useState } from 'react'
-import { GoogleMap, MarkerF, useJsApiLoader } from '@react-google-maps/api';
+import React, { useState } from 'react';
+import { GoogleMap, Marker, LoadScript } from '@react-google-maps/api';
 const containerStyle = {
   width: '100%',
-  height: '600px'
+  height: '400px'
 };
 
 const center = {
-  lat: 30.9696135,
-  lng: 31.1861703
+  lat: 30.9763086,
+  lng: 31.1595836
 };
 
-function MyComponent() {
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyDJ8uTFj6943jB6JmStfHma3--E0eqTk5w"
-  })
+const MapComponent = () => {
+  const [selectedLocation, setSelectedLocation] = useState(center);
 
-  const [map, setMap] = useState(null)
-  const [ChangeMark, setChangeMark] = useState(center)
-  const onLoad = React.useCallback(function callback(map) {
-    // This is just an example of getting and using the map instance!!! don't just blindly copy!
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
-    setMap(map)
-  }, [])
+  const handleMapClick = (event) => {
+    setSelectedLocation({
+      lat: event.latLng.lat(),
+      lng: event.latLng.lng()
+    });
+    
+  };
 
-  const onUnmount = React.useCallback(function callback(map) {
-    setMap(null)
-  }, [])
-  
+  const handelClick = ()=>{
+    navigator.geolocation.getCurrentPosition((position) => {
+             const { latitude, longitude } = position.coords;
+             setSelectedLocation({
+                    lat: latitude,
+                   lng: longitude
+             });
+           });
+  }
 
-  return isLoaded ? (
+  return (
+    <>
+     <LoadScript
+      googleMapsApiKey={'AIzaSyDJ8uTFj6943jB6JmStfHma3--E0eqTk5w'}
+    >
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={ChangeMark}
-        zoom={18}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-        onClick={(e)=> setChangeMark({Lat :  e.latLng.lat()  , Lng : e.latLng.lng()} )}
+        center={selectedLocation}
+        zoom={20}
+        onClick={handleMapClick}
       >
-        { /* Child components, such as markers, info windows, etc. */ }
-        <MarkerF  position={ChangeMark}  draggable={true} />
+        <Marker position={selectedLocation} />
       </GoogleMap>
-  ) : <></>
-}
+    </LoadScript>
+      <button onClick={handelClick}>click here</button>
+    </>
+  );
+};
 
-export default MyComponent
-
+export default MapComponent;
 

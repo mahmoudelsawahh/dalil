@@ -9,7 +9,7 @@ const page = ({params}) => {
         <Navbar params={params.id}/>
        		 <div style={{backgroundColor : '#f8f9fe', height : "100%", marginBottom : '50px'}}>
               <div className="breadcrumb-bar">
-                  <div className="container">
+                  <div className="container-xxl">
                     <div className="row align-items-center">
                       <div className="col-md-12 col-12">
                         <h2 className="breadcrumb-title"> انشاء عرض جديد  </h2>
@@ -17,13 +17,13 @@ const page = ({params}) => {
                     </div>
                   </div>
                 </div>	
-             <div className="container">
+             <div className="container-xxl">
                   <OfferForm/>
              </div>
-             <div className="container">
+             <div className="container-xxl">
                   <StaffText/>
              </div>
-			 <div className="container">	    
+			 <div className="container-xxl">	    
 			     <div style={{marginTop : '50px'}}>
 					 <button className="btn" style={{backgroundColor : '#055c97', fontSize : '16px', fontWeight : 700, color : '#fff',
 					  width : '100%', padding : '10px 0px'}}>انشاء عرض جديد </button>

@@ -30,13 +30,16 @@ const RightSide = () => {
     ? getAllAdsDetails.ads?.map((ele, id) => {
         const pathname = ele.name.replace(/\s/g, "-");
         return (
-          <Link style={{borderBottom:' 1px solid #dee2e6', width:"100%", color : '#024878' }}
+          <Link style={{borderBottom:' 1px solid #dee2e6', width:"100%", color : '#024878', display : 'flex' }}
             key={id}
             href={`/adDetailsPage?id=${ele.id}/${pathname}`} as={`/adDetailsPage/${ele.id}/${pathname}`}
             onClick={() => {
               window.scrollTo(0, 0);
             }}
           >
+            <LazyLoad height={"100%"} once>
+                <Image src={`https://dalil.deltawy.com/images?id=${ele.image}&type=tab`} width={50} height={50} alt={ele.name} loading='lazy'/>
+            </LazyLoad>
             <p className={styles.pp}>{ele.name}</p>
           </Link>
         );
