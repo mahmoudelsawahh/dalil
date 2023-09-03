@@ -139,14 +139,14 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
           <div className="col-12 col-md-8">
           <LazyLoad height={"100%"} once>
           <div className={styles.servises} >
-              <h3>الخدمات المتاحة</h3>
+              <h1 style={{fontSize : '28px'}}>الخدمات المتاحة</h1>
             </div>
             <div className={styles.servises}>
-              <h3> فيديو</h3>
+              <h1 style={{fontSize : '28px'}}> فيديو</h1>
             </div>
             <LazyLoad height={'100%'} once>
               <div className={styles.servises}>
-                <h3> التقييمات </h3>
+                <h1 style={{fontSize : '28px'}}> التقييمات </h1>
                 <div className={styles.rating_section}>
                   <h1>0</h1>
                   <div className={styles.reating_left}>
@@ -224,7 +224,7 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
                     </LazyLoad>
                 </div>
                 <div style={{padding : '0px 20px'}}  className={styles.Views_section}>
-                  <h3>عدد المشاهدات</h3>
+                  <h1 style={{fontSize : '28px'}}>عدد المشاهدات</h1>
                   <ImEye />
                   <p>{ALLClientDetails.views}</p>
                 </div>
