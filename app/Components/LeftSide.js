@@ -32,7 +32,7 @@ const RightSide = () => {
         return (
           <Link style={{borderBottom:' 1px solid #dee2e6', width:"100%", color : '#024878', display : 'flex' }}
             key={id}
-            href={`/adDetailsPage?id=${ele.id}/${pathname}`} as={`/adDetailsPage/${ele.id}/${pathname}`}
+            href={`/adDetailsPage/${ele.id}/${pathname}`}
             onClick={() => {
               window.scrollTo(0, 0);
             }}
@@ -107,7 +107,7 @@ const RightSide = () => {
         <LazyLoad height={"100%"} once>
          
           <div  className={`${styles.display_fflex} ${styles.friends}`}  >
-            <h3 className={`${styles.display_friends} ${styles.friends}`} >مواقع صديقة</h3>
+            <h1 className={`${styles.display_friends} ${styles.friends}`} >مواقع صديقة</h1>
             <div   className={`${styles.display_links} ${styles.Links}`}  >
               
               

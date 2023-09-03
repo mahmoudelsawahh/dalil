@@ -29,7 +29,7 @@ const Advertisement = () => {
             style={{gap:"1rem"}}
             key={idx}
           >
-            <Link key={idx} href={`/adDetailsPage?id=${ele.id}/${pathname}`} as={`/adDetailsPage/${ele.id}/${pathname}`} >
+            <Link key={idx} href={`/adDetailsPage/${ele.id}/${pathname}`} >
 
             <div className={styles.image_container}  style={{ maxHeight: '200px', overflow: 'hidden'}}>
               <LazyLoadImage
@@ -39,7 +39,7 @@ const Advertisement = () => {
               />
             </div>
             </Link>
-            <Link key={idx} href={`/adDetailsPage?id=${ele.id}/${pathname}`} as={`/adDetailsPage/${ele.id}/${pathname}`}>
+            <Link key={idx}  href={`/adDetailsPage/${ele.id}/${pathname}`}>
             <div className={styles.Job_description} >
               <h3>{ele.name}</h3>
               <p>{ele.shortDescription.substring(0, 170)}{ele.shortDescription.length > 170 && "..."}</p>

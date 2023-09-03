@@ -37,8 +37,8 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
        {ALLClientDetails ? 
        <div style={{minHeight : '100vh'}}>
          <div style={{position : 'relative', height : '400px', marginBottom : '50px', display : 'flex', justifyContent : 'center'}} className="responsive-Layout">
-        {/* <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} alt={ALLClientDetails.name} width={700} height={400} priority={true}
-        /> */}
+        <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} alt={ALLClientDetails.name} width={700} height={400} priority={true}
+        />
          </div>
 
           <div style={{alignItems : 'center', gap : '20px', padding : '0px 0px', paddingBottom : '50px' }} className="d-flex flex-md-row flex-column">
