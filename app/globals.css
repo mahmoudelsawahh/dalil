@@ -145,11 +145,11 @@ a:hover {
   color: #fff !important;
 }
 
-/* @media (max-width: 767.98px) { 
-  .headerResponsive{
-    height: 100vh !important;
+@media (max-width: 767.98px) { 
+  .responsive-Layout{
+    display: none !important;
   }  
- } */
+ } 
 /* .headerResponsive{
   height: 100vh !important;
 } */
@@ -162,6 +162,18 @@ a:hover {
   height: auto !important;
 }
 
+.Home_pp__ar6tk{
+  border-bottom : 0 !important
+}
+.Home_job_details__2vJ5o p{
+  width: 100% !important;
+}
+.Home_Facebook_iframe_container__lChu1{
+  text-align: center !important;
+}
+.Home_info_container__b80Zt{
+  width: 85% !important;  
+}
 :root {
   --white-color: #fff;
   --black-color: #000;

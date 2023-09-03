@@ -29,7 +29,7 @@ const Layout = ({ children}) => {
     (state) => state.categoriesMenu
   );
   useEffect(() => {
-     if(!param[1] === "page" || !param[1] === "sapesficCategory"){
+     if(param[1] === "/" || !param[1] === "sapesficCategory"){
       dispatch(getGatecories());
      }
   }, [dispatch, param]);
@@ -48,9 +48,10 @@ const filterData = AllCategories?
     <>      
       <div>
            {
-            param[1] === "page" || param[1] === "sapesficCategory"? 
+            param[1] === "" || param[1] === "/privacy"? 
+            <Header Categories={AllCategories}/>
+            : 
             null
-            : <Header Categories={AllCategories}/>
            }
       <Row style={{width:'100%', margin : 0 , padding : '40px 0px'}} >
       <Col lg={2} md={12} className="d-none d-md-flex">

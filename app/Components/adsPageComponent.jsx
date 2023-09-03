@@ -32,19 +32,16 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
     dispatch(getClientDetails(parseInt(id)));
     dispatch(addMoreViews(parseInt(id)));
   }, [dispatch, id]);
- console.log(ALLClientDetails)
   return (
     <>
        {ALLClientDetails ? 
        <div style={{minHeight : '100vh'}}>
-         <div style={{position : 'relative', width : '100%', height : '400px'}}>
-        <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} alt={ALLClientDetails.name}
-          layout="fill"
-        priority={true}
+         <div style={{position : 'relative', height : '400px', marginBottom : '50px', display : 'flex', justifyContent : 'center'}} className="responsive-Layout">
+        <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`} alt={ALLClientDetails.name} width={700} height={400} priority={true}
         />
          </div>
 
-          <div style={{alignItems : 'center', gap : '20px', padding : '30px 0px', padding : '50px 0px'}} className="d-flex flex-md-row flex-column">
+          <div style={{alignItems : 'center', gap : '20px', padding : '0px 0px', paddingBottom : '50px' }} className="d-flex flex-md-row flex-column">
                 <LazyLoad height={"100%"} once>
                 <div style={{boxShadow : '5px 5px 12px rgba(0,0,0,.15)', border : '5px solid #fff', width : '140px', height : '140px', borderRadius : '50%', overflow : 'hidden'}}>
                 <Image src={`https://dalil.deltawy.com/images?id=${ALLClientDetails.logo}&type=tab`} alt={ALLClientDetails.name}
@@ -99,11 +96,8 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
           </div>
            <div style={{color : '#fff', marginBottom : '50px'}}>
                <div className="card text-center">
-                    <div className="card-header" style={{ backgroundColor : '#fff'}}>
-                       <h1 style={{fontSize : '32px', color : '#055c97', textAlign : 'start'}}>الوصف</h1>
-                    </div>
                     <div className="card-body">
-                      <h5 className="card-title">{ALLClientDetails.name}</h5>
+                      <h1 className="card-title" style={{fontSize : '30px'}}>{ALLClientDetails.name}</h1>
                       <p className="card-text" style={{lineHeight : '50px', direction : 'ltr'}}>{ALLClientDetails.description}</p>
                     </div>
                     <div className="card-footer text-muted" style={{backgroundColor : '#fff'}}>
@@ -141,25 +135,7 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
                     </div>
               </div>
            </div>
-
-           <div style={{color : '#fff', marginBottom : '50px'}}>
-               <div className="card text-center">
-               <div className="card-header" style={{ backgroundColor : '#fff'}}>
-                       <h1 style={{fontSize : '32px', color : '#055c97', textAlign : 'start'}}>الخريطه</h1>
-                    </div>
-                    <div className="card-body">
-                    <div >
-                        <LazyLoad height={"100%"} once>
-                          <Branche latt={ALLClientDetails} ></Branche>
-                          </LazyLoad>
-                      </div>
-                  </div>
-                   
-              </div>
-           </div>
-
-         
-         <div className="row" style={{marginBottom : '50px'}}>
+           <div className="row" style={{marginBottom : '50px'}}>
           <div className="col-12 col-md-8">
           <LazyLoad height={"100%"} once>
           <div className={styles.servises} >
@@ -255,6 +231,25 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
               </LazyLoad>
           </div>
          </div>
+         
+           <div style={{color : '#fff', marginBottom : '50px'}}>
+               <div className="card text-center">
+               <div className="card-header" style={{ backgroundColor : '#fff'}}>
+                       <h1 style={{fontSize : '32px', color : '#055c97', textAlign : 'start'}}>الخريطه</h1>
+                    </div>
+                    <div className="card-body">
+                    <div >
+                        <LazyLoad height={"100%"} once>
+                        <Branche latt={ALLClientDetails} />
+                          </LazyLoad>
+                      </div>
+                  </div>
+                   
+              </div>
+           </div>
+
+         
+      
        </div>
        : 
        <div style={{height : '100vh'}}></div>

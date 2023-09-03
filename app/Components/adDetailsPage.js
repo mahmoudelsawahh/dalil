@@ -42,9 +42,8 @@ const AdDetailsPage = ({params}) => {
           src={`https://dalil.deltawy.com/images?id=${getAdDetailsArray.ad?.image}&type=tab`}
           loading="lazy"
         alt="deltawy"
-        layout="responsive"
-        width={500}
-        height={500}
+        width={300}
+        height={300}
         />
       </div>
       <h2  className={styles.discripe_tag} >الوصف</h2>

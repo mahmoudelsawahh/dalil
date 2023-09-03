@@ -6,6 +6,7 @@ import {
   StreetViewService,
   GoogleMap
 } from "@react-google-maps/api";
+import LazyLoad from "react-lazyload";
 
 const loaderId = "ownersTownGoogleMapApiId";
 const config = {
@@ -60,7 +61,6 @@ function App({ searchEnabled , latt  }) {
   const renderMap = (
     <GoogleMap
       id="searchbox-example"
-      
       mapContainerStyle={{
         height: "500px",
         width: "100%"
@@ -109,7 +109,11 @@ function App({ searchEnabled , latt  }) {
     return <div>Map cannot be loaded right now, sorry.</div>;
   }
 
-  return isLoaded ? renderMap : Loading;
+  return isLoaded ? 
+   <LazyLoad height='100%' once>
+    {renderMap}
+   </LazyLoad>
+  : Loading;
 }
 
 export default App

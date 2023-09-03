@@ -98,7 +98,7 @@ const RightSide = () => {
          </LazyLoadComponent>
         </div>
         <div className={`${styles.display_fflex} ${styles.jobs_side}`}   >
-          <h3 className={styles.hthree}>اخر الوظائف</h3>
+          <h1 className={styles.hthree}>اخر الوظائف</h1>
           <div  className={styles.Links}>{SideJobs}</div>
         </div>
         
