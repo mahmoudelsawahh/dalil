@@ -14,6 +14,7 @@ import styles from  "/app/styles/Home.module.scss";
 import Link from "next/link";
 import { FloatingLabel, Form } from "react-bootstrap";
 import { ImEye } from "react-icons/im";
+import PlaceImage from "./PlaceImage";
 
 
 const MatchBranchesContainer = dynamic(() => import('/app/Components/matchBranchesContainer.js'), {
@@ -32,8 +33,30 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
     dispatch(getClientDetails(parseInt(id)));
     dispatch(addMoreViews(parseInt(id)));
   }, [dispatch, id]);
+  console.log(ALLClientDetails)
   return (
     <>
+    {ALLClientDetails ? (
+             <head>
+               <meta itemprop="name" content={ALLClientDetails.name} />
+               <meta itemprop="description" content={ALLClientDetails.description.slice(0, 160)}
+               />
+               <meta itemprop="image" content={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`}
+               />
+               <meta property="og:type" content="Article" />
+               <meta property="og:title" content={ALLClientDetails.name} />
+               <meta property="og:description" content={ALLClientDetails.description.slice(0, 160)}/>
+               <meta property="og:image" content={`https://dalil.deltawy.com/images?id=${ALLClientDetails.cover}&type=tab`}        />
+       
+               {/* <!-- Twitter Meta Tags --> */}
+               <meta name="twitter:card" content="summary_large_image" />
+               <meta name="twitter:title" content={ALLClientDetails.name} />
+               <meta name="twitter:description" content={ALLClientDetails.description.slice(0, 160)}        />
+               <meta name="twitter:image" content={`https://dalil.deltawy.com/images?id=${ALLClientDetails.logo}&type=tab`}        />
+               <link rel="icon" type="image/x-icon" href={`https://dalil.deltawy.com/images?id=${ALLClientDetails.logo}&type=tab`} />
+             </head>
+             ) : null}
+
        {ALLClientDetails ? 
        <div style={{minHeight : '100vh'}}>
 
@@ -45,7 +68,6 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
         />
          </div>
           }
-
 
           <div style={{alignItems : 'center', gap : '20px', padding : '0px 0px', paddingBottom : '50px' }} className="d-flex flex-md-row flex-column">
                 <LazyLoad height={"100%"} once>
@@ -211,6 +233,9 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
               </div>
             </LazyLoad>
           </LazyLoad>
+           <LazyLoad height={"100%"} once>
+            <PlaceImage ALLClientDetails={ALLClientDetails}/>
+           </LazyLoad>
           </div>
           <div className="col-12 col-md-4">
           <LazyLoad height={"100%"} once>
