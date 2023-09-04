@@ -33,7 +33,6 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
     dispatch(getClientDetails(parseInt(id)));
     dispatch(addMoreViews(parseInt(id)));
   }, [dispatch, id]);
-  console.log(ALLClientDetails)
   return (
     <>
     {ALLClientDetails ? (
@@ -176,7 +175,7 @@ const Branche = dynamic(() => import('/app/Components/branche'), {
               <div className={styles.servises}>
                 <h1 style={{fontSize : '28px'}}> التقييمات </h1>
                 <div className={styles.rating_section}>
-                  <h1>0</h1>
+                  <h1>{ALLClientDetails.TotalRate}</h1>
                   <div className={styles.reating_left}>
                     <div className={styles.Ratings}>
                       <span className={styles.number}>0</span>
